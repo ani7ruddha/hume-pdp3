@@ -5,44 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Body Pod by Hume Health | The Ultimate Body Composition Analysis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --color-bg: #ffffff;
-      --color-bg-alt: #f5f5f5;
-      --color-bg-dark: #121212;
-      --color-text: #121212;
-      --color-text-muted: #555555;
-      --color-text-light: #888888;
-      --color-accent: #121212;
-      --color-accent-blue: #334FB4;
-      --color-btn: #121212;
-      --color-btn-text: #ffffff;
-      --color-success: #2e7d32;
-      --color-warning: #e65100;
-      --color-border: #e8e8e8;
-      --color-star: #f5a623;
-      --font: 'Assistant', sans-serif;
-      --max-w: 1140px;
-      --radius: 4px;
+      /* ── EXACT HUME HEALTH TOKENS (from settings_data.json + live extraction) ── */
+      --color-bg:         #ffffff;          /* colors_background_1 */
+      --color-bg-alt:     #f3f3f3;          /* colors_background_2 */
+      --color-bg-dark:    #132042;          /* announcement bar / dark sections */
+      --color-text:       #020b1e;          /* live body text */
+      --color-text-muted: #4a5568;
+      --color-text-light: #8a94a6;
+      --color-accent:     #121212;          /* colors_accent_1 */
+      --color-accent-blue: #0F75FF;         /* live CTA button blue */
+      --color-accent-blue-2: #334fb4;       /* colors_accent_2 */
+      --color-btn:        #0F75FF;          /* primary CTA */
+      --color-btn-text:   #ffffff;          /* colors_solid_button_labels */
+      --color-success:    #2e7d32;
+      --color-warning:    #e65100;
+      --color-border:     #D4D1CD;
+      --color-star:       #00b67a;          /* Trustpilot green */
+      --hume-badge-bg:    #8ABCFF;
+      --hume-badge-text:  #1F2D55;
+      --font:             'Plus Jakarta Sans', helvetica, sans-serif;
+      --font-mono:        'Geist Mono', 'Courier New', monospace;
+      --max-w:            1160px;
+      --radius:           100px;            /* exact from live page */
+      --radius-card:      12px;
     }
 
-    body { font-family: var(--font); color: var(--color-text); background: var(--color-bg); font-size: 16px; line-height: 1.6; }
+    body { font-family: var(--font); color: var(--color-text); background: var(--color-bg); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
 
     /* ── UTILS ── */
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
     .section { padding: 80px 0; }
     .section--alt { background: var(--color-bg-alt); }
     .section--dark { background: var(--color-bg-dark); color: #fff; }
-    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-blue); margin-bottom: 12px; display: block; }
-    .eyebrow--light { color: #90a4e0; }
-    .h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 700; line-height: 1.15; }
-    .h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; }
-    .h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 700; line-height: 1.3; }
-    .lead { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--color-text-muted); line-height: 1.7; }
-    .lead--light { color: rgba(255,255,255,0.75); }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-blue); margin-bottom: 14px; display: inline-block; }
+    .eyebrow--light { color: rgba(255,255,255,0.55); }
+    h1, h2, h3 { font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+    .h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); }
+    .h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
+    .h3 { font-size: clamp(1.2rem, 2.5vw, 1.55rem); font-weight: 700; }
+    .lead { font-size: clamp(1rem, 2vw, 1.12rem); color: var(--color-text-muted); line-height: 1.75; }
+    .lead--light { color: rgba(255,255,255,0.7); }
     .text-center { text-align: center; }
     .mt-4 { margin-top: 16px; }
     .mt-6 { margin-top: 24px; }
@@ -68,38 +76,40 @@
 
     /* ── ANNOUNCEMENT BAR ── */
     .announcement-bar {
-      background: var(--color-bg-dark);
+      background: #132042;   /* exact Hume announcement bar color */
       color: #fff;
       text-align: center;
-      padding: 10px 16px;
+      padding: 11px 16px;
       font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.04em;
     }
-    .announcement-bar strong { color: #ffcc00; }
+    .announcement-bar strong { color: #fff; }
+    .announcement-bar .code { background: rgba(255,255,255,0.15); padding: 2px 8px; border-radius: 4px; font-family: monospace; font-weight: 700; letter-spacing: 0.1em; }
+    .announcement-bar .pill { background: #ff4d4d; color: #fff; border-radius: 20px; padding: 2px 8px; font-size: 11px; font-weight: 800; margin-left: 6px; }
 
     /* ── HEADER ── */
     .header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
+      z-index: 200;
+      background: rgba(243,243,243,0.97);   /* exact Hume header #F3F3F3 */
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--color-border);
-      padding: 14px 0;
+      padding: 13px 0;
     }
     .header__inner { display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; text-decoration: none; color: var(--color-text); }
-    .logo span { color: var(--color-accent-blue); }
-    .header__cta { background: var(--color-btn); color: var(--color-btn-text); font-family: var(--font); font-size: 13px; font-weight: 700; letter-spacing: 0.05em; padding: 10px 20px; border: none; border-radius: var(--radius); cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
-    .header__cta:hover { opacity: 0.85; }
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .logo svg { height: 28px; width: auto; }
+    .header__cta { background: var(--color-btn); color: var(--color-btn-text); font-family: var(--font); font-size: 13px; font-weight: 700; letter-spacing: 0.05em; padding: 10px 22px; border: none; border-radius: var(--radius); cursor: pointer; text-decoration: none; transition: background 0.2s; }
+    .header__cta:hover { background: #0a65e0; }
     .header__trust { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--color-text-muted); }
     .stars { color: var(--color-star); letter-spacing: -2px; font-size: 14px; }
     @media (max-width: 600px) { .header__trust { display: none; } }
 
     /* ── HERO ── */
     .hero {
-      background: #f9f9f7;
+      background: var(--color-bg-alt);    /* #f3f3f3 — exact Hume bg-2 */
       padding: 64px 0 0;
       overflow: hidden;
     }
@@ -125,19 +135,19 @@
     .btn-primary {
       display: block; width: 100%; text-align: center;
       background: var(--color-btn); color: var(--color-btn-text);
-      font-family: var(--font); font-size: 16px; font-weight: 700;
-      padding: 16px 24px; border: none; border-radius: var(--radius);
-      cursor: pointer; letter-spacing: 0.03em; transition: opacity 0.2s; text-decoration: none;
+      font-family: var(--font); font-size: 17px; font-weight: 700;
+      padding: 18px 32px; border: none; border-radius: var(--radius);   /* 100px pill */
+      cursor: pointer; letter-spacing: 0.01em; transition: all 0.2s; text-decoration: none;
     }
-    .btn-primary:hover { opacity: 0.88; }
+    .btn-primary:hover { background: #0a65e0; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(15,117,255,0.35); }
     .btn-secondary {
       display: block; width: 100%; text-align: center;
       background: transparent; color: var(--color-text);
       font-family: var(--font); font-size: 14px; font-weight: 600;
-      padding: 13px 24px; border: 1.5px solid var(--color-border);
+      padding: 14px 24px; border: 1.5px solid var(--color-border);
       border-radius: var(--radius); cursor: pointer; transition: border-color 0.2s; text-decoration: none;
     }
-    .btn-secondary:hover { border-color: #999; }
+    .btn-secondary:hover { border-color: #888; }
     .hero__trust-strip { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
     .trust-pill { font-size: 11px; font-weight: 600; color: var(--color-text-muted); display: flex; align-items: center; gap: 4px; }
     .trust-pill::before { content: '✓'; font-weight: 700; color: var(--color-success); }
@@ -157,7 +167,7 @@
 
     /* ── SOCIAL PROOF BAR ── */
     .proof-bar {
-      background: var(--color-bg-dark);
+      background: #132042;    /* exact Hume dark navy */
       padding: 20px 0;
     }
     .proof-bar__inner { display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 24px; }
@@ -196,7 +206,7 @@
     .benefit-block__body { font-size: 15px; color: var(--color-text-muted); line-height: 1.75; margin-bottom: 20px; }
     .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .benefit-list li { display: flex; gap: 12px; font-size: 14px; }
-    .benefit-list__icon { width: 22px; height: 22px; border-radius: 50%; background: #121212; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; margin-top: 1px; }
+    .benefit-list__icon { width: 22px; height: 22px; border-radius: 50%; background: var(--color-bg-dark); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; margin-top: 1px; }
     .benefit-list__text strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
     .benefit-list__text span { font-size: 13px; color: var(--color-text-muted); line-height: 1.5; }
     .outcome-box { margin-top: 24px; background: #f0f4ff; border-left: 3px solid var(--color-accent-blue); border-radius: 0 6px 6px 0; padding: 14px 18px; font-size: 14px; font-weight: 600; color: var(--color-accent-blue); }
@@ -207,7 +217,7 @@
 
     /* ── STATS ── */
     .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; }
-    .stat-box { background: var(--color-bg-dark); padding: 40px 32px; text-align: center; }
+    .stat-box { background: #132042; padding: 40px 32px; text-align: center; }
     .stat-box:first-child { border-radius: 8px 0 0 8px; }
     .stat-box:last-child { border-radius: 0 8px 8px 0; }
     .stat-box__num { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; color: #fff; line-height: 1; }
@@ -221,10 +231,10 @@
     /* Comparison Table */
     .compare-table-wrap { overflow-x: auto; margin-top: 40px; border-radius: 8px; border: 1px solid var(--color-border); }
     .compare-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    .compare-table th { background: var(--color-bg-dark); color: #fff; padding: 16px 20px; text-align: left; font-size: 13px; font-weight: 700; }
+    .compare-table th { background: #132042; color: #fff; padding: 16px 20px; text-align: left; font-size: 13px; font-weight: 700; }
     .compare-table th:first-child { border-radius: 8px 0 0 0; }
     .compare-table th:last-child { border-radius: 0 8px 0 0; }
-    .compare-table th.hume { background: var(--color-accent-blue); }
+    .compare-table th.hume { background: var(--color-btn); }
     .compare-table td { padding: 14px 20px; border-bottom: 1px solid var(--color-border); vertical-align: middle; }
     .compare-table tr:last-child td { border-bottom: none; }
     .compare-table tr:nth-child(even) td { background: #fafafa; }
@@ -349,7 +359,7 @@
     .tp-count { font-size: 13px; color: var(--color-text-muted); margin-top: 2px; }
 
     /* Footer */
-    .footer { background: var(--color-bg-dark); color: rgba(255,255,255,0.6); padding: 40px 0; text-align: center; font-size: 13px; }
+    .footer { background: #132042; color: rgba(255,255,255,0.6); padding: 40px 0; text-align: center; font-size: 13px; }
     .footer__links { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
     .footer__links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 12px; }
     .footer__links a:hover { color: #fff; }
@@ -399,14 +409,38 @@
 
 <!-- ── ANNOUNCEMENT BAR ── -->
 <div class="announcement-bar">
-  🔥 Limited Time: <strong>GET UP TO 50% OFF</strong> — Free App + Free Worldwide Shipping Included
+  🏆 Flash Sale: Use Code <span class="code">NEW20</span> to get <strong>40% OFF</strong> <span class="pill">LIMITED</span>
 </div>
 
 <!-- ── HEADER ── -->
 <header class="header">
   <div class="container">
     <div class="header__inner">
-      <a href="#" class="logo">hume <span>health</span></a>
+      <a href="#" class="logo" aria-label="Hume Health">
+        <svg xmlns="http://www.w3.org/2000/svg" width="267" height="36" viewBox="0 0 267 36" fill="none">
+          <g clip-path="url(#clip0_pdp3_logo)">
+          <path d="M53.1355 4.2694L57.47 4.2694L57.47 15.7551L71.2936 15.7551L71.2936 4.2694L75.6616 4.2694L75.6616 31.7388L71.2936 31.7388L71.2936 19.4041L57.47 19.4041L57.47 31.7388L53.1355 31.7388L53.1355 4.2694Z" fill="#000"/>
+          <path d="M78.9837 25.7059L78.9837 12.1467L82.8413 12.1467L82.8413 24.6692C82.8413 27.3222 84.0212 29.0855 86.9332 29.0855C90.2384 29.0855 92.3639 27.1263 92.3639 24.1712L92.3639 12.1467L96.2214 12.1467L96.2214 31.7386L92.3639 31.7386L92.3639 29.2814L92.2886 29.2814C91.2259 30.7835 89.1423 32.2773 85.6696 32.2773C81.9711 32.2773 78.9754 30.2039 78.9754 25.7059L78.9837 25.7059Z" fill="#000"/>
+          <path d="M108.104 14.7918C105.225 14.7918 103.418 16.751 103.418 19.7061L103.418 31.7388L99.5601 31.7388L99.5601 12.1469L103.418 12.1469L103.418 14.6041L103.493 14.6041C104.556 13.1102 106.405 11.5674 109.442 11.5674C112.237 11.5674 113.969 12.8 114.756 14.9878L114.831 14.9878C116.287 13.102 118.337 11.5674 121.408 11.5674C125.467 11.5674 127.509 13.951 127.509 18.1388L127.509 31.7388L123.651 31.7388L123.651 19.1755C123.651 16.5633 123.099 14.7918 120.145 14.7918C117.266 14.7918 115.459 16.751 115.459 19.7061L115.459 31.7388L111.601 31.7388L111.601 19.1755C111.601 16.5633 111.049 14.7918 108.095 14.7918L108.104 14.7918Z" fill="#000"/>
+          <path d="M130.052 21.9019C130.052 15.755 133.835 11.5264 139.977 11.5264C146.077 11.5264 149.508 15.4448 149.508 21.5182C149.508 22.057 149.508 22.6284 149.466 22.9386L134.027 22.9386C134.102 26.2039 136.077 29.2407 140.052 29.2407C143.6 29.2407 144.972 27.0121 145.332 25.706L149.273 25.706C148.211 29.4692 145.257 32.3101 139.977 32.3101C133.6 32.3101 130.052 27.8937 130.052 21.9019ZM145.491 19.9835C145.491 16.9141 143.29 14.6039 139.859 14.6039C136.63 14.6039 134.27 16.759 134.027 19.9835L145.483 19.9835L145.491 19.9835Z" fill="#000"/>
+          <path d="M152.144 4.2694L156.478 4.2694L156.478 15.7551L170.302 15.7551L170.302 4.2694L174.67 4.2694L174.67 31.7388L170.302 31.7388L170.302 19.4041L156.478 19.4041L156.478 31.7388L152.144 31.7388L152.144 4.2694Z" fill="#000"/>
+          <path d="M177.197 21.9019C177.197 15.755 180.979 11.5264 187.121 11.5264C193.263 11.5264 196.652 15.4448 196.652 21.5182C196.652 22.057 196.652 22.6284 196.61 22.9386L181.171 22.9386C181.247 26.2039 183.222 29.2407 187.196 29.2407C190.744 29.2407 192.117 27.0121 192.476 25.706L196.418 25.706C195.355 29.4692 192.401 32.3101 187.121 32.3101C180.745 32.3101 177.197 27.8937 177.197 21.9019ZM192.635 19.9835C192.635 16.9141 190.435 14.6039 187.004 14.6039C183.774 14.6039 181.414 16.759 181.171 19.9835L192.627 19.9835L192.635 19.9835Z" fill="#000"/>
+          <path d="M198.233 26.6609C198.233 22.2854 201.622 20.9793 206.618 20.0568C209.764 19.4772 211.697 19.0935 211.697 17.1752C211.697 15.7548 210.827 14.5629 207.881 14.5629C204.375 14.5629 203.313 15.6405 203.12 18.2527L199.179 18.2527C199.38 14.4895 201.898 11.5262 208.04 11.5262C212.174 11.5262 215.479 13.216 215.479 18.2854L215.479 27.2731C215.479 28.6935 215.68 29.4282 216.425 29.4282C216.542 29.4282 216.659 29.4282 216.894 29.3874L216.894 31.6895C216.224 31.8446 215.555 31.918 214.927 31.918C212.994 31.918 211.973 31.1915 211.739 28.9629L211.664 28.9629C210.367 30.9956 208.082 32.269 204.81 32.269C200.794 32.269 198.233 29.9997 198.233 26.6609ZM205.672 29.2323C209.137 29.2323 211.697 27.5017 211.697 24.0813L211.697 21.2731C211.07 21.8527 209.337 22.269 207.287 22.6935C203.739 23.3874 202.25 24.3425 202.25 26.3833C202.25 28.2282 203.271 29.2241 205.672 29.2241L205.672 29.2323Z" fill="#000"/>
+          <path d="M219.437 4.2694L223.295 4.2694L223.295 31.7388L219.437 31.7388L219.437 4.2694Z" fill="#000"/>
+          <path d="M228.742 26.204L228.742 15.2571L225.83 15.2571L225.83 12.1469L228.742 12.1469L228.742 5.84485L232.6 5.84485L232.6 12.1469L236.457 12.1469L236.457 15.2571L232.6 15.2571L232.6 26.3183C232.6 28.3918 233.194 28.8571 234.842 28.8571C235.512 28.8571 235.83 28.8163 236.499 28.702L236.499 31.7387C235.512 31.9346 234.884 31.9673 234.056 31.9673C230.751 31.9673 228.742 30.7346 228.742 26.204Z" fill="#000"/>
+          <path d="M248.281 14.7918C244.976 14.7918 242.851 16.751 242.851 19.7061L242.851 31.7388L238.993 31.7388L238.993 4.2694L242.851 4.2694L242.851 14.6041L242.926 14.6041C243.989 13.1102 246.072 11.5673 249.545 11.5673C253.243 11.5674 256.239 13.6408 256.239 18.1388L256.239 31.7388L252.381 31.7388L252.381 19.1755C252.381 16.5633 251.202 14.7918 248.29 14.7918L248.281 14.7918Z" fill="#000"/>
+          <path d="M259.553 8.69385L259.553 4.94691L258.038 4.94691L258.038 4.2612L261.845 4.2612L261.845 4.94691L260.331 4.94691L260.331 8.69385L259.553 8.69385Z" fill="#000"/>
+          <path d="M262.247 8.69385L262.247 4.2612L263.209 4.2612L264.632 7.77956L266.046 4.2612L267 4.2612L267 8.69385L266.222 8.69385L266.222 5.57548L264.967 8.69385L264.289 8.69385L263.034 5.58365L263.034 8.69385L262.255 8.69385L262.247 8.69385Z" fill="#000"/>
+          <path d="M-9.05991e-05 36L-9.02836e-05 32.3918C-9.01801e-05 31.2082 0.627485 30.0571 1.7153 29.2327L6.16698 25.8694C6.577 25.5592 6.79457 25.1592 6.79457 24.7347L6.79457 11.2653C6.79457 10.8408 6.56864 10.4408 6.16698 10.1306L1.7153 6.7592C0.627487 5.93471 -8.787e-05 4.78369 -8.77673e-05 3.60818L-8.74518e-05 2.1616e-05L7.75686 2.22942e-05L7.75686 9.33879C7.75686 9.76328 7.98279 10.1633 8.38445 10.4735L12.8361 13.8367C13.9407 14.6776 14.5515 15.7959 14.5515 16.9959L14.5515 19.0123C14.5515 20.1878 13.9239 21.3388 12.8361 22.1633L8.38444 25.5347C7.98279 25.8449 7.75686 26.2449 7.75686 26.6694L7.75686 36L-9.05991e-05 36Z" fill="#31ABE8"/>
+          <path d="M26.8356 36L26.8356 26.6612C26.8356 26.2367 26.6096 25.8367 26.208 25.5265L21.7563 22.1633C20.6685 21.3306 20.0409 20.1878 20.0409 19.0041L20.0409 16.9878C20.0409 15.8123 20.6685 14.6612 21.7563 13.8367L26.208 10.4653C26.6096 10.1551 26.8356 9.75512 26.8356 9.33063L26.8356 -0.00814124L34.5925 -0.00814056L34.5925 3.60002C34.5925 4.78369 33.9649 5.93471 32.8771 6.7592L28.4255 10.1225C28.0154 10.4327 27.7979 10.8327 27.7979 11.2572L27.7979 24.7347C27.7979 25.1592 28.0238 25.5592 28.4255 25.8694L32.8771 29.2408C33.9649 30.0653 34.5925 31.2163 34.5925 32.3918L34.5925 36L26.8356 36Z" fill="#31ABE8"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_pdp3_logo">
+          <rect width="267" height="36" fill="white" transform="translate(267 36) rotate(-180)"/>
+          </clipPath>
+          </defs>
+        </svg>
+      </a>
       <div class="header__trust">
         <span class="stars">★★★★★</span>
         <span>4.8 · 48,252 reviews</span>
