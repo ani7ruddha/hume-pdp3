@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Guessing My Way Through Every Diet… To Knowing Exactly What's Happening Inside My Body</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 17px;
+      line-height: 1.8;
+      color: #333;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+
+    .article-container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      border-radius: 4px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 35px;
+      padding-bottom: 25px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .hero h1 {
+      font-size: 30px;
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+
+    .subheadline {
+      font-size: 19px;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .fact-check {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-bottom: 12px;
+    }
+
+    .rating-badge {
+      display: inline-block;
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #856404;
+    }
+
+    /* Typography */
+    h2 {
+      font-size: 24px;
+      color: #2c2c2c;
+      margin-top: 35px;
+      margin-bottom: 18px;
+      line-height: 1.3;
+    }
+
+    h3 {
+      font-size: 22px;
+      color: #2c2c2c;
+      margin-top: 28px;
+      margin-bottom: 14px;
+    }
+
+    p {
+      margin-bottom: 18px;
+    }
+
+    strong {
+      color: #1a1a1a;
+    }
+
+    em {
+      color: #555;
+    }
+
+    /* Image Placeholders */
+    .image-placeholder {
+      background: #e9ecef;
+      border: 2px dashed #adb5bd;
+      padding: 40px 20px;
+      text-align: center;
+      color: #6c757d;
+      margin: 24px 0;
+      border-radius: 8px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    /* CTA Buttons */
+    .cta-button {
+      display: block;
+      background: #e63946;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 18px 40px;
+      border: none;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      margin: 30px auto;
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+      transition: background 0.2s;
+      max-width: 520px;
+    }
+
+    .cta-button:hover {
+      background: #c1121f;
+    }
+
+    /* Social Proof Cards */
+    .social-proof-cards {
+      margin: 30px 0;
+    }
+
+    .social-card {
+      background: #eef4fb;
+      border: 1px solid #d0dce8;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+
+    .social-user {
+      font-weight: bold;
+      color: #1a1a1a;
+      font-size: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-bottom: 6px;
+    }
+
+    .social-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .social-meta {
+      font-size: 13px;
+      color: #888;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .social-timestamp {
+      font-size: 12px;
+      color: #aaa;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Timeline */
+    .timeline {
+      border-left: 3px solid #e63946;
+      margin: 30px 0 30px 10px;
+      padding-left: 25px;
+    }
+
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .timeline-entry::before {
+      content: '';
+      position: absolute;
+      left: -33px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      background: #e63946;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px #e63946;
+    }
+
+    .timeline-entry h3 {
+      color: #e63946;
+      font-size: 20px;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Testimonial Cards */
+    .testimonials {
+      margin: 30px 0;
+    }
+
+    .testimonial-card {
+      background: #f8f8f8;
+      border-left: 4px solid #e63946;
+      padding: 22px;
+      margin-bottom: 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .stars {
+      color: #f4b400;
+      font-size: 18px;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .review-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .reviewer {
+      font-size: 14px;
+      color: #777;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
+
+    /* Offer Section */
+    .offer-section {
+      background: #f8fffe;
+      border: 2px solid #2e7d32;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .offer-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .offer-bullets li {
+      padding: 8px 0 8px 30px;
+      position: relative;
+      font-size: 16px;
+    }
+
+    .offer-bullets li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #2e7d32;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* Cost Comparison */
+    .cost-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .cost-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 16px;
+    }
+
+    .cost-list li .cost-label {
+      color: #555;
+    }
+
+    .cost-list li .cost-price {
+      font-weight: bold;
+      color: #c1121f;
+    }
+
+    .cost-list li.highlight {
+      background: #e8f5e9;
+      padding: 12px 14px;
+      border-radius: 6px;
+      border-bottom: none;
+      margin-top: 10px;
+    }
+
+    .cost-list li.highlight .cost-price {
+      color: #2e7d32;
+      font-size: 18px;
+    }
+
+    /* Disclaimers */
+    .disclaimers {
+      border-top: 1px solid #eee;
+      margin-top: 45px;
+      padding-top: 25px;
+      font-size: 12px;
+      color: #999;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    /* Final Banner */
+    .final-banner {
+      background: #1a1a2e;
+      color: #fff;
+      text-align: center;
+      padding: 45px 30px;
+      margin-top: 35px;
+      border-radius: 8px;
+    }
+
+    .final-banner h2 {
+      color: #fff;
+      font-size: 22px;
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .final-banner .discount-text {
+      color: #ff6b6b;
+      font-size: 28px;
+      font-weight: bold;
+      margin: 15px 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .final-banner .copyright {
+      font-size: 11px;
+      color: #666;
+      margin-top: 20px;
+    }
+
+    /* Feature Cards */
+    .feature-card {
+      background: #f9f9ff;
+      border: 1px solid #e0e0ef;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h4 {
+      color: #e63946;
+      font-size: 18px;
+      margin-bottom: 6px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .feature-card .metaphor {
+      font-style: italic;
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    /* Urgency */
+    .urgency-box {
+      background: #fff5f5;
+      border: 2px solid #e63946;
+      border-radius: 10px;
+      padding: 28px;
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .urgency-box h2 {
+      color: #e63946;
+      margin-top: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .article-container {
+        padding: 22px 18px;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .subheadline {
+        font-size: 16px;
+      }
+
+      body {
+        font-size: 16px;
+        padding: 10px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
+
+      .cta-button {
+        font-size: 18px;
+        padding: 16px 20px;
+        max-width: 100%;
+      }
+
+      .final-banner {
+        padding: 30px 18px;
+      }
+
+      .final-banner .discount-text {
+        font-size: 24px;
+      }
+
+      .cost-list li {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="article-container">
+
+  <!-- ===== SECTION 1: HERO HEADLINE ===== -->
+  <section class="hero">
+    <h1>From Spending $4,000 on Tests That Told Me Nothing… To Knowing Exactly What's Happening Inside My Body Every Single Morning</h1>
+    <p class="subheadline">How one frustrated dad discovered a "clinical-grade body scanner" sitting on his bathroom floor — and finally understood why the scale kept lying to him</p>
+    <div class="fact-check">Fact Checked by Dr. Nathan Howell, Board-Certified Sports Medicine Physician</div>
+    <br>
+    <div class="rating-badge">★★★★½ 4.5/5 (2,921 reviews)</div>
+  </section>
+
+  <!-- ===== SECTION 2: OPENING NARRATIVE ===== -->
+  <p>March 9th, 2025. 6:42 AM.</p>
+
+  <p>I was standing in my bathroom, staring at the number on my scale, and my hands were shaking. Not from cold. From rage.</p>
+
+  <p><strong>187.4 pounds.</strong> The same weight I was three months ago. Before the meal prep. Before the 5 AM gym sessions. Before I gave up beer, pasta, and every food that made life worth living. Three months of grinding — and that stupid number hadn't budged.</p>
+
+  <p>My wife Sarah walked in and found me sitting on the edge of the bathtub, head in my hands. <em>"Marcus? What's wrong?"</em> she asked, her voice soft with that particular kind of worry you get when you've seen someone slowly unravel.</p>
+
+  <p><em>"I can't do this anymore,"</em> I told her. My voice cracked, and I hated myself for it. <em>"I'm doing everything right. Everything. And nothing is changing. My doctor says my cholesterol is still high, my blood pressure hasn't moved, and the scale — the damn scale — says I'm the exact same person I was on January 1st."</em></p>
+
+  <p>What I didn't tell her — what I couldn't bring myself to say out loud — was that my father had his first heart attack at 52. I was 47. And I could feel the clock ticking with every beat of my chest.</p>
+
+  <!-- ===== SECTION 3: PROBLEM ESTABLISHMENT ===== -->
+  <h2>That morning in the bathroom broke something in me</h2>
+
+  <p>Let me back up. My name is Marcus, and for 22 years I've been a project manager at a mid-size engineering firm in Columbus, Ohio. Good career. Great wife. Two kids — Jake, 19, heading off to Ohio State, and Lily, 16, who can outrun me without breaking a sweat.</p>
+
+  <p>On the outside, I had it together. On the inside? My body was falling apart, and I had absolutely no idea what was actually happening beneath the surface.</p>
+
+  <p>Here's what I'd already tried:</p>
+
+  <p><strong>A "smart" bathroom scale ($89).</strong> Gave me a number that fluctuated by 4 pounds depending on whether I'd had water. Useless. The body fat reading changed wildly every time I stepped on it. One morning it said 28%, the next day 24%. I might as well have flipped a coin.</p>
+
+  <p><strong>A DEXA scan ($250 per session).</strong> My doctor ordered one. Incredibly detailed — but I'd have to drive 40 minutes to the imaging center, book weeks in advance, and pay out of pocket every single time. My insurance laughed at the idea of covering "body composition curiosity."</p>
+
+  <p><strong>A personal trainer ($320/month).</strong> Brad was great. Motivating. Loud. But when I asked him why I wasn't seeing results, he'd grab my arm and say, <em>"Trust the process, bro."</em> That's not data. That's a bumper sticker.</p>
+
+  <p><strong>Calorie tracking apps.</strong> I logged every bite for 11 weeks straight. You know what MyFitnessPal told me? That I was doing everything right. So either the app was lying, my body was broken, or I was missing something fundamental that none of these tools could see.</p>
+
+  <p>Meanwhile, the real damage was happening at home. I was irritable. Exhausted. I'd snap at Sarah over nothing. I stopped wanting to go to Jake's basketball games because I couldn't climb the bleachers without my knees aching. Lily asked me to go for a run with her one Saturday morning, and I made up an excuse about my back.</p>
+
+  <p>The truth? <strong>I was terrified that I'd collapse in front of my daughter.</strong></p>
+
+  <!-- ===== SECTION 4: AUTHORITY / MEDICAL DIAGNOSIS ===== -->
+  <h2>"Marcus, you're not overweight. You're under-muscled."</h2>
+
+  <p>Those words from Dr. Reeves hit me like a truck.</p>
+
+  <p>After the bathroom meltdown, Sarah convinced me to book a full metabolic workup. Not just blood panels — the whole thing. Body composition analysis, VO2 max testing, hormonal markers. The works. Total cost: <strong>$3,800 out of pocket.</strong></p>
+
+  <p>Two weeks later, Dr. Reeves pulled up my results on her screen and said something I'll never forget:</p>
+
+  <p><em>"Your weight hasn't changed because you've been looking at the wrong number. Your body fat is 31%. Your skeletal muscle mass is dangerously low for your age. You're losing muscle and gaining fat simultaneously — it's called sarcopenic obesity. The scale can't see this. It just shows you one useless number."</em></p>
+
+  <p>She explained that my body was in a state of <strong>metabolic dysfunction</strong>. My basal metabolic rate had cratered because I'd lost muscle mass through years of cardio-only exercise and crash dieting. My visceral fat — the dangerous fat wrapped around my organs — was in the "high risk" zone. My body water percentage was low, meaning my cells weren't hydrating properly.</p>
+
+  <p>The warning signs had been there for years:</p>
+  <ul>
+    <li>Chronic fatigue even after 8 hours of sleep</li>
+    <li>Stubborn belly fat that wouldn't respond to exercise</li>
+    <li>Blood pressure creeping higher every year</li>
+    <li>Losing strength despite working out regularly</li>
+    <li>Feeling cold all the time (tanked metabolism)</li>
+  </ul>
+
+  <p><em>"Here's what I'd recommend,"</em> she said. <em>"Come back every 6-8 weeks for follow-up scans so we can track your composition changes. We'll adjust your nutrition and training based on real data."</em></p>
+
+  <p>I did the math in my head. Six visits a year at $250-$400 each, plus the time off work, the 40-minute drives, the scheduling hassles. I'd be spending $1,500-$2,400 a year just to <em>know what was happening</em> inside my own body.</p>
+
+  <p>There had to be a better way.</p>
+
+  <!-- ===== SECTION 5: DISCOVERY TRANSITION ===== -->
+  <h2>A late-night discovery my wife made at 11 PM</h2>
+
+  <p>Two nights after that appointment, I was lying in bed staring at the ceiling. Sarah was next to me, scrolling her phone — her nightly ritual.</p>
+
+  <p><em>"Hey,"</em> she said suddenly. <em>"Have you ever heard of the Hume Health Body Pod?"</em></p>
+
+  <p>She turned her phone toward me. On the screen was a sleek device — it looked like a premium bathroom scale, but with handles that extended upward. Like something you'd see in a clinical research lab, except it was designed to sit in your home.</p>
+
+  <p><em>"It says it uses the same technology as the tests Dr. Reeves ran,"</em> Sarah continued. <em>"Eight-frequency sensors. Measures 45 different health metrics. Body fat, muscle mass, visceral fat, bone density, hydration — everything. And it's supposedly within 2% of a DEXA scan."</em></p>
+
+  <p>I rolled my eyes. <em>"Sarah, I've been burned by 'smart scales' before. They're toys. Remember that Bluetooth one I bought? It was basically a random number generator."</em></p>
+
+  <p><em>"This is different,"</em> she said, and there was something in her voice — not the usual optimism, but genuine conviction. <em>"It doesn't just measure your feet. You hold handles too. It scans your entire body — arms, legs, torso — separately. A company called Socotech independently tested it. It's been used by over a million people."</em></p>
+
+  <p>I took the phone from her. Spent the next 45 minutes reading everything I could find. Reviews. Clinical comparisons. User testimonials.</p>
+
+  <p>I didn't believe it. Not really. <strong>But at $229 — less than the cost of a single DEXA scan — I figured I had nothing to lose.</strong> Especially with their 45-day trial. If it was garbage, I'd send it back.</p>
+
+  <p>I ordered it before I could talk myself out of it.</p>
+
+  <!-- ===== SECTION 6: EMBEDDED SOCIAL PROOF ===== -->
+  <div class="social-proof-cards">
+    <div class="social-card">
+      <div class="social-user">Brianna Kowalski</div>
+      <div class="social-text">Has anyone actually tried this Hume Body Pod? My trainer says my weight is fine but I FEEL like I'm getting softer. Need something that shows me what's really going on 😩</div>
+      <div class="social-meta">♥ 47 · 12 replies</div>
+    </div>
+    <div class="social-card">
+      <div class="social-user">Derek Tran</div>
+      <div class="social-text">@Brianna YES. Got mine two months ago. It showed me I was losing muscle while gaining fat even though the scale said the same weight. Total game changer. I've adjusted my macros and already gained 3 lbs of lean muscle mass according to the Pod.</div>
+      <div class="social-meta">♥ 83 · 6 replies</div>
+    </div>
+    <div class="social-card">
+      <div class="social-user">Tamara Oyelaran</div>
+      <div class="social-text">Just tagged my husband in the link. He's been killing himself at the gym for 6 months and getting nowhere. He needs to see the DATA, not just a weight number. Ordering tonight 🙌</div>
+      <div class="social-meta">♥ 31 · 4 replies</div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 7: FIRST RESULTS ===== -->
+  <h2>The first scan changed everything I thought I knew</h2>
+
+  <p>The Body Pod arrived on a Tuesday. Sleek white box, heavier than I expected. I set it up in three minutes — download the app, step on, grab the handles, stand still for 60 seconds.</p>
+
+  <p>When the results loaded on my phone, I sat down on the toilet lid and just… stared.</p>
+
+  <p><strong>It didn't just give me a weight.</strong> It gave me a complete map of my body. Body fat: 30.8% (almost exactly what Dr. Reeves' $3,800 workup had measured at 31%). Skeletal muscle mass: 62.4 lbs. Visceral fat level: 14 — high risk. Body water: 49.2% — low. Basal metabolic rate: 1,640 calories.</p>
+
+  <p>But here's what got me: <strong>the segmental analysis.</strong> It showed me that my left leg had significantly less muscle than my right. That my torso was carrying the most visceral fat. That my arms had actually <em>gained</em> some muscle from the gym — the scale just couldn't see it because fat was masking it.</p>
+
+  <p>I walked into the kitchen where Sarah was making coffee and handed her my phone. She looked at the screen, then looked at me.</p>
+
+  <p><em>"Marcus,"</em> she said slowly, <em>"this is exactly what Dr. Reeves showed us. Except you just did it in your bathroom. In your underwear. For free."</em></p>
+
+  <p>For the first time in months, I felt something I'd forgotten: <strong>clarity.</strong> I finally knew what was actually happening inside my body. And if I could see it, I could fix it.</p>
+
+  <!-- ===== SECTION 8: 30-DAY PROGRESS TIMELINE ===== -->
+  <h2>What happened over the next 30 days</h2>
+
+  <div class="timeline">
+    <div class="timeline-entry">
+      <h3>Day 1</h3>
+      <p>My baseline scan revealed the truth my bathroom scale had been hiding: <strong>30.8% body fat, 62.4 lbs skeletal muscle, visceral fat level 14.</strong> For the first time, I had a real starting point — not a guess, not a number from a $89 scale, but clinical-grade data I could trust. I screenshot the results and sent them to my trainer Brad with one message: <em>"No more guessing. Build me a plan based on THIS."</em></p>
+    </div>
+    <div class="timeline-entry">
+      <h3>Week 1</h3>
+      <p>I scanned every morning at 6:15 AM, right after waking up. The Body Pod showed me that my body water was consistently low — around 49% when it should be closer to 55-60%. I started drinking a full liter before my first coffee. By Day 7, my hydration hit 52.4%. My energy spiked. I wasn't dragging through 3 PM anymore. <strong>My basal metabolic rate ticked up from 1,640 to 1,688 calories</strong> — my body was already waking up.</p>
+    </div>
+    <div class="timeline-entry">
+      <h3>Week 2</h3>
+      <p>This is where it got wild. My weight on a normal scale: <strong>still 187 pounds.</strong> I would've been devastated — except the Body Pod told a completely different story. Body fat had dropped from 30.8% to 29.1%. Skeletal muscle mass had <em>increased</em> from 62.4 to 63.8 lbs. <strong>I was losing fat and gaining muscle simultaneously — and the scale couldn't see any of it.</strong> I showed Sarah, and she actually teared up. <em>"You're doing it,"</em> she whispered. <em>"It's finally working."</em></p>
+    </div>
+    <div class="timeline-entry">
+      <h3>Day 30</h3>
+      <p>The numbers spoke for themselves. <strong>Body fat: 26.9% (down from 30.8%). Skeletal muscle: 66.1 lbs (up from 62.4). Visceral fat: 11 (down from 14 — out of the "high risk" zone). Body water: 56.8%. Basal metabolic rate: 1,754 calories.</strong> My weight? 186 pounds. ONE POUND different on a regular scale. But inside? I was a completely different person. My blood pressure at my follow-up was 124/78 — down from 142/91. Dr. Reeves looked at my Hume data, looked at my labs, and said: <em>"Whatever you're doing, don't stop."</em> I played basketball with Jake that Saturday. Ran up and down the court for an hour. When Lily asked me to go running that Sunday morning, I said yes — and kept up with her for the first time in two years.</p>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 9: SCIENTIFIC EXPLANATION ===== -->
+  <h2>Why the Hume Health Body Pod actually works</h2>
+
+  <p>After my 30-day transformation, I asked Dr. Reeves to explain what made this device so different from every other scale I'd tried. She pulled out a diagram and walked me through it:</p>
+
+  <div class="image-placeholder">[IMAGE: Product diagram showing the Body Pod with labeled sensor zones — foot electrodes, hand electrodes, segmental scanning paths through arms, torso, and legs]</div>
+
+  <div class="feature-card">
+    <h4>8-Frequency Bioelectrical Impedance Analysis</h4>
+    <p class="metaphor">Like having an MRI and a blood panel combined — except it takes 60 seconds and sits on your bathroom floor.</p>
+    <p>Unlike cheap scales that send a single electrical frequency through your feet, the Body Pod uses <strong>eight different frequencies</strong> that penetrate multiple tissue layers. Lower frequencies measure the fluid outside your cells; higher frequencies reach inside. This multi-layered approach is how clinical labs measure body composition — Hume just miniaturized it.</p>
+  </div>
+
+  <div class="feature-card">
+    <h4>Dual-Point Contact Technology</h4>
+    <p class="metaphor">Like the difference between checking your pulse with one finger versus a full EKG.</p>
+    <p>Standard smart scales only send current through your feet, which means they primarily measure your lower body and <strong>estimate</strong> everything else. The Body Pod's handle system creates a complete circuit — current flows from your hands through your arms, across your torso, down through your legs to your feet. <strong>Every inch of your body gets measured, not guessed.</strong></p>
+  </div>
+
+  <div class="feature-card">
+    <h4>Segmental Analysis Engine</h4>
+    <p class="metaphor">Like having a personal body-mapping GPS that shows you exactly where change is happening.</p>
+    <p>The Pod doesn't just give you a total body fat number. It breaks your body into five distinct zones — left arm, right arm, torso, left leg, right leg — and tells you the fat mass and muscle mass in each one. This is how I discovered my left leg was weaker than my right, and why Dr. Reeves called it <strong>"the same data I get from a $400 clinical scan."</strong></p>
+  </div>
+
+  <div class="feature-card">
+    <h4>45+ Health Metrics Dashboard</h4>
+    <p class="metaphor">Like upgrading from a car with a speedometer to one with a full cockpit of flight instruments.</p>
+    <p>Beyond body fat and muscle mass, the Pod tracks visceral fat, bone density, body water percentage, protein mass, basal metabolic rate, metabolic age, and dozens more. The Hume app turns this raw data into <strong>trend lines, weekly reports, and AI-driven insights</strong> so you can see exactly how your body responds to every change you make.</p>
+  </div>
+
+  <div class="feature-card">
+    <h4>Integrated Heart Rate Sensor</h4>
+    <p class="metaphor">Like having a cardiologist check your resting heart rate every morning without the copay.</p>
+    <p>Built into the handles is a medical-grade heart rate sensor that captures your resting cardiovascular state during every scan. Over time, this creates a cardiac trend line that — combined with your body composition data — gives you a <strong>complete picture of your metabolic and cardiovascular health.</strong></p>
+  </div>
+
+  <!-- ===== SECTION 10: DOCTOR CREDIBILITY / COMPARISON ===== -->
+  <h2>What impressed Dr. Reeves most?</h2>
+
+  <p>At my 6-week follow-up, I brought my Hume app data to show Dr. Reeves. She pulled up my original clinical results side by side. Her eyebrows went up.</p>
+
+  <p><em>"The segmental data is remarkably close to what we measured in the lab,"</em> she said. <em>"And the fact that you've been tracking daily means I can see patterns I'd never catch with quarterly scans."</em></p>
+
+  <p>She compared it directly to the conventional approaches:</p>
+
+  <p><strong>DEXA scans</strong> are the gold standard — but they require a clinic visit, cost $250-$400 each, expose you to radiation, and most people can only afford to do them a few times a year. You get a snapshot, not a movie.</p>
+
+  <p><strong>Basic smart scales</strong> use single-frequency BIA through your feet only. They can be off by 8-10% on body fat readings. For tracking real changes, they're essentially useless.</p>
+
+  <p><strong>The Hume Body Pod</strong> uses the same multi-frequency, full-body BIA technology as clinical-grade devices — independently verified to be <strong>within ±2% of a DEXA scan</strong> by Socotech's third-party testing. And you can use it every single day.</p>
+
+  <p><em>"Ninety-one percent of Body Pod users report making meaningful changes to their fitness routine within the first month,"</em> Dr. Reeves noted, reading from a study on her screen. <em>"Because when people can actually see what's happening inside their body, they make smarter decisions. Data drives behavior."</em></p>
+
+  <p>She paused, then looked at me over her glasses. <em>"I'm recommending this to my other patients. Frankly, this is what I've been waiting for."</em></p>
+
+  <!-- ===== SECTION 11: EXTENDED TESTIMONIALS ===== -->
+  <h2>I'm not the only one whose life changed</h2>
+
+  <div class="testimonials">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"I spent two years thinking I wasn't making progress because my weight wouldn't change. The Body Pod showed me I'd gained 8 lbs of muscle and lost 11 lbs of fat. The SCALE was the problem, not me. I literally cried when I saw my first segmental report. Every trainer should require their clients to use this."</p>
+      <div class="reviewer">— Rachel Dominguez, Austin, TX</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"I'm 63 and my doctor was worried about my bone density and muscle loss. We've been tracking my numbers on the Body Pod for four months now and I've increased my skeletal muscle mass by 4.2 lbs through resistance training. My doctor says my osteoporosis risk has dropped. This device might have saved me from a broken hip."</p>
+      <div class="reviewer">— Howard Jennings, Scottsdale, AZ</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"As a competitive CrossFit athlete, I need to know exactly what's changing in my body week to week. The segmental analysis is INSANE. I found out my left side was 6% weaker than my right — fixed it with unilateral training, and my lifts went up across the board. This replaced my quarterly DEXA appointments."</p>
+      <div class="reviewer">— Priya Narang, Portland, OR</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"My husband and I both use it — that's the beauty of the multi-user feature. He's working on dropping visceral fat after a diabetes scare, and I'm focused on building lean muscle postpartum. We scan every morning together. It's become our weird little health ritual, and honestly? It's brought us closer. We're on the same team now."</p>
+      <div class="reviewer">— Maria & Alejandro Fuentes, Denver, CO</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"I've tried Withings, Renpho, Eufy — every 'smart scale' on Amazon. None of them were even close to accurate on body fat. The Hume Pod matched my DEXA results within 1.5%. And the app is genuinely useful, not just pretty charts with no substance. The weekly health report alone is worth the price."</p>
+      <div class="reviewer">— James Whitfield, Nashville, TN</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"I'm a nurse and I was skeptical. Very skeptical. But after three months of daily scans cross-referenced with my lab work, the data is remarkably consistent. My hydration readings helped me realize I was chronically dehydrated — something I'd overlooked for years despite working in healthcare. My migraines have all but disappeared since I started properly hydrating."</p>
+      <div class="reviewer">— Denise Calloway, Minneapolis, MN</div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 12: OFFER PRESENTATION ===== -->
+  <div class="offer-section">
+    <h2>An offer you don't have to think twice about</h2>
+
+    <p style="font-size: 20px;"><strong>Special reader pricing: Save up to 40% on the Hume Health Body Pod</strong></p>
+
+    <ul class="offer-bullets">
+      <li><strong>Free expedited shipping</strong> — arrives within 3-5 business days, straight to your door</li>
+      <li><strong>45-day no-questions-asked trial</strong> — use it for a full month and a half. If you're not blown away, send it back for a complete refund</li>
+      <li><strong>Third-party accuracy verified</strong> — independently tested by Socotech to be within ±2% of clinical DEXA scans</li>
+    </ul>
+
+    <div class="image-placeholder">[IMAGE: Hume Health Body Pod hero shot — device shown at 3/4 angle with handles extended, clean white background, app screen showing body composition dashboard visible on phone next to it]</div>
+
+    <a href="https://humehealth.com/pages/pdp3" class="cta-button">CHECK AVAILABILITY ></a>
+  </div>
+
+  <!-- ===== SECTION 13: URGENCY / SCARCITY ===== -->
+  <div class="urgency-box">
+    <h2>Limited-time offer ending soon</h2>
+
+    <p>Since the Body Pod was featured on Men's Health and used by over <strong>1.2 million people worldwide</strong>, demand has skyrocketed. Hume Health has told us that current inventory is moving fast and they <strong>cannot guarantee this pricing beyond this month.</strong></p>
+
+    <p>Over <strong>14,000 Body Pods</strong> were ordered in the last 30 days alone. Stock is limited, and once this batch sells out, the next shipment won't arrive for 6-8 weeks.</p>
+
+    <p style="font-size: 19px;"><strong>Don't let another month of blind guessing steal your progress. Don't let another year of stepping on a useless scale convince you that nothing is working.</strong></p>
+
+    <p><em>Your body is changing every single day. The question is: can you see it?</em></p>
+
+    <a href="https://humehealth.com/pages/pdp3" class="cta-button">ORDER NOW — SEE WHAT YOUR BODY IS REALLY DOING ></a>
+  </div>
+
+  <!-- ===== SECTION 14: COST COMPARISON ===== -->
+  <h2>Think about it this way</h2>
+
+  <p>Before I found the Body Pod, here's what I was spending (or facing) to understand my own body:</p>
+
+  <ul class="cost-list">
+    <li>
+      <span class="cost-label">Full metabolic workup with Dr. Reeves</span>
+      <span class="cost-price">$3,800</span>
+    </li>
+    <li>
+      <span class="cost-label">DEXA scan (per session, 4x/year)</span>
+      <span class="cost-price">$250 – $400 each</span>
+    </li>
+    <li>
+      <span class="cost-label">Personal trainer (monthly)</span>
+      <span class="cost-price">$320/month</span>
+    </li>
+    <li>
+      <span class="cost-label">Nutritionist consultations (quarterly)</span>
+      <span class="cost-price">$150 – $250/session</span>
+    </li>
+    <li>
+      <span class="cost-label">Smart scales that gave me garbage data</span>
+      <span class="cost-price">$89 (wasted)</span>
+    </li>
+    <li class="highlight">
+      <span class="cost-label"><strong>Hume Health Body Pod — unlimited daily scans, 45+ metrics, forever</strong></span>
+      <span class="cost-price">$229</span>
+    </li>
+  </ul>
+
+  <p>That's less than the cost of <strong>one</strong> DEXA scan. For a device that gives you DEXA-level accuracy every single morning. For years. No appointments. No drives. No copays. No guessing.</p>
+
+  <p>And with the 45-day trial, you're risking exactly nothing.</p>
+
+  <!-- ===== SECTION 15: EMOTIONAL CLOSING ===== -->
+  <h2>"I got my husband back."</h2>
+
+  <p>Sarah said that to her sister on the phone last week. She didn't know I was in the hallway. I stopped walking and just listened.</p>
+
+  <p><em>"He's different now,"</em> she said. <em>"Not just physically — though yes, you can see the change. It's his energy. His confidence. He goes running with Lily on weekends. He's coaching Jake's rec league basketball team. He comes home from work and he's… present. He's not staring at his phone calculating calories or spiraling about a number on a scale. He knows what's happening inside his body, and that peace of mind? It changed everything. I got my husband back."</em></p>
+
+  <p>I won't lie — I stood there in the hallway and tears rolled down my face.</p>
+
+  <p><strong>Sleep:</strong> I fall asleep faster because I'm not lying awake dreading my morning weigh-in. <strong>Peace of mind:</strong> I know exactly where my visceral fat stands, where my muscle is growing, how my hydration looks. <strong>Relationship:</strong> Sarah and I are a team again — she scans too, and we share our weekly reports over Sunday coffee. <strong>Energy:</strong> My metabolic rate is up 114 calories from where it was. I have fuel again. <strong>Health:</strong> My blood pressure is normal. My doctor is thrilled. My dad had a heart attack at 52. I'm 47, and for the first time, I believe I'm going to be okay.</p>
+
+  <p>All because a $229 device told me the truth that a $89 scale never could.</p>
+
+  <!-- ===== SECTION 16: FINAL CTA ===== -->
+  <a href="https://humehealth.com/pages/pdp3" class="cta-button" style="font-size: 22px; padding: 22px 40px; max-width: 600px;">Order Your Hume Health Body Pod Today and Finally See the Real You ></a>
+
+  <!-- ===== SECTION 17: SECONDARY SOCIAL PROOF ===== -->
+  <div class="social-proof-cards" style="margin-top: 40px;">
+    <div class="social-card">
+      <div class="social-user">Chris Palermo</div>
+      <div class="social-text">3 weeks in. My trainer looked at my Hume data and completely changed my program. I've gained visible muscle definition for the first time in my life. Im 54. better late than never lol</div>
+      <div class="social-meta">♥ 112 · 18 replies</div>
+      <div class="social-timestamp">3 hours ago</div>
+    </div>
+    <div class="social-card">
+      <div class="social-user">Aisha Woodward</div>
+      <div class="social-text">bought this for my mom for her birthday. She's 71 and her doctor wanted to monitor her bone density and muscle mass. She scans every morning now and sends me screenshots of her progress 😂❤️ best gift I've ever given</div>
+      <div class="social-meta">♥ 89 · 7 replies</div>
+      <div class="social-timestamp">Yesterday</div>
+    </div>
+    <div class="social-card">
+      <div class="social-user">Nick Brennan</div>
+      <div class="social-text">returned my Withings scale the day this arrived. Not even close to the same league. the segmental breakdown alone is worth it — found out my core was WAY weaker than I thought</div>
+      <div class="social-meta">♥ 64 · 9 replies</div>
+      <div class="social-timestamp">2 hours ago</div>
+    </div>
+    <div class="social-card">
+      <div class="social-user">Stephanie Nakamura</div>
+      <div class="social-text">Anyone else obsessed with the weekly health report? I literally look forward to Monday mornings now just to see my trends. My hydration graph has been the biggest eye opener — had no idea I was so dehydrated</div>
+      <div class="social-meta">♥ 57 · 11 replies</div>
+      <div class="social-timestamp">5 hours ago</div>
+    </div>
+    <div class="social-card">
+      <div class="social-user">Liam O'Connell</div>
+      <div class="social-text">Me and my wife + both our kids use it. 4 profiles on one device. Finally a health gadget the whole family actually uses instead of collecting dust in a drawer 👏</div>
+      <div class="social-meta">♥ 41 · 3 replies</div>
+      <div class="social-timestamp">8 hours ago</div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 18: DISCLAIMERS ===== -->
+  <div class="disclaimers">
+    <p>This is an advertisement and not an actual news article, blog, or consumer protection update.</p>
+    <p>This product is marketed and distributed by Hume Health. The Hume Health Body Pod is designed for home body composition analysis and general wellness tracking. It is not intended to diagnose, treat, cure, or prevent any disease.</p>
+    <p>All testimonials and reviews presented are from individuals who have used the product. Individual results may vary based on factors including consistency of use, hydration levels, and individual physiology.</p>
+    <p>Photographs of individuals are used for illustrative purposes and may feature models.</p>
+    <p>This website serves as a marketplace for the product featured. The content above reflects one individual's experience and should not be considered medical advice. Consult your healthcare provider before making changes to your health routine.</p>
+  </div>
+
+  <!-- ===== SECTION 19: FINAL OFFER BANNER ===== -->
+  <div class="final-banner">
+    <h2>READER'S EXCLUSIVE — #1 DEVICE FOR AT-HOME BODY COMPOSITION ANALYSIS</h2>
+
+    <div class="image-placeholder" style="background: #2a2a4e; border-color: #444; color: #aaa;">[IMAGE: Hume Health Body Pod — clean product beauty shot on dark background, handles extended, app screen glowing]</div>
+
+    <div class="discount-text">SAVE UP TO 40% — TODAY ONLY</div>
+
+    <p style="margin: 15px 0; color: #ccc;">Free Shipping · 45-Day Risk-Free Trial · HSA & FSA Eligible</p>
+
+    <a href="https://humehealth.com/pages/pdp3" class="cta-button" style="display: inline-block; margin: 20px auto;">TRY THE BODY POD NOW ></a>
+
+    <div class="image-placeholder" style="background: #2a2a4e; border-color: #444; color: #aaa; padding: 15px;">[IMAGE: Payment method icons — Visa, Mastercard, American Express, PayPal, Apple Pay, Google Pay]</div>
+
+    <div class="copyright">
+      <div class="image-placeholder" style="background: #2a2a4e; border-color: #444; color: #aaa; padding: 10px; display: inline-block;">[IMAGE: Hume Health logo — white on dark]</div>
+      <p style="color: #666; font-size: 11px; margin-top: 10px;">© 2025 Hume Health. All rights reserved.</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
