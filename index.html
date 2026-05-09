@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>I Spent $1,200 on DEXA Scans in 18 Months. Here's What I Wish I'd Bought Instead. — Hume Health Journal</title>
+<!-- Self-contained bundle: no remote font URLs. System font stacks below; drop woff2 files into assets/fonts/ and uncomment the @font-face block to use Lora / Inter / JetBrains Mono. -->
+<style>
+/* Optional local fonts — uncomment when assets/fonts/*.woff2 are added
+@font-face{font-family:'Lora';src:url('assets/fonts/Lora-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Lora';src:url('assets/fonts/Lora-SemiBold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Lora';src:url('assets/fonts/Lora-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Lora';src:url('assets/fonts/Lora-Italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-SemiBold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-ExtraBold.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'JetBrains Mono';src:url('assets/fonts/JetBrainsMono-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'JetBrains Mono';src:url('assets/fonts/JetBrainsMono-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+*/
+:root{
+  --serif:'Lora','Charter','Iowan Old Style',Georgia,'Times New Roman',serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --mono:'JetBrains Mono','SF Mono','Menlo','Monaco','Consolas','Liberation Mono',monospace;
+}
+</style>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --ink:#0B1E36;
+  --ink-2:#243B5C;
+  --muted:#5C6E85;
+  --light:#8898AB;
+  --line:#E4EAF2;
+  --line-soft:#EEF2F7;
+  --bg:#FFFFFF;
+  --bg-soft:#F7FAFC;
+  --bg-tint:#F2F8FB;
+  --brand:#0B66C2;
+  --brand-dark:#084A8E;
+  --cyan:#00B4D8;
+  --cyan-soft:#E0F4F9;
+  --cyan-bg:#F2FBFD;
+  --warn:#C53030;
+  --warn-soft:#FFF1F1;
+  --amber:#B7791F;
+  --green:#1F7A4D;
+  --green-soft:#E5F5EC;
+  --gold:#B7791F;
+}
+html,body{background:#fff}
+body{font-family:var(--sans);font-size:17px;line-height:1.6;color:var(--ink);-webkit-font-smoothing:antialiased}
+/* Universal serif/mono mapping so all uses of named families fall back gracefully */
+[class*="hb-"], h1, h2, .pub-name, .pub-mark, .ic-circle, .step-n, .pullquote, .receipt-title, .receipt-total, .receipt-total .num, .testi blockquote, .bridge-title, .offer-name, .offer-price, .g-seal, .doctor-avatar, .byline-avatar, .num-card .ic-circle, .seg-val, .mc-num, .receipt-foot strong, .divider-mark, .costchart-title, .hero-arb-line, .hero-arb-amt, .rating-num, .photo-ph, .scene .scene-cap strong{font-family:inherit}
+h1,h2,h3{font-family:var(--serif)}
+.cta-primary, h3, .cmp-tag, .pub-name small, .pub-sponsor, .top-bar, .kicker, .softlist-title, .num-card .body h3, .step-body h3, .app-mock-title, .app-mock-time, .mc-name, .mc-pill, .acc-name, .acc-row.head, .app-recommend-head, .app-recommend-body, .seg-label, .seg-tag, .cmp-pricerow, .cmp-feats, .cmp-takeaway, .tl-week, .tl-h, .tl-p, .tl-stat, .proof-band .pb-num, .proof-band .pb-label, .testi-author, .testi-badge, .bridge-label, .offer-tag, .offer-tagline, .offer-orig, .offer-save, .offer-perks, .g-title, .g-body, .faq-q, .faq-a, .doctor-name, .doctor-cred, .doctor-quote, .press-label, .press-logos, .footer, .sticky-meta, .sticky-cta a, .urgency, .risk-strip, .rating-strip, .friction-text, .friction-time, .cc-name, .cc-bar, .cc-amount, .cc-foot, .acc-val, .acc-delta, .receipt-rows, .hero-arb-eye, .hero-arb-stamp, .hero-arb-cap, .hero-arb-foot, .receipt-label, .ph-tag, .byline-meta{font-family:var(--sans)}
+h1, h2, .pub-name, .pub-brand .pub-mark, .step-n, .pullquote, .receipt-title, .receipt-total .num, .testi blockquote, .bridge-title, .offer-name, .offer-price, .g-seal, .doctor-avatar, .byline-avatar, .num-card .ic-circle, .seg-val, .mc-num, .divider-mark, .costchart-title, .hero-arb-line, .hero-arb-amt, .rating-num, .scene .scene-cap strong{font-family:var(--serif)}
+.receipt-rows, .receipt-row, .receipt-row .amt, .acc-val, .acc-delta, .acc-name, .friction-time, .cc-bar, .cc-amount, .hero-arb-amt{font-feature-settings:"tnum"}
+.receipt-rows, .receipt-row, .receipt-row .amt, .acc-val, .acc-delta, .friction-time, .cc-bar, .cc-amount{font-family:var(--mono)}
+
+/* TOP BAR */
+.top-bar{position:sticky;top:0;z-index:50;background:var(--ink);color:#fff;padding:11px 16px;text-align:center;font-size:13.5px;font-weight:500;letter-spacing:.005em;display:flex;justify-content:center;align-items:center;gap:7px}
+.top-bar .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);flex-shrink:0;box-shadow:0 0 0 3px rgba(0,180,216,.18)}
+
+.wrap{max-width:100%;margin:0 auto;background:#fff;min-height:100vh}
+@media(min-width:600px){.wrap{max-width:680px;box-shadow:0 0 50px rgba(11,30,54,.06);border-left:1px solid var(--line-soft);border-right:1px solid var(--line-soft)}}
+body{background:#F2F4F8}
+@media(max-width:599px){body{background:#fff}}
+
+/* PUB HEADER */
+.pub-header{padding:14px 18px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pub-brand{display:flex;align-items:center;gap:9px}
+.pub-mark{width:26px;height:26px;border-radius:7px;background:var(--ink);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Lora',serif;font-weight:700;font-size:14px;letter-spacing:-.02em}
+.pub-name{font-family:'Lora',serif;font-size:15.5px;font-weight:700;color:var(--ink);letter-spacing:-.2px;line-height:1.1}
+.pub-name small{display:block;font-family:'Inter',sans-serif;font-size:9.5px;font-weight:600;color:var(--light);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+.pub-sponsor{font-size:9.5px;color:var(--light);font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-align:right;line-height:1.4}
+.pub-sponsor strong{color:var(--ink-2);font-weight:700}
+
+/* ARTICLE */
+article{padding:0 18px 36px}
+.kicker{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:.12em;margin:22px 0 10px;background:var(--cyan-soft);padding:5px 10px;border-radius:20px}
+.kicker .k-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan)}
+
+h1{font-family:'Lora',serif;font-size:32px;font-weight:700;line-height:1.15;color:var(--ink);margin-bottom:14px;letter-spacing:-.5px;text-wrap:balance}
+.dek{font-size:17px;color:var(--muted);line-height:1.5;margin-bottom:20px;text-wrap:pretty}
+h2{font-family:'Lora',serif;font-size:26px;font-weight:700;color:var(--ink);margin:36px 0 14px;line-height:1.22;letter-spacing:-.3px;text-wrap:balance}
+h3{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;color:var(--ink);margin:18px 0 6px}
+p{margin-bottom:14px;color:var(--ink);font-size:16.5px;line-height:1.6}
+p.lead{font-size:17.5px}
+
+.byline{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);margin:0 0 18px}
+.byline-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#A0AEC0,#5C6E85);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;font-family:'Lora',serif;flex-shrink:0}
+.byline-meta{font-size:12px;color:var(--light);line-height:1.4}
+.byline-meta strong{color:var(--ink-2);font-weight:700}
+
+/* HERO COST RECEIPT — replaces breakdown bar */
+.receipt{background:var(--ink);color:#fff;border-radius:14px;padding:20px;margin:18px 0 0;position:relative;overflow:hidden}
+.receipt::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,rgba(0,180,216,.18),transparent 60%);pointer-events:none}
+.receipt-label{font-size:10.5px;color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin-bottom:6px;position:relative;display:flex;justify-content:space-between;align-items:center}
+.receipt-label .stamp{background:rgba(229,57,70,.18);color:#FEB2B2;padding:3px 8px;border-radius:4px;font-size:9.5px;letter-spacing:.08em}
+.receipt-title{font-family:'Lora',serif;font-size:18px;font-weight:700;line-height:1.3;margin-bottom:14px;position:relative}
+.receipt-rows{font-family:'JetBrains Mono',monospace;font-size:12px;position:relative}
+.receipt-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.13);color:rgba(255,255,255,.85);align-items:baseline}
+.receipt-row:last-of-type{border-bottom:none}
+.receipt-row .desc{flex:1;padding-right:12px;letter-spacing:-.01em}
+.receipt-row .amt{font-weight:700;color:#fff;font-variant-numeric:tabular-nums;flex-shrink:0}
+.receipt-total{display:flex;justify-content:space-between;margin-top:10px;padding-top:12px;border-top:2px solid rgba(255,255,255,.4);font-family:'Lora',serif;font-size:22px;font-weight:700;color:#fff;align-items:baseline;position:relative}
+.receipt-total .lbl{font-family:'Inter',sans-serif;font-size:11px;font-weight:800;color:var(--cyan);text-transform:uppercase;letter-spacing:.14em;align-self:center}
+.receipt-total .num{font-family:'Lora',serif;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.receipt-foot{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1);font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.85);line-height:1.5;position:relative}
+.receipt-foot strong{color:#fff}
+
+/* SHOCK STAT CARD */
+.shock-card{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:20px;margin:16px 0;display:flex;align-items:center;gap:18px;box-shadow:0 1px 0 rgba(11,30,54,.02)}
+.shock-num{font-family:'Lora',serif;font-size:54px;font-weight:700;line-height:1;color:#E63946;letter-spacing:-.04em;flex-shrink:0}
+.shock-num small{font-size:18px;color:var(--light);font-weight:600;display:block;margin-top:2px;letter-spacing:0}
+.shock-text{font-size:14.5px;line-height:1.45;color:var(--ink-2)}
+.shock-text strong{color:var(--ink);font-weight:800}
+
+/* CTA */
+.cta-primary{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--brand);color:#fff;font-size:17px;font-weight:700;padding:19px 22px;border-radius:14px;text-align:center;text-decoration:none;margin:20px 0 8px;width:100%;min-height:56px;box-shadow:0 8px 22px rgba(11,102,194,.3);transition:all .15s}
+.cta-primary:active{background:var(--brand-dark);transform:translateY(1px)}
+.cta-primary .arrow{display:inline-block;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.18);text-align:center;line-height:20px;font-size:12px;flex-shrink:0}
+.cta-sub{text-align:center;font-size:11.5px;color:var(--light);margin:0 0 4px;line-height:1.5}
+.cta-sub .pip{margin:0 5px;color:var(--line)}
+
+.story-block{margin:14px 0}
+.story-block p{margin-bottom:11px}
+
+/* SOFT CHECKLIST */
+.softlist{background:var(--bg-tint);border:1px solid var(--cyan-soft);border-radius:12px;padding:16px 18px;margin:18px 0}
+.softlist-title{font-size:11px;font-weight:800;color:var(--brand-dark);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.softlist-item{display:flex;gap:10px;margin-bottom:9px;font-size:14px;line-height:1.5;align-items:flex-start;color:var(--ink-2)}
+.softlist-item:last-child{margin-bottom:0}
+.softlist-item .ic{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:#fff;border:1.5px solid var(--cyan);display:flex;align-items:center;justify-content:center;color:var(--brand);font-weight:800;font-size:11px;margin-top:1px}
+
+/* COST PER SCAN BAR-CHART (signature visual) */
+.costchart{margin:20px 0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.costchart-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px}
+.costchart-title{font-family:'Lora',serif;font-size:17px;font-weight:700;color:var(--ink);line-height:1.25;letter-spacing:-.2px;text-wrap:balance}
+.costchart-sub{font-size:11px;color:var(--light);font-weight:600;text-align:right;line-height:1.3;flex-shrink:0;margin-left:10px}
+.cc-row{display:grid;grid-template-columns:90px 1fr 70px;gap:10px;align-items:center;margin-bottom:9px;font-size:12.5px}
+.cc-name{font-weight:700;color:var(--ink-2);line-height:1.2}
+.cc-name small{display:block;font-weight:500;color:var(--light);font-size:10px;margin-top:2px;letter-spacing:.02em}
+.cc-bar-wrap{height:30px;background:var(--bg-soft);border-radius:6px;overflow:hidden;position:relative;border:1px solid var(--line-soft)}
+.cc-bar{height:100%;display:flex;align-items:center;padding:0 10px;color:#fff;font-weight:700;font-size:11.5px;border-radius:5px;font-family:'JetBrains Mono',monospace;letter-spacing:-.02em}
+.cc-bar.dexa{background:linear-gradient(90deg,#7B1F1F,#C53030);width:100%}
+.cc-bar.bodpod{background:linear-gradient(90deg,#7B5A1F,#B7791F);width:62%}
+.cc-bar.inbody{background:linear-gradient(90deg,#1F4A7B,#3170B7);width:42%}
+.cc-bar.pod{background:linear-gradient(90deg,#0B66C2,#00B4D8);width:8%;font-size:10px;padding:0 6px;min-width:54px}
+.cc-amount{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--ink);text-align:right;font-size:12px;letter-spacing:-.02em}
+.cc-amount span{display:block;font-size:9.5px;color:var(--light);font-weight:500;font-family:'Inter',sans-serif;margin-top:1px;letter-spacing:.02em}
+.cc-foot{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:11.5px;color:var(--muted);line-height:1.5;font-style:italic}
+.cc-foot strong{color:var(--ink-2);font-style:normal;font-weight:700}
+
+/* 3 NUMBERS LISTICLE MODULE */
+.numbers-block{margin:22px 0}
+.num-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start;transition:border-color .15s}
+.num-card:hover{border-color:var(--cyan)}
+.num-card .ic-circle{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--cyan-soft),#fff);border:1px solid var(--cyan-soft);display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-weight:700;font-size:18px;color:var(--brand-dark)}
+.num-card .body{flex:1;min-width:0}
+.num-card .body h3{margin:0 0 4px;font-size:15px;letter-spacing:-.1px}
+.num-card .body p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55}
+
+/* FRICTION TIMELINE (DEXA logistics) */
+.friction-list{margin:18px 0;border-left:2px solid var(--line);padding-left:18px;position:relative}
+.friction-item{margin-bottom:14px;position:relative}
+.friction-item::before{content:'';position:absolute;left:-25px;top:5px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid #E63946;box-shadow:0 0 0 3px rgba(229,57,70,.12)}
+.friction-item:last-child{margin-bottom:0}
+.friction-time{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#E63946;font-weight:700;letter-spacing:.04em;margin-bottom:3px;text-transform:uppercase}
+.friction-text{font-size:14px;color:var(--ink-2);line-height:1.5}
+.friction-text strong{color:var(--ink);font-weight:700}
+
+/* 3-STEP HOW IT WORKS */
+.steps{display:grid;grid-template-columns:1fr;gap:10px;margin:18px 0}
+.step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;gap:14px;align-items:flex-start;position:relative}
+.step-n{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-weight:700;font-size:16px}
+.step-body h3{margin:0 0 3px;font-size:14.5px}
+.step-body p{margin:0;font-size:13px;color:var(--muted);line-height:1.55}
+
+/* APP UI MOCK */
+.app-mock{background:linear-gradient(180deg,var(--ink) 0%,#142a47 100%);border-radius:18px;padding:18px;margin:18px 0;color:#fff;position:relative;overflow:hidden}
+.app-mock::before{content:'';position:absolute;top:-30%;right:-30%;width:160%;height:160%;background:radial-gradient(circle at center,rgba(0,180,216,.12),transparent 50%);pointer-events:none}
+.app-mock-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;position:relative}
+.app-mock-title{font-size:11px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.12em}
+.app-mock-time{font-size:11px;color:rgba(255,255,255,.6);font-weight:600}
+.metric-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:11px 13px;margin-bottom:7px;display:flex;justify-content:space-between;align-items:center;position:relative;backdrop-filter:blur(8px)}
+.mc-left{display:flex;align-items:center;gap:11px;min-width:0;flex:1}
+.mc-bar{width:3px;height:32px;border-radius:2px;flex-shrink:0}
+.mc-bar.red{background:#FC8181}
+.mc-bar.amber{background:#F6AD55}
+.mc-bar.green{background:#68D391}
+.mc-name{font-size:13px;font-weight:600;color:#fff;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-name small{display:block;font-size:10.5px;color:rgba(255,255,255,.55);font-weight:500;margin-top:2px;letter-spacing:.02em}
+.mc-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.mc-num{font-family:'Lora',serif;font-size:15px;font-weight:700;color:#fff}
+.mc-num span{font-size:11px;color:rgba(255,255,255,.6);font-weight:500;margin-left:2px}
+.mc-pill{font-size:9.5px;font-weight:800;padding:2px 7px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase}
+.mc-pill.red{background:rgba(252,129,129,.18);color:#FEB2B2}
+.mc-pill.amber{background:rgba(246,173,85,.18);color:#FBD38D}
+.mc-pill.green{background:rgba(104,211,145,.18);color:#9AE6B4}
+.app-recommend{background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.3);border-radius:10px;padding:12px 13px;margin-top:10px;position:relative}
+.app-recommend-head{font-size:10px;font-weight:800;color:var(--cyan);text-transform:uppercase;letter-spacing:.12em;margin-bottom:5px}
+.app-recommend-body{font-size:12.5px;color:rgba(255,255,255,.92);line-height:1.5}
+.app-recommend-body strong{color:#fff;font-weight:700}
+
+/* ACCURACY DELTA INLINE */
+.accuracy{background:rgba(255,255,255,.04);border-radius:10px;padding:14px;margin-top:7px;position:relative}
+.acc-head{font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;font-weight:700}
+.acc-row{display:grid;grid-template-columns:1fr 60px 60px 50px;gap:8px;align-items:center;font-size:11.5px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.acc-row:last-of-type{border-bottom:none}
+.acc-row.head{font-size:9.5px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;font-weight:700;border-bottom-color:rgba(255,255,255,.12);padding-bottom:8px}
+.acc-name{font-weight:600;color:rgba(255,255,255,.92);line-height:1.2;font-size:12px}
+.acc-val{font-family:'JetBrains Mono',monospace;font-weight:700;color:#fff;text-align:right;font-size:12px;font-variant-numeric:tabular-nums}
+.acc-delta{font-family:'JetBrains Mono',monospace;font-weight:700;text-align:right;font-size:11.5px;color:#9AE6B4}
+.acc-delta.amber{color:#FBD38D}
+
+/* STACK COMPARE CARDS */
+.compare-stack{margin:18px 0}
+.cmp-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:10px;background:#fff;position:relative}
+.cmp-card.featured{border:2px solid var(--brand);background:var(--bg-tint);box-shadow:0 4px 18px rgba(11,102,194,.06)}
+.cmp-card .cmp-tag{display:inline-block;font-size:10px;font-weight:800;color:var(--light);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.cmp-card.featured .cmp-tag{background:var(--brand);color:#fff;padding:3px 9px;border-radius:20px;letter-spacing:.06em}
+.cmp-name{font-family:'Lora',serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:6px;letter-spacing:-.2px}
+.cmp-pricerow{font-size:13px;color:var(--muted);margin-bottom:10px}
+.cmp-pricerow strong{color:var(--ink-2);font-weight:700}
+.cmp-feats{list-style:none;font-size:13.5px}
+.cmp-feats li{padding:5px 0;display:flex;gap:9px;align-items:flex-start;color:var(--ink-2);line-height:1.5}
+.cmp-feats li::before{content:'';flex-shrink:0;width:14px;height:14px;border-radius:50%;background:var(--green-soft);position:relative;margin-top:3px}
+.cmp-feats li.x::before{background:#FFE7E7}
+.cmp-feats li::after{content:'✓';position:absolute;color:var(--green);font-size:9px;font-weight:800;margin-left:3px;margin-top:5px}
+.cmp-feats li.x::after{content:'×';color:#C53030;font-size:11px;margin-top:3.5px}
+.cmp-takeaway{margin-top:10px;padding-top:10px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--muted);font-style:italic}
+.cmp-takeaway strong{color:var(--ink-2);font-style:normal;font-weight:700}
+
+/* PULL QUOTE */
+.pullquote{font-family:'Lora',serif;font-size:20px;font-style:italic;color:var(--ink);line-height:1.4;margin:24px 8px;text-align:center;text-wrap:balance;letter-spacing:-.1px;position:relative;padding:0 18px}
+.pullquote::before{content:'"';color:var(--cyan);font-size:38px;font-weight:700;position:absolute;left:0;top:-8px;line-height:1}
+
+/* PROOF STAT BAND */
+.proof-band{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:18px 0}
+.proof-band .pb{background:#fff;padding:14px 8px;text-align:center}
+.proof-band .pb-num{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--brand-dark);line-height:1;letter-spacing:-.5px}
+.proof-band .pb-num span{font-size:13px;color:var(--muted);font-weight:600}
+.proof-band .pb-label{font-size:10.5px;color:var(--muted);margin-top:5px;line-height:1.35;font-weight:500}
+
+/* TESTIMONIALS */
+.testi{background:var(--bg-soft);border-radius:12px;padding:14px 16px;margin-bottom:10px;border:1px solid var(--line-soft)}
+.testi-stars{color:var(--amber);font-size:12px;margin-bottom:6px;letter-spacing:1.5px}
+.testi blockquote{font-size:14px;font-style:italic;color:var(--ink-2);line-height:1.55;margin-bottom:10px}
+.testi-author{font-size:11.5px;font-weight:700;color:var(--light);display:flex;align-items:center;gap:8px;flex-wrap:wrap;letter-spacing:.01em}
+.testi-badge{display:inline-block;background:var(--green-soft);color:var(--green);font-size:9.5px;font-weight:800;padding:2px 6px;border-radius:3px;letter-spacing:.04em}
+
+/* BRIDGE */
+.bridge{background:var(--bg-tint);border-radius:14px;padding:18px;margin:22px 0;text-align:center;border:1px solid var(--cyan-soft)}
+.bridge-label{font-size:10.5px;font-weight:800;color:var(--brand);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+.bridge-title{font-family:'Lora',serif;font-size:17px;font-weight:700;color:var(--ink);line-height:1.35;text-wrap:balance}
+
+/* OFFER */
+.offer-card{background:linear-gradient(180deg,#fff,var(--bg-tint));border:2px solid var(--brand);border-radius:18px;padding:22px 20px;margin:20px 0;position:relative;box-shadow:0 8px 28px rgba(11,102,194,.08)}
+.offer-tag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:10.5px;font-weight:800;padding:4px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.offer-name{font-family:'Lora',serif;font-size:21px;font-weight:700;color:var(--ink);text-align:center;margin-bottom:4px;letter-spacing:-.3px}
+.offer-tagline{font-size:13px;color:var(--muted);text-align:center;margin-bottom:14px;line-height:1.5}
+.offer-pricerow{display:flex;align-items:baseline;justify-content:center;gap:10px;margin-bottom:4px}
+.offer-price{font-family:'Lora',serif;font-size:42px;font-weight:700;color:var(--ink);line-height:1;letter-spacing:-.02em}
+.offer-orig{font-size:18px;text-decoration:line-through;color:var(--light);font-weight:500}
+.offer-save{font-size:11.5px;font-weight:800;color:var(--warn);background:#FFE7E7;padding:3px 9px;border-radius:20px;text-align:center;display:inline-block;margin:6px auto 14px;letter-spacing:.04em}
+.offer-savewrap{text-align:center}
+.offer-perks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:7px 14px;margin:14px 0 18px;border-top:1px solid var(--line);padding-top:14px}
+.offer-perks li{font-size:12.5px;color:var(--ink-2);display:flex;align-items:flex-start;gap:6px;line-height:1.4}
+.offer-perks li::before{content:'✓';color:var(--green);font-weight:800;font-size:13px;flex-shrink:0}
+
+/* GUARANTEE */
+.guarantee{display:flex;gap:12px;align-items:center;padding:14px 16px;background:var(--bg-soft);border-radius:12px;margin:18px 0;border:1px solid var(--line-soft)}
+.g-seal{flex-shrink:0;width:52px;height:52px;border-radius:50%;background:#fff;border:2px solid var(--brand);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Lora',serif;font-weight:800;color:var(--brand-dark);line-height:1;text-align:center}
+.g-seal small{font-size:8.5px;font-weight:700;color:var(--muted);margin-top:1px;letter-spacing:.04em}
+.g-text{flex:1;min-width:0}
+.g-title{font-weight:700;font-size:13.5px;margin-bottom:2px;color:var(--ink)}
+.g-body{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* FAQ */
+.faq{margin:18px 0}
+.faq-item{border-top:1px solid var(--line-soft);padding:14px 0}
+.faq-item:last-child{border-bottom:1px solid var(--line-soft)}
+.faq-q{font-weight:700;font-size:14px;color:var(--ink);margin-bottom:5px;line-height:1.4;display:flex;gap:8px}
+.faq-q::before{content:'Q';font-family:'Lora',serif;color:var(--brand);font-weight:700;flex-shrink:0;font-size:13px}
+.faq-a{font-size:13.5px;color:var(--muted);line-height:1.6;padding-left:20px}
+
+/* DOCTOR */
+.doctor{display:flex;gap:12px;align-items:flex-start;background:var(--bg-soft);border-radius:12px;padding:14px;margin:18px 0;border:1px solid var(--line-soft)}
+.doctor-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;font-family:'Lora',serif;font-weight:700}
+.doctor-name{font-weight:700;font-size:13px;margin-bottom:1px;color:var(--ink)}
+.doctor-cred{font-size:11px;color:var(--light);margin-bottom:5px;font-weight:500}
+.doctor-quote{font-size:13px;font-style:italic;color:var(--muted);line-height:1.55}
+
+/* PRESS */
+.press{margin:20px 0;padding:14px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.press-label{font-size:10px;color:var(--light);text-transform:uppercase;letter-spacing:.16em;text-align:center;margin-bottom:10px;font-weight:700}
+.press-logos{display:flex;justify-content:space-between;align-items:center;color:var(--ink-2);gap:12px;flex-wrap:wrap}
+.press-logos span{font-family:'Lora',serif;font-weight:700;font-size:13px;opacity:.6;flex:1;text-align:center}
+.press-logos span.alt{font-family:'Inter',sans-serif;font-weight:800;font-style:normal;letter-spacing:-.4px}
+
+/* FOOTER */
+.footer{background:var(--bg-soft);padding:18px;border-top:1px solid var(--line);font-size:10.5px;color:var(--light);line-height:1.55}
+.footer p{margin-bottom:8px;font-size:10.5px}
+.footer p strong{color:var(--ink-2);font-weight:700}
+.footer a{color:var(--brand);text-decoration:none}
+
+/* DIVIDER */
+.divider{display:flex;align-items:center;gap:10px;margin:26px 0 6px;color:var(--line)}
+.divider::before,.divider::after{content:'';flex:1;border-top:1px solid currentColor}
+.divider-mark{font-family:'Lora',serif;color:var(--brand);font-style:italic;font-size:13px;letter-spacing:.01em}
+
+/* STICKY CTA */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .25s ease;display:flex;align-items:center;gap:10px;max-width:520px;margin:0 auto;box-shadow:0 -8px 24px rgba(11,30,54,.08)}
+.sticky-cta.visible{transform:translateY(0)}
+.sticky-meta{flex:1;min-width:0;font-size:11.5px;color:var(--muted);line-height:1.3}
+.sticky-meta strong{display:block;color:var(--ink);font-size:13px;font-weight:700;margin-bottom:1px}
+.sticky-cta a{flex-shrink:0;background:var(--brand);color:#fff;font-size:13.5px;font-weight:700;padding:11px 14px;border-radius:10px;text-decoration:none;white-space:nowrap;box-shadow:0 4px 12px rgba(11,102,194,.28)}
+@media(max-width:380px){.sticky-meta{font-size:11px}.sticky-cta a{font-size:12.5px;padding:10px 12px}}
+.sticky-spacer{height:80px}
+
+/* IMAGES */
+.fb-img{margin:24px -18px;display:block;background:var(--bg-soft);position:relative;overflow:hidden}
+.fb-img img{width:100%;height:auto;display:block}
+.fb-img.tight{margin-top:14px}
+.fb-img .fb-cap{padding:10px 18px 4px;font-size:12px;color:var(--light);font-style:italic;text-align:center;line-height:1.5;background:#fff}
+.fb-img .fb-cap strong{color:var(--ink-2);font-style:normal;font-weight:600}
+
+@media (max-width:480px){article{padding:0 18px 36px !important}}
+@media(min-width:600px){article{padding:0 28px 36px}}
+
+/* HERO ARBITRAGE — replaces generic product shot above fold */
+.hero-arb{margin:18px 0 0;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#0B1E36 0%,#162E4D 100%);color:#fff;position:relative;box-shadow:0 12px 36px rgba(11,30,54,.18)}
+.hero-arb::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 90% 10%,rgba(0,180,216,.22),transparent 55%);pointer-events:none}
+.hero-arb-top{padding:18px 20px 14px;text-align:center;border-bottom:1px dashed rgba(255,255,255,.16);position:relative}
+.hero-arb-eye{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cyan);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.hero-arb-eye::before,.hero-arb-eye::after{content:'·';margin:0 6px;color:rgba(0,180,216,.5)}
+.hero-arb-line{font-family:'Lora',serif;font-size:15px;font-weight:600;color:rgba(255,255,255,.92);line-height:1.35;text-wrap:balance}
+.hero-arb-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;position:relative}
+.hero-arb-side{padding:20px 16px 22px;text-align:center;position:relative}
+.hero-arb-side.spent{background:rgba(229,57,70,.08)}
+.hero-arb-side.pod{background:rgba(0,180,216,.08)}
+.hero-arb-stamp{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-bottom:8px}
+.hero-arb-side.spent .hero-arb-stamp{background:rgba(229,57,70,.22);color:#FEB2B2;border:1px solid rgba(229,57,70,.35)}
+.hero-arb-side.pod .hero-arb-stamp{background:rgba(0,180,216,.18);color:#9DEAF7;border:1px solid rgba(0,180,216,.4)}
+.hero-arb-amt{font-family:'Lora',serif;font-size:42px;font-weight:700;line-height:1;letter-spacing:-.04em;color:#fff;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.hero-arb-amt.struck{position:relative;color:rgba(255,255,255,.55)}
+.hero-arb-amt.struck::after{content:'';position:absolute;left:-4px;right:-4px;top:52%;height:3px;background:#E63946;transform:rotate(-8deg);border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.hero-arb-cap{font-size:11.5px;color:rgba(255,255,255,.7);line-height:1.4;letter-spacing:.01em}
+.hero-arb-cap strong{color:#fff;font-weight:700}
+.hero-arb-arrow{display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:22px;font-weight:700;width:36px;background:rgba(0,180,216,.06);border-left:1px dashed rgba(255,255,255,.16);border-right:1px dashed rgba(255,255,255,.16);font-family:'Lora',serif}
+.hero-arb-foot{padding:12px 18px;background:rgba(0,0,0,.18);font-size:11.5px;color:rgba(255,255,255,.85);text-align:center;line-height:1.5;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;position:relative}
+.hero-arb-foot strong{color:#fff;font-weight:700}
+.hero-arb-foot .pip{color:var(--cyan)}
+
+/* RATING STRIP under byline */
+.rating-strip{display:flex;align-items:center;gap:10px;padding:10px 0 14px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.rating-stars{color:var(--gold);font-size:14px;letter-spacing:1px}
+.rating-num{font-family:'Lora',serif;font-weight:700;color:var(--ink);font-size:14px}
+.rating-meta{font-size:11.5px;color:var(--light);font-weight:500}
+.rating-divider{color:var(--line);font-weight:400}
+.rating-meta strong{color:var(--ink-2);font-weight:700}
+
+/* URGENCY STRIP */
+.urgency{display:flex;align-items:center;gap:10px;padding:11px 14px;background:#FFF6E5;border:1px solid #F4D9A0;border-radius:10px;margin:14px 0;font-size:12.5px;color:#7A4F0F;line-height:1.4}
+.urgency .pulse{flex-shrink:0;width:8px;height:8px;border-radius:50%;background:#E63946;box-shadow:0 0 0 4px rgba(229,57,70,.18);animation:pulseDot 1.6s ease-in-out infinite}
+.urgency strong{color:#5A3A0B;font-weight:800}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 4px rgba(229,57,70,.18)}50%{box-shadow:0 0 0 7px rgba(229,57,70,.05)}}
+
+/* RISK STRIP under CTAs */
+.risk-strip{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:6px 0 4px;font-size:11px;color:var(--muted);font-weight:600}
+.risk-strip span{display:inline-flex;align-items:center;gap:5px}
+.risk-strip span::before{content:'✓';color:var(--green);font-weight:800;font-size:12px}
+
+/* SVG receipt stack icon for hero */
+.hero-arb-icon{margin:0 auto 8px;width:48px;height:36px;position:relative;opacity:.85}
+
+@media(min-width:768px){.timeline-grid{grid-template-columns:repeat(4,1fr);gap:14px}}
+@media(min-width:768px){.compare-stack{display:grid;grid-template-columns:1fr 1fr;gap:14px}.compare-stack .cmp-card{margin-bottom:0}}
+@media(min-width:768px){.offer-perks{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.sticky-cta{max-width:760px}}
+
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar" data-screen-label="Top bar">
+  <span class="dot"></span>
+  <span>The clinic-grade scan you don't need an appointment for. Now $349 AUD this week.</span>
+</div>
+
+<div class="wrap" data-screen-label="01 DEXA cost advertorial">
+
+  <!-- PUB HEADER -->
+  <header class="pub-header">
+    <div class="pub-brand">
+      <div class="pub-mark">H</div>
+      <div class="pub-name">Hume Health Journal<small>Body Composition Stories</small></div>
+    </div>
+    <div class="pub-sponsor">Sponsored<br><strong>by Hume Health</strong></div>
+  </header>
+
+  <article>
+
+    <!-- HOOK -->
+    <span class="kicker"><span class="k-dot"></span>Reader Story · Cost Audit</span>
+
+    <h1>I spent $1,200 on DEXA scans in 18 months. Here's what I wish I'd bought instead.</h1>
+
+    <p class="dek">Twelve appointments. Three different clinics. Six week waitlists. Then I worked out what I'd actually paid for — and what I should've bought on day one.</p>
+
+    <div class="byline">
+      <span class="byline-avatar">EK</span>
+      <span class="byline-meta"><strong>Emma K., 41</strong> · as told to Hume Health Journal<br>5 min read · May 9, 2026 · Brisbane, AUS</span>
+    </div>
+
+    <!-- RATING STRIP -->
+    <div class="rating-strip">
+      <span class="rating-stars">★★★★★</span>
+      <span class="rating-num">4.8</span>
+      <span class="rating-meta"><strong>2,847</strong> verified reviews</span>
+      <span class="rating-divider">·</span>
+      <span class="rating-meta"><strong>12,000+</strong> clinics worldwide</span>
+    </div>
+
+    <!-- HERO ARBITRAGE — replaces product shot -->
+    <div class="hero-arb" aria-label="Cost arbitrage: $1,200 spent on DEXA versus $349 for Hume Pod">
+      <div class="hero-arb-top">
+        <div class="hero-arb-eye">The actual maths</div>
+        <div class="hero-arb-line">If I'd bought a Hume Pod the morning of my first DEXA, I'd be $851 ahead — and 11 appointments freer.</div>
+      </div>
+      <div class="hero-arb-grid">
+        <div class="hero-arb-side spent">
+          <div class="hero-arb-stamp">What I paid</div>
+          <div class="hero-arb-amt struck">$1,200</div>
+          <div class="hero-arb-cap"><strong>12 DEXA scans</strong><br>over 18 months</div>
+        </div>
+        <div class="hero-arb-arrow" aria-hidden="true">→</div>
+        <div class="hero-arb-side pod">
+          <div class="hero-arb-stamp">What it costs once</div>
+          <div class="hero-arb-amt">$349</div>
+          <div class="hero-arb-cap"><strong>Hume Pod · paid once</strong><br>unlimited scans, forever</div>
+        </div>
+      </div>
+      <div class="hero-arb-foot"><strong>Less than 4 DEXA visits.</strong><span class="pip">·</span>±3% of clinic accuracy<span class="pip">·</span>30 seconds at home</div>
+    </div>
+
+    <!-- IMG: PRODUCT HERO — above fold so reader sees what the Pod IS -->
+    <figure class="fb-img">
+      <img src="assets/images/hero.png" alt="The Hume Pod with retractable handles, alongside the Hume app showing limb-by-limb body composition." loading="eager">
+      <figcaption class="fb-cap"><strong>The Hume Pod.</strong> Step on, grab the handles, 30 seconds. Same numbers as the clinic — without the clinic.</figcaption>
+    </figure>
+
+    <!-- HERO RECEIPT -->
+    <div class="receipt">
+      <div class="receipt-label"><span>18-month DEXA receipt · AUD</span><span class="stamp">PAID IN FULL</span></div>
+      <div class="receipt-title">Twelve scans. One number that barely moved.</div>
+      <div class="receipt-rows">
+        <div class="receipt-row"><span class="desc">DEXA scans × 12 @ ~$100</span><span class="amt">$1,200.00</span></div>
+        <div class="receipt-row"><span class="desc">Parking + tolls (Brisbane CBD)</span><span class="amt">$148.00</span></div>
+        <div class="receipt-row"><span class="desc">GP referral letters × 4</span><span class="amt">$320.00</span></div>
+        <div class="receipt-row"><span class="desc">Half-days off work × 12</span><span class="amt">~$2,400</span></div>
+      </div>
+      <div class="receipt-total"><span class="lbl">True 18-mo cost</span><span class="num">~$4,068</span></div>
+      <div class="receipt-foot"><strong>And the kicker:</strong> I still didn't have weekly data, a recommendation, or anything to act on between visits.</div>
+    </div>
+
+    <!-- SHOCK STAT CARD -->
+    <div class="shock-card">
+      <div class="shock-num">±3<small>%</small></div>
+      <div class="shock-text"><strong>Independent lab Socotech tested it against medical-grade DEXA.</strong> The Hume Pod tracked within ±3% on the metrics that matter — fat mass, lean mass, total body water. The same data, on my bathroom floor, in 30 seconds.</div>
+    </div>
+
+    <!-- URGENCY -->
+    <div class="urgency">
+      <span class="pulse"></span>
+      <span><strong>523 ordered in Australia this week.</strong> Launch allocation ends Friday — the early-access price of $349 returns to $537 once the first production run sells through.</span>
+    </div>
+
+    <!-- CTA #1 — curiosity-led, price-anchored -->
+    <a href="https://humehealth.com/pages/pdp3?currency=AUD" class="cta-primary" data-cta="1">Skip Your Next DEXA — Get the Pod for $349<span class="arrow">→</span></a>
+    <div class="risk-strip"><span>45-day trial</span><span>Free AU shipping</span><span>10-yr warranty</span></div>
+
+    <!-- STORY -->
+    <h2>How I spent four grand to learn nothing</h2>
+
+    <div class="story-block">
+      <p>I'm a project manager. I track everything. So when I started taking my health seriously at 39, I went straight to the gold standard: DEXA. The first scan, two years ago, cost me $95 and twenty minutes of driving.</p>
+      <p>By the twelfth scan, I'd worked out the real number. <strong>$100 per appointment. Forty-five minutes of driving each way. A six-week wait between bookings.</strong> Twelve scans across eighteen months. A new GP referral every time my old one expired. And in between visits — nothing. Zero. I was paying for a snapshot every six weeks of a body that changes every day.</p>
+      <p>The morning I cancelled scan #13, I'd just spent forty minutes in traffic and another twenty in a waiting room, to find out my body fat had moved 0.4%. I went home and ordered a Hume Pod that afternoon.</p>
+    </div>
+
+    <!-- IMG: LIFESTYLE — human moment after the story hook -->
+    <figure class="fb-img">
+      <img src="assets/images/sunday-morning.png" alt="Person standing on the Hume Pod beside a sunlit window, holding the retractable handle." loading="lazy">
+      <figcaption class="fb-cap"><strong>06:42, Sunday morning.</strong> No referral. No drive. No waiting room. The full breakdown lands in the app before the coffee finishes brewing.</figcaption>
+    </figure>
+
+    <!-- COST PER SCAN CHART -->
+    <div class="costchart">
+      <div class="costchart-head">
+        <div class="costchart-title">What you actually pay per scan</div>
+        <div class="costchart-sub">AUD<br>per session</div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-name">DEXA<small>private clinic</small></div>
+        <div class="cc-bar-wrap"><div class="cc-bar dexa">$80–$150 + drive + wait</div></div>
+        <div class="cc-amount">~$100<span>per scan</span></div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-name">BodPod<small>sports clinic</small></div>
+        <div class="cc-bar-wrap"><div class="cc-bar bodpod">$60–$90</div></div>
+        <div class="cc-amount">~$75<span>per scan</span></div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-name">InBody<small>gym kiosk</small></div>
+        <div class="cc-bar-wrap"><div class="cc-bar inbody">$25–$50</div></div>
+        <div class="cc-amount">~$40<span>per scan</span></div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-name">Hume Pod<small>at home</small></div>
+        <div class="cc-bar-wrap"><div class="cc-bar pod">$0</div></div>
+        <div class="cc-amount">$0<span>per scan</span></div>
+      </div>
+      <div class="cc-foot"><strong>Less than three DEXA visits.</strong> Once. After that, scan as often as you want — Sunday morning, Wednesday before the gym, whenever. Trend data is what changes behaviour. Snapshots don't.</div>
+    </div>
+
+    <!-- SOFT CHECKLIST -->
+    <div class="softlist">
+      <div class="softlist-title">Sound familiar?</div>
+      <div class="softlist-item"><span class="ic">i</span><span>You've paid for at least one private DEXA in the last year</span></div>
+      <div class="softlist-item"><span class="ic">i</span><span>You wanted to scan more often, but the cost or the drive made it impossible</span></div>
+      <div class="softlist-item"><span class="ic">i</span><span>You left every appointment without a clear "do this next" — just a PDF</span></div>
+      <div class="softlist-item"><span class="ic">i</span><span>You wear an Apple Watch or Oura but still don't know your fat-vs-muscle split</span></div>
+    </div>
+
+    <!-- 3 NUMBERS LISTICLE -->
+    <h2>The 3 things I was actually paying $100 for</h2>
+
+    <div class="numbers-block">
+      <div class="num-card">
+        <div class="ic-circle">1</div>
+        <div class="body">
+          <h3>Fat mass &amp; lean mass</h3>
+          <p>The two numbers that decide everything. The Pod measured both within ±3% of DEXA in the Socotech validation report. Identical signal, no appointment.</p>
+        </div>
+      </div>
+      <div class="num-card">
+        <div class="ic-circle">2</div>
+        <div class="body">
+          <h3>Visceral fat rating</h3>
+          <p>The most useful single number my GP actually wanted. The clinic gave it to me twice a year. The Pod gives it to me every Sunday.</p>
+        </div>
+      </div>
+      <div class="num-card">
+        <div class="ic-circle">3</div>
+        <div class="body">
+          <h3>Segmental body composition</h3>
+          <p>Left arm vs. right arm. Left leg vs. right leg. The clinic charged me $30 extra for this. The Pod includes it standard, plus 42 other metrics.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRICTION TIMELINE -->
+    <h2>The hidden cost of a "$100 scan"</h2>
+    <p style="margin-bottom:6px;color:var(--muted);font-size:14.5px">A DEXA appointment isn't a 20-minute scan. Here's what it actually looked like for me.</p>
+
+    <div class="friction-list">
+      <div class="friction-item">
+        <div class="friction-time">2 weeks before</div>
+        <div class="friction-text"><strong>Book GP appointment</strong> for a new referral — the old one expired after 12 months.</div>
+      </div>
+      <div class="friction-item">
+        <div class="friction-time">1 week before</div>
+        <div class="friction-text"><strong>Wait on hold</strong> with the radiology clinic for a slot. Earliest opening: 4 weeks out.</div>
+      </div>
+      <div class="friction-item">
+        <div class="friction-time">Day-of: 06:30</div>
+        <div class="friction-text"><strong>Skip breakfast</strong>, no caffeine, no exercise. Drive 45 minutes to the CBD.</div>
+      </div>
+      <div class="friction-item">
+        <div class="friction-time">Day-of: 08:00</div>
+        <div class="friction-text"><strong>Sit in the waiting room</strong> for 25 minutes past my appointment time.</div>
+      </div>
+      <div class="friction-item">
+        <div class="friction-time">Day-of: 08:25</div>
+        <div class="friction-text"><strong>Lie on the table</strong> for 12 minutes. Receive a 4-page PDF by email three days later.</div>
+      </div>
+      <div class="friction-item">
+        <div class="friction-time">Repeat × 12</div>
+        <div class="friction-text"><strong>For eighteen months.</strong> Every six weeks. To watch one number drift by less than a percentage point.</div>
+      </div>
+    </div>
+
+    <!-- HOW POD WORKS -->
+    <h2>What I do now — every Sunday, 60 seconds</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-body">
+          <h3>Step on the Pod</h3>
+          <p>Bare feet. Sits flat in any bathroom. Eight sensors complete the circuit through your feet.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-body">
+          <h3>Lift the handles</h3>
+          <p>Two retractable handles add another four sensors — the upgrade that makes limb-by-limb analysis possible.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-body">
+          <h3>See 45 metrics in 30 seconds</h3>
+          <p>Fat, lean mass, visceral fat, hydration, metabolic age, segmental breakdown — in the app, with a colour-coded plan.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA #2 — value-led -->
+    <a href="https://humehealth.com/pages/pdp3?currency=AUD" class="cta-primary" data-cta="2">Skip Your Next DEXA — Get the Pod for $349<span class="arrow">→</span></a>
+    <div class="risk-strip"><span>45-day trial</span><span>No subscription</span><span>Free AU shipping</span></div>
+
+    <!-- IMG: BENEFITS -->
+    <figure class="fb-img">
+      <img src="assets/images/benefits.png" alt="A person standing on the Hume Pod, hands on the retractable handles, completing a 30-second scan." loading="lazy">
+      <figcaption class="fb-cap">The two retractable handles are what put it on par with the clinic kit. Step on, lift, done.</figcaption>
+    </figure>
+
+    <!-- APP MOCK + ACCURACY -->
+    <h2>Same data. Side by side.</h2>
+    <p style="margin-bottom:6px">My last DEXA scan was March 14. My first Hume scan was March 17. I lined them up.</p>
+
+    <div class="app-mock" aria-label="Hume vs DEXA comparison">
+      <div class="app-mock-head">
+        <span class="app-mock-title">Scan vs DEXA · 17 March</span>
+        <span class="app-mock-time">06:42</span>
+      </div>
+      <div class="metric-card">
+        <div class="mc-left">
+          <div class="mc-bar amber"></div>
+          <div class="mc-name">Fat Mass<small>Total body</small></div>
+        </div>
+        <div class="mc-right"><span class="mc-num">19.8 <span>kg</span></span><span class="mc-pill amber">−1.4%</span></div>
+      </div>
+      <div class="metric-card">
+        <div class="mc-left">
+          <div class="mc-bar green"></div>
+          <div class="mc-name">Skeletal Muscle<small>Lean mass</small></div>
+        </div>
+        <div class="mc-right"><span class="mc-num">26.2 <span>kg</span></span><span class="mc-pill green">+0.8%</span></div>
+      </div>
+      <div class="metric-card">
+        <div class="mc-left">
+          <div class="mc-bar amber"></div>
+          <div class="mc-name">Visceral Fat<small>Around organs</small></div>
+        </div>
+        <div class="mc-right"><span class="mc-num">7</span><span class="mc-pill amber">Watch</span></div>
+      </div>
+      <div class="metric-card">
+        <div class="mc-left">
+          <div class="mc-bar green"></div>
+          <div class="mc-name">Total Body Water<small>Hydration</small></div>
+        </div>
+        <div class="mc-right"><span class="mc-num">54.1 <span>%</span></span><span class="mc-pill green">In range</span></div>
+      </div>
+      <div class="metric-card">
+        <div class="mc-left">
+          <div class="mc-bar green"></div>
+          <div class="mc-name">Bone Mineral Content<small>Skeletal mass</small></div>
+        </div>
+        <div class="mc-right"><span class="mc-num">2.6 <span>kg</span></span><span class="mc-pill green">Normal</span></div>
+      </div>
+
+      <!-- ACCURACY DELTA -->
+      <div class="accuracy">
+        <div class="acc-head">Hume Pod vs. DEXA — same week</div>
+        <div class="acc-row head">
+          <div>Metric</div>
+          <div class="acc-val">DEXA</div>
+          <div class="acc-val">Pod</div>
+          <div class="acc-delta">Δ</div>
+        </div>
+        <div class="acc-row">
+          <div class="acc-name">Fat mass</div>
+          <div class="acc-val">19.6 kg</div>
+          <div class="acc-val">19.8 kg</div>
+          <div class="acc-delta">+1.0%</div>
+        </div>
+        <div class="acc-row">
+          <div class="acc-name">Lean mass</div>
+          <div class="acc-val">26.4 kg</div>
+          <div class="acc-val">26.2 kg</div>
+          <div class="acc-delta">−0.8%</div>
+        </div>
+        <div class="acc-row">
+          <div class="acc-name">Body fat %</div>
+          <div class="acc-val">26.8%</div>
+          <div class="acc-val">27.4%</div>
+          <div class="acc-delta amber">+2.2%</div>
+        </div>
+        <div class="acc-row">
+          <div class="acc-name">Bone mineral</div>
+          <div class="acc-val">2.55 kg</div>
+          <div class="acc-val">2.60 kg</div>
+          <div class="acc-delta">+1.9%</div>
+        </div>
+      </div>
+
+      <div class="app-recommend">
+        <div class="app-recommend-head">Hume's read on this</div>
+        <div class="app-recommend-body"><strong>You're inside the noise floor of a DEXA scan.</strong> Lean mass trending up, fat trending down. Stay the course on protein and lifting; rescan Sunday to confirm the trend.</div>
+      </div>
+    </div>
+
+    <!-- DOCTOR — positioned right after accuracy data where the reader is thinking "but is it really as good?" -->
+    <div class="doctor">
+      <div class="doctor-avatar">YD</div>
+      <div>
+        <div class="doctor-name">Dr. Yas Dominguez, MD</div>
+        <div class="doctor-cred">Internal Medicine · Hume Health Medical Advisor</div>
+        <div class="doctor-quote">"DEXA remains the gold standard for a one-off baseline. But for trend tracking — where you actually catch and reverse problems — frequency beats precision. A weekly home scan is more clinically useful than a twice-yearly clinic scan, by a wide margin."</div>
+      </div>
+    </div>
+
+    <p class="pullquote">A clinic gives you a snapshot every six weeks. The Pod gives you the trend every Sunday. The trend is what changes behaviour.</p>
+
+    <!-- INLINE OBJECTION: "But isn't this just a smart scale?" -->
+    <div class="softlist">
+      <div class="softlist-title">Wait — isn't this just a smart scale?</div>
+      <div class="softlist-item"><span class="ic">×</span><span><strong>A consumer scale</strong> measures weight and estimates fat from that one number. No lean mass. No segmental. No visceral fat.</span></div>
+      <div class="softlist-item"><span class="ic">×</span><span><strong>Apple Watch / Oura</strong> track heart rate, sleep, and steps — none of them measure body composition at all.</span></div>
+      <div class="softlist-item"><span class="ic">✓</span><span><strong>The Hume Pod</strong> uses 8-point bioelectrical impedance with retractable handles — the same method clinics use — to measure fat, lean mass, water, and limb-by-limb breakdowns directly.</span></div>
+    </div>
+
+    <!-- IMG: METRICS -->
+    <figure class="fb-img">
+      <img src="assets/images/measures.png" alt="The 45+ body composition metrics measured by the Hume Pod." loading="lazy">
+      <figcaption class="fb-cap">45+ metrics, end to end. The same numbers a private clinic charges $100 a session for.</figcaption>
+    </figure>
+
+    <!-- COMPARE STACK -->
+    <h2>The honest side-by-side</h2>
+    <p style="margin-bottom:8px;color:var(--muted);font-size:14.5px">Both have a place. Just stop paying for the wrong one.</p>
+
+    <div class="compare-stack">
+      <div class="cmp-card">
+        <span class="cmp-tag">Clinic, snapshot tool</span>
+        <div class="cmp-name">DEXA at a private radiology clinic</div>
+        <div class="cmp-pricerow"><strong>$80–$150 AUD per scan</strong> · 4–6 week wait · GP referral</div>
+        <ul class="cmp-feats">
+          <li>Highest single-scan precision</li>
+          <li>Bone density on the same scan</li>
+          <li class="x">Costs ~$1,000+/year if you scan often</li>
+          <li class="x">Half a day off work, every visit</li>
+          <li class="x">No plan after — just a PDF</li>
+        </ul>
+        <div class="cmp-takeaway"><strong>Best for:</strong> a baseline once a year if your GP requests it.</div>
+      </div>
+
+      <div class="cmp-card featured">
+        <span class="cmp-tag">⭐ Trend tool · own it once</span>
+        <div class="cmp-name">Hume Pod</div>
+        <div class="cmp-pricerow"><strong>$349 AUD · paid once</strong> · 30 seconds, anytime</div>
+        <ul class="cmp-feats">
+          <li>±3% of DEXA in independent Socotech testing</li>
+          <li>45 metrics + segmental (limb-by-limb) standard</li>
+          <li>Colour-coded plan after every scan</li>
+          <li>No subscription, no per-scan cost ever</li>
+          <li>45-day at-home trial · 10-year warranty</li>
+        </ul>
+        <div class="cmp-takeaway"><strong>Best for:</strong> seeing the trend week to week — and actually acting on it.</div>
+      </div>
+    </div>
+
+    <!-- IMG: COMPARE -->
+    <figure class="fb-img">
+      <img src="assets/images/compare.png" alt="The Hume Pod side-by-side with a clinical body composition analyser." loading="lazy">
+      <figcaption class="fb-cap">Validated against the $25,000 Seca mBCA used in research clinics — within ±3% on the metrics that matter.</figcaption>
+    </figure>
+
+    <!-- SAVINGS DIVIDER -->
+    <div class="divider"><span class="divider-mark">The maths, finally</span></div>
+
+    <h2>What I'd have saved if I'd bought it on day one</h2>
+
+    <div class="proof-band">
+      <div class="pb">
+        <div class="pb-num">$<span style="font-size:18px">349</span></div>
+        <div class="pb-label">Hume Pod, paid once</div>
+      </div>
+      <div class="pb">
+        <div class="pb-num">$<span style="font-size:18px">3,719</span></div>
+        <div class="pb-label">What I would have saved over 18 months</div>
+      </div>
+      <div class="pb">
+        <div class="pb-num">52<span>×</span></div>
+        <div class="pb-label">More scans per year — for less than four DEXAs</div>
+      </div>
+    </div>
+
+    <p class="pullquote">The Pod paid for itself before my next scheduled DEXA appointment.</p>
+
+    <!-- CTA #3 — savings-led -->
+    <a href="https://humehealth.com/pages/pdp3?currency=AUD" class="cta-primary" data-cta="3">Skip Your Next DEXA — Get the Pod for $349<span class="arrow">→</span></a>
+    <div class="risk-strip"><span>45-day trial</span><span>10-yr warranty</span><span>Free AU shipping</span></div>
+
+    <!-- TESTIMONIALS -->
+    <h2>Other Aussies who did the maths</h2>
+
+    <!-- TESTI 1: Transformation — body comp actually changed -->
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>"I'd been lifting for six months and the bathroom scale hadn't moved. Was ready to quit. First Pod scan showed I'd gained 2.4 kg of lean mass and dropped 3.1 kg of fat — the scale just couldn't see it. Eight weeks later, visceral fat rating went from 9 to 6. I've never had that data between clinic visits before."</blockquote>
+      <div class="testi-author">Tom A., 36 — Melbourne <span class="testi-badge">✓ Verified Buyer</span></div>
+    </div>
+
+    <!-- TESTI 2: Skeptic converted — practitioner validated -->
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>"My naturopath kept ordering DEXAs. I'd done five in two years — about $475 all up. Showed her the Hume readings beside the last DEXA report; she said the numbers lined up and we could stop booking the radiology runs. She's now recommending the Pod to her other patients."</blockquote>
+      <div class="testi-author">Priya S., 44 — Sydney <span class="testi-badge">✓ Verified Buyer</span></div>
+    </div>
+
+    <!-- TESTI 3: Household value — multiple users, cost amortised -->
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>"Three of us use it — me, my wife, and our 17-year-old who's training for rugby. That's three sets of clinic scans replaced by one $349 device. My wife caught a lean mass drop early and adjusted her protein. Would've waited months to see that at a clinic."</blockquote>
+      <div class="testi-author">Marcus L., 39 — Perth <span class="testi-badge">✓ Verified Buyer</span></div>
+    </div>
+
+    <!-- PRESS -->
+    <div class="press">
+      <div class="press-label">As featured in</div>
+      <div class="press-logos">
+        <span>The Australian</span>
+        <span class="alt">Men's Health AU</span>
+        <span>news.com.au</span>
+      </div>
+    </div>
+
+    <!-- WHO THIS IS NOT FOR — builds trust by disqualifying -->
+    <div class="softlist" style="background:var(--warn-soft);border-color:#F4D9A0">
+      <div class="softlist-title" style="color:#7A4F0F">Honest take: this isn't for everyone</div>
+      <div class="softlist-item"><span class="ic" style="border-color:#E63946;color:#E63946">×</span><span><strong>You only need one DEXA a year for a GP-ordered bone density check.</strong> Keep that appointment — the Pod doesn't replace a clinical bone scan.</span></div>
+      <div class="softlist-item"><span class="ic" style="border-color:#E63946;color:#E63946">×</span><span><strong>You want lab-grade precision on a single reading.</strong> DEXA wins on any one measurement. The Pod wins on every measurement after that.</span></div>
+      <div class="softlist-item"><span class="ic" style="border-color:var(--green);color:var(--green)">✓</span><span><strong>You want to track changes week to week</strong> — fat going down, lean mass going up, visceral fat trending the right way — without booking a clinic every time.</span></div>
+    </div>
+
+    <!-- BRIDGE -->
+    <div class="bridge">
+      <div class="bridge-label">↓ Next</div>
+      <div class="bridge-title">See exactly what the Hume Pod tracks — fat, lean mass, visceral fat, segmental — at home, in 30 seconds, for less than four DEXA scans.</div>
+    </div>
+
+    <!-- OFFER -->
+    <div class="offer-card">
+      <span class="offer-tag">⭐ Hume Pod · Limited Time AUD Offer</span>
+      <div class="offer-name">Hume Pod</div>
+      <div class="offer-tagline">Clinic-grade body composition. Paid for in three DEXA visits.</div>
+
+      <div class="offer-pricerow">
+        <span class="offer-price">$349</span>
+        <span class="offer-orig">$537</span>
+      </div>
+      <div class="offer-savewrap"><span class="offer-save">Save $188 AUD today</span></div>
+
+      <ul class="offer-perks">
+        <li>Free AU shipping</li>
+        <li>45-day trial</li>
+        <li>10-year warranty</li>
+        <li>No subscription</li>
+        <li>45 metrics</li>
+        <li>24-user profiles</li>
+      </ul>
+
+      <a href="https://humehealth.com/pages/pdp3?currency=AUD" class="cta-primary" style="margin:0;width:100%" data-cta="4">Skip Your Next DEXA — Get the Pod for $349<span class="arrow">→</span></a>
+      <div class="risk-strip" style="margin-top:10px"><span>45-day trial</span><span>10-yr warranty</span><span>Ships in 3–5 days</span></div>
+    </div>
+
+    <!-- GUARANTEE -->
+    <div class="guarantee">
+      <div class="g-seal">45<small>DAY</small></div>
+      <div class="g-text">
+        <div class="g-title">45-day at-home trial</div>
+        <div class="g-body">Scan every Sunday for six weeks. If the data doesn't replace your clinic visits, send it back for a full refund. Free AU return shipping.</div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <h2>Questions readers ask</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">Can multiple people use the same Pod?</div>
+        <div class="faq-a">Yes — up to 24 individual profiles in the app. Each person gets their own trend history, segmental data, and recommendations. One device for the whole household.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I still need clinic DEXAs?</div>
+        <div class="faq-a">If your GP orders one for bone density or a clinical baseline — yes, keep that appointment. Most readers use the Pod weekly for trend tracking and book a clinic DEXA once every 12–24 months as a precision check-in.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is there a subscription?</div>
+        <div class="faq-a">No. The full Pro.f app — all 45 metrics, segmental analysis, colour-coded recommendations — is included with the Pod, free, forever.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How fast does it ship to Australia?</div>
+        <div class="faq-a">AU orders typically arrive in 3–5 working days from the Sydney warehouse. Free shipping is included.</div>
+      </div>
+    </div>
+
+    <p style="font-size:12.5px;color:var(--light);text-align:center;margin-top:24px;font-style:italic;line-height:1.55">Emma K. lives in Brisbane. Names of customers in this article have been changed to protect privacy. Story edited for length and clarity. Cost figures based on representative private-clinic rates in capital-city AU markets, May 2026.</p>
+
+  </article>
+
+  <div class="sticky-spacer"></div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p><strong>ADVERTISEMENT.</strong> This article is sponsored content by Hume Health. The reader story is based on a real Hume Pod user. Names have been changed and timelines edited for clarity. Individual results vary.</p>
+    <p><strong>NOT A MEDICAL DEVICE.</strong> The Hume Pod is intended for general wellness and educational purposes only. It is not intended to diagnose, treat, cure, or prevent any disease. Always consult a qualified healthcare professional before changing your training, diet, or supplement regimen.</p>
+    <p><strong>Accuracy claims:</strong> ±3% correlation to DEXA based on independent testing by Socotech (2024) on a representative sample. See full report on humehealth.com.</p>
+    <p><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Contact</a> · © 2026 Hume Health. ABN 74 645 893 112.</p>
+  </div>
+
+</div>
+
+<!-- STICKY BOTTOM CTA -->
+<div class="sticky-cta" id="stickyCta" data-screen-label="Sticky CTA">
+  <div class="sticky-meta">
+    <strong>$349 · save $188 today</strong>
+    Less than 4 DEXA scans · 45-day trial
+  </div>
+  <a href="https://humehealth.com/pages/pdp3?currency=AUD" data-cta="sticky">Get the Pod →</a>
+</div>
+
+<script>
+(function(){
+  var sticky = document.getElementById('stickyCta');
+  var doc = document.documentElement;
+  function onScroll(){
+    var scrolled = (window.scrollY) / (doc.scrollHeight - window.innerHeight);
+    if (scrolled > 0.14) { sticky.classList.add('visible'); }
+    else { sticky.classList.remove('visible'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
