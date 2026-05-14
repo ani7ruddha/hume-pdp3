@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI Calculator + What BMI Misses About Your Body | Hume Health</title>
+  <meta name="description" content="Calculate your BMI free in 5 seconds — then see the body fat, muscle, and metabolic data BMI hides. Used by 48,000+ people." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-bg:         #ffffff;
+      --color-bg-alt:     #f3f3f3;
+      --color-bg-soft:    #f8f9fb;
+      --color-bg-dark:    #132042;
+      --color-text:       #020b1e;
+      --color-text-muted: #4a5568;
+      --color-text-light: #8a94a6;
+      --color-accent-blue:#0F75FF;
+      --color-btn:        #0F75FF;
+      --color-btn-text:   #ffffff;
+      --color-success:    #2e7d32;
+      --color-warning:    #e65100;
+      --color-danger:     #c62828;
+      --color-border:     #D4D1CD;
+      --color-star:       #00b67a;
+      --color-healthy:    #2e7d32;
+      --color-overweight: #ef6c00;
+      --color-obese:      #c62828;
+      --color-under:      #1565c0;
+      --font:             'Plus Jakarta Sans', helvetica, sans-serif;
+      --radius-pill:      100px;
+      --radius:           12px;
+      --max-w:            1160px;
+      --shadow-card:      0 6px 24px rgba(15, 30, 60, 0.06);
+      --shadow-elevated:  0 14px 44px rgba(15, 30, 60, 0.10);
+    }
+
+    body { font-family: var(--font); color: var(--color-text); background: var(--color-bg); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+    .section--alt { background: var(--color-bg-alt); }
+    .section--dark { background: var(--color-bg-dark); color: #fff; }
+    .section--soft { background: var(--color-bg-soft); }
+
+    h1, h2, h3 { font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+    .h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); }
+    .h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); }
+    .h3 { font-size: clamp(1.15rem, 2.5vw, 1.45rem); font-weight: 700; }
+    .lead { font-size: clamp(1rem, 2vw, 1.12rem); color: var(--color-text-muted); line-height: 1.7; }
+    .lead--light { color: rgba(255,255,255,0.72); }
+    .text-center { text-align: center; }
+    .mt-4 { margin-top: 16px; } .mt-6 { margin-top: 24px; } .mt-8 { margin-top: 32px; } .mt-12 { margin-top: 48px; }
+
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-blue); margin-bottom: 14px; display: inline-block; }
+    .eyebrow--light { color: rgba(255,255,255,0.55); }
+
+    .badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; }
+    .badge--green { background: #e8f5e9; color: var(--color-success); }
+    .badge--blue  { background: #e8edf9; color: var(--color-accent-blue); }
+    .badge--orange{ background: #fff3e0; color: var(--color-warning); }
+    .badge--dark  { background: var(--color-bg-dark); color: #fff; }
+
+    .btn-primary {
+      display: inline-block; text-align: center;
+      background: var(--color-btn); color: var(--color-btn-text);
+      font-family: var(--font); font-size: 17px; font-weight: 700;
+      padding: 18px 32px; border: none; border-radius: var(--radius-pill);
+      cursor: pointer; letter-spacing: 0.01em; transition: all 0.2s; text-decoration: none;
+    }
+    .btn-primary:hover { background: #0a65e0; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(15,117,255,0.35); }
+    .btn-primary--lg { font-size: 18px; padding: 20px 38px; }
+    .btn-primary--block { display: block; width: 100%; }
+    .btn-secondary {
+      display: inline-block; text-align: center;
+      background: transparent; color: var(--color-text);
+      font-family: var(--font); font-size: 14px; font-weight: 600;
+      padding: 14px 24px; border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-pill); cursor: pointer; transition: border-color 0.2s; text-decoration: none;
+    }
+    .btn-secondary:hover { border-color: #555; }
+
+    /* ── ANNOUNCEMENT ── */
+    .announcement-bar { background: #132042; color: #fff; text-align: center; padding: 11px 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
+    .announcement-bar .code { background: rgba(255,255,255,0.15); padding: 2px 8px; border-radius: 4px; font-family: monospace; font-weight: 700; letter-spacing: 0.1em; }
+    .announcement-bar .pill { background: #ff4d4d; color: #fff; border-radius: 20px; padding: 2px 8px; font-size: 11px; font-weight: 800; margin-left: 6px; }
+
+    /* ── HEADER ── */
+    .header { position: sticky; top: 0; z-index: 200; background: rgba(243,243,243,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); padding: 13px 0; }
+    .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo svg { height: 26px; width: auto; }
+    .header__trust { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--color-text-muted); }
+    .stars { color: var(--color-star); letter-spacing: -2px; font-size: 14px; }
+    .header__cta { background: var(--color-btn); color: var(--color-btn-text); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; padding: 10px 22px; border-radius: var(--radius-pill); text-decoration: none; transition: background 0.2s; }
+    .header__cta:hover { background: #0a65e0; }
+    @media (max-width: 720px) { .header__trust { display: none; } .header__cta { padding: 9px 16px; font-size: 12px; } }
+
+    /* ══════════════════════════════════════════════
+       HERO + CALCULATOR
+       ══════════════════════════════════════════════ */
+    .hero { background: linear-gradient(180deg, #f3f3f3 0%, #f8f9fb 100%); padding: 56px 0 64px; }
+    .hero__grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+    @media (max-width: 940px) { .hero__grid { grid-template-columns: 1fr; gap: 32px; } }
+
+    .hero__pre { display: flex; gap: 10px; align-items: center; margin-bottom: 18px; flex-wrap: wrap; }
+    .hero__rating { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--color-text-muted); }
+    .hero__headline { font-size: clamp(2rem, 4.4vw, 3rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.08; }
+    .hero__headline em { color: var(--color-accent-blue); font-style: normal; }
+    .hero__sub { margin-top: 16px; font-size: 1.05rem; line-height: 1.65; color: var(--color-text-muted); max-width: 520px; }
+    .hero__points { list-style: none; margin-top: 22px; display: flex; flex-direction: column; gap: 9px; }
+    .hero__points li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; font-weight: 500; }
+    .hero__points li::before { content: '✓'; color: #fff; background: var(--color-bg-dark); width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .hero__trust-line { margin-top: 22px; display: flex; align-items: center; gap: 14px; font-size: 13px; color: var(--color-text-muted); flex-wrap: wrap; }
+    .hero__trust-line strong { color: var(--color-text); }
+    .hero__avatars { display: flex; }
+    .hero__avatars img { width: 32px; height: 32px; border-radius: 50%; border: 2px solid #f3f3f3; margin-left: -8px; object-fit: cover; }
+    .hero__avatars img:first-child { margin-left: 0; }
+
+    /* ── CALCULATOR CARD ── */
+    .calc-card { background: #fff; border-radius: 18px; box-shadow: var(--shadow-elevated); padding: 32px; border: 1px solid #ececec; }
+    .calc-card__head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .calc-card__head .badge { font-size: 10px; }
+    .calc-card__title { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.01em; }
+    .calc-card__sub { font-size: 13px; color: var(--color-text-muted); margin-top: 4px; }
+
+    .unit-toggle { display: inline-flex; background: #f0f2f5; border-radius: var(--radius-pill); padding: 4px; margin-top: 18px; }
+    .unit-toggle button { background: transparent; border: none; padding: 8px 16px; font-family: var(--font); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); border-radius: var(--radius-pill); cursor: pointer; transition: all 0.2s; }
+    .unit-toggle button.active { background: #fff; color: var(--color-text); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+    .calc-form { margin-top: 18px; display: flex; flex-direction: column; gap: 14px; }
+    .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .calc-row--single { grid-template-columns: 1fr; }
+    .calc-field { display: flex; flex-direction: column; gap: 6px; }
+    .calc-field label { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-text-muted); }
+    .calc-input-wrap { position: relative; }
+    .calc-input { width: 100%; font-family: var(--font); font-size: 16px; font-weight: 600; padding: 14px 14px; border: 1.5px solid #dfe3ea; border-radius: 10px; background: #fff; transition: border-color 0.15s; -webkit-appearance: none; appearance: none; }
+    .calc-input:focus { outline: none; border-color: var(--color-accent-blue); }
+    .calc-input-suffix { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 12px; font-weight: 600; color: var(--color-text-light); pointer-events: none; }
+    .calc-select { width: 100%; font-family: var(--font); font-size: 16px; font-weight: 600; padding: 14px; border: 1.5px solid #dfe3ea; border-radius: 10px; background: #fff; -webkit-appearance: none; appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%234a5568' d='M10 14l-5-6h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 18px; padding-right: 36px; }
+    .calc-cta { margin-top: 6px; }
+    .calc-foot { margin-top: 12px; font-size: 11px; color: var(--color-text-light); text-align: center; }
+
+    /* ── RESULT PANEL ── */
+    .result-panel { display: none; }
+    .result-panel.show { display: block; animation: fadeIn 0.4s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .result-head { text-align: center; margin-bottom: 18px; }
+    .result-head__label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-muted); }
+    .result-bmi { font-size: 3.4rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin-top: 6px; }
+    .result-category { display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-top: 10px; }
+    .result-category.under     { background: #e3f2fd; color: var(--color-under); }
+    .result-category.healthy   { background: #e8f5e9; color: var(--color-healthy); }
+    .result-category.overweight{ background: #fff3e0; color: var(--color-overweight); }
+    .result-category.obese     { background: #ffebee; color: var(--color-obese); }
+
+    .bmi-scale { margin-top: 18px; }
+    .bmi-scale__bar { position: relative; height: 10px; border-radius: 100px; overflow: hidden; background: linear-gradient(to right, #64b5f6 0%, #64b5f6 13%, #66bb6a 13%, #66bb6a 39%, #ffb74d 39%, #ffb74d 60%, #ef5350 60%, #ef5350 100%); }
+    .bmi-scale__marker { position: absolute; top: -6px; width: 4px; height: 22px; background: var(--color-bg-dark); border-radius: 4px; transform: translateX(-50%); transition: left 0.6s cubic-bezier(.2,.7,.3,1.2); box-shadow: 0 0 0 3px rgba(255,255,255,0.85); }
+    .bmi-scale__labels { display: flex; justify-content: space-between; font-size: 10px; font-weight: 700; color: var(--color-text-muted); margin-top: 6px; letter-spacing: 0.04em; }
+
+    .result-reframe { margin-top: 22px; padding: 18px 18px; background: #f0f4ff; border-left: 3px solid var(--color-accent-blue); border-radius: 0 10px 10px 0; font-size: 14px; line-height: 1.65; }
+    .result-reframe strong { color: var(--color-text); }
+
+    .result-offer { margin-top: 18px; background: linear-gradient(135deg, #132042 0%, #1d3168 100%); color: #fff; border-radius: 12px; padding: 22px; position: relative; overflow: hidden; }
+    .result-offer__tag { display: inline-block; background: #ff4d4d; color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 0.08em; padding: 3px 9px; border-radius: 4px; }
+    .result-offer__title { font-size: 1.1rem; font-weight: 800; margin-top: 10px; line-height: 1.25; }
+    .result-offer__sub { font-size: 13px; color: rgba(255,255,255,0.72); margin-top: 6px; line-height: 1.55; }
+    .result-offer__row { display: flex; align-items: baseline; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+    .result-offer__price { font-size: 1.9rem; font-weight: 800; }
+    .result-offer__orig { font-size: 1rem; text-decoration: line-through; color: rgba(255,255,255,0.5); }
+    .result-offer__save { font-size: 11px; font-weight: 800; background: #2e7d32; color: #fff; padding: 3px 8px; border-radius: 20px; letter-spacing: 0.05em; }
+    .result-offer__code { margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.72); }
+    .result-offer__code .code { font-family: monospace; font-weight: 800; color: #fff; background: rgba(255,255,255,0.18); padding: 3px 8px; border-radius: 4px; letter-spacing: 0.12em; }
+    .result-offer__cta { display: block; margin-top: 14px; background: #fff; color: #132042; text-align: center; padding: 16px; border-radius: var(--radius-pill); font-size: 15px; font-weight: 800; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
+    .result-offer__cta:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0,0,0,0.25); }
+    .result-offer__finance { font-size: 11px; color: rgba(255,255,255,0.6); text-align: center; margin-top: 8px; }
+
+    .result-recalc { display: block; text-align: center; margin-top: 14px; font-size: 12px; font-weight: 700; color: var(--color-text-muted); text-decoration: underline; cursor: pointer; background: none; border: none; font-family: var(--font); width: 100%; }
+
+    /* ══════════════════════════════════════════════
+       PROOF BAR
+       ══════════════════════════════════════════════ */
+    .proof-bar { background: #132042; padding: 22px 0; }
+    .proof-bar__inner { display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 24px; }
+    .proof-stat { text-align: center; }
+    .proof-stat__num { font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1; }
+    .proof-stat__label { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+    .proof-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.16); }
+    @media (max-width: 700px) { .proof-divider { display: none; } }
+
+    /* ══════════════════════════════════════════════
+       "BMI IS WRONG" SECTION
+       ══════════════════════════════════════════════ */
+    .twin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 44px; }
+    @media (max-width: 800px) { .twin-grid { grid-template-columns: 1fr; } }
+    .twin-card { background: #fff; border: 1px solid var(--color-border); border-radius: 14px; padding: 28px; }
+    .twin-card__img { width: 100%; height: 240px; border-radius: 10px; object-fit: cover; margin-bottom: 18px; }
+    .twin-card__row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eef0f4; font-size: 14px; }
+    .twin-card__row:last-child { border-bottom: none; }
+    .twin-card__label { color: var(--color-text-muted); font-weight: 500; }
+    .twin-card__value { font-weight: 700; }
+    .twin-card__value.bad { color: var(--color-danger); }
+    .twin-card__value.ok  { color: var(--color-success); }
+    .twin-card__name { font-size: 1.1rem; font-weight: 800; margin-bottom: 4px; }
+    .twin-card__bmi { font-size: 12px; font-weight: 700; color: var(--color-text-muted); margin-bottom: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* ══════════════════════════════════════════════
+       FEATURE BLOCKS
+       ══════════════════════════════════════════════ */
+    .feature-block { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 56px 0; border-bottom: 1px solid var(--color-border); }
+    .feature-block:last-child { border-bottom: none; }
+    .feature-block--reverse .feature-block__img { order: -1; }
+    .feature-block__img { width: 100%; height: 380px; border-radius: 14px; object-fit: cover; box-shadow: var(--shadow-card); }
+    .feature-block__tag { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-blue); margin-bottom: 10px; }
+    .feature-block__title { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.02em; }
+    .feature-block__body { font-size: 15px; color: var(--color-text-muted); line-height: 1.75; margin-bottom: 18px; }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .feature-list li { display: flex; gap: 12px; font-size: 14px; align-items: flex-start; }
+    .feature-list__icon { width: 22px; height: 22px; border-radius: 50%; background: var(--color-bg-dark); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; margin-top: 1px; }
+    .feature-list strong { font-weight: 800; }
+    @media (max-width: 900px) { .feature-block { grid-template-columns: 1fr; gap: 28px; padding: 36px 0; } .feature-block--reverse .feature-block__img { order: 0; } .feature-block__img { height: 280px; } }
+
+    /* ══════════════════════════════════════════════
+       GLP-1 SECTION
+       ══════════════════════════════════════════════ */
+    .glp1 { background: linear-gradient(135deg, #fff7ed 0%, #fff 100%); border: 2px solid #ffe0b2; border-radius: 18px; padding: 44px; margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    @media (max-width: 900px) { .glp1 { grid-template-columns: 1fr; padding: 28px; gap: 24px; } }
+    .glp1__tag { display: inline-block; background: var(--color-warning); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+    .glp1__title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.02em; }
+    .glp1__body { font-size: 15px; color: var(--color-text-muted); line-height: 1.75; margin-bottom: 18px; }
+    .glp1__img { width: 100%; height: 280px; border-radius: 12px; object-fit: cover; }
+    .glp1__stat { background: #fff; border: 1px solid var(--color-warning); border-radius: 10px; padding: 14px 18px; margin-bottom: 18px; }
+    .glp1__stat-num { font-size: 1.8rem; font-weight: 800; color: var(--color-warning); line-height: 1; }
+    .glp1__stat-label { font-size: 13px; color: var(--color-text-muted); margin-top: 4px; }
+
+    /* ══════════════════════════════════════════════
+       METRICS GRID
+       ══════════════════════════════════════════════ */
+    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 40px; }
+    .metric-card { background: #fff; border: 1px solid var(--color-border); border-radius: 10px; padding: 18px; transition: transform 0.15s, box-shadow 0.15s; }
+    .metric-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+    .metric-card__icon { font-size: 22px; margin-bottom: 6px; }
+    .metric-card__name { font-size: 13px; font-weight: 800; margin-bottom: 3px; }
+    .metric-card__why  { font-size: 12px; color: var(--color-text-muted); line-height: 1.5; }
+    @media (max-width: 900px) { .metrics-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* ══════════════════════════════════════════════
+       TESTIMONIALS
+       ══════════════════════════════════════════════ */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+    @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
+    .testimonial-card { background: #fff; border: 1px solid var(--color-border); border-radius: 12px; padding: 24px; }
+    .testimonial-card__stars { color: var(--color-star); font-size: 16px; margin-bottom: 10px; letter-spacing: 1px; }
+    .testimonial-card__title { font-size: 14px; font-weight: 800; margin-bottom: 8px; }
+    .testimonial-card__body { font-size: 14px; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 16px; }
+    .testimonial-card__body em { font-style: normal; background: #fff9c4; padding: 1px 4px; border-radius: 2px; color: var(--color-text); font-weight: 600; }
+    .testimonial-card__author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-card__avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+    .testimonial-card__name { font-size: 13px; font-weight: 800; }
+    .testimonial-card__meta { font-size: 11px; color: var(--color-text-light); margin-top: 2px; }
+    .testimonial-card__verified { font-size: 10px; font-weight: 800; color: var(--color-success); margin-top: 6px; display: flex; align-items: center; gap: 4px; }
+
+    /* ══════════════════════════════════════════════
+       COMPARISON TABLE
+       ══════════════════════════════════════════════ */
+    .compare-wrap { overflow-x: auto; margin-top: 36px; border-radius: 12px; border: 1px solid var(--color-border); }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+    .compare-table th { background: #132042; color: #fff; padding: 16px 18px; text-align: left; font-size: 13px; font-weight: 800; }
+    .compare-table th.hume { background: var(--color-btn); }
+    .compare-table td { padding: 14px 18px; border-bottom: 1px solid var(--color-border); vertical-align: middle; }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:nth-child(even) td { background: #fafafa; }
+    .compare-table .check-icon { color: var(--color-success); font-weight: 700; }
+    .compare-table .cross-icon { color: #c0c0c0; font-weight: 700; }
+    .compare-table .hume-col { background: #eef1fb !important; font-weight: 600; }
+    .compare-table .price-row { font-weight: 800; font-size: 15px; }
+
+    /* ══════════════════════════════════════════════
+       SCIENCE / DEXA
+       ══════════════════════════════════════════════ */
+    .science-card { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; background: #fff; border: 1px solid var(--color-border); border-radius: 18px; padding: 40px; margin-top: 40px; }
+    @media (max-width: 900px) { .science-card { grid-template-columns: 1fr; padding: 28px; gap: 24px; } }
+    .science-stat { font-size: 5rem; font-weight: 800; color: var(--color-accent-blue); line-height: 1; letter-spacing: -0.04em; }
+    .science-stat__label { font-size: 14px; color: var(--color-text-muted); margin-top: 8px; line-height: 1.6; }
+
+    /* ══════════════════════════════════════════════
+       STEPS
+       ══════════════════════════════════════════════ */
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+    @media (max-width: 800px) { .steps-grid { grid-template-columns: 1fr; } }
+    .step-card { background: #fff; border: 1px solid var(--color-border); border-radius: 12px; padding: 28px; position: relative; }
+    .step-card__num { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-blue); margin-bottom: 8px; }
+    .step-card__title { font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; }
+    .step-card__body { font-size: 14px; color: var(--color-text-muted); line-height: 1.65; }
+
+    /* ══════════════════════════════════════════════
+       FINAL PRICING BOX
+       ══════════════════════════════════════════════ */
+    .pricing-box { background: #fff; border-radius: 18px; padding: 40px; max-width: 600px; margin: 0 auto; box-shadow: var(--shadow-elevated); border: 1px solid #ececec; }
+    .pricing-box__head { text-align: center; margin-bottom: 22px; }
+    .pricing-box__label { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-muted); }
+    .pricing-box__price { font-size: 3rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-top: 6px; }
+    .pricing-box__price-row { display: flex; align-items: baseline; justify-content: center; gap: 12px; margin-top: 4px; }
+    .pricing-box__orig { font-size: 1.15rem; text-decoration: line-through; color: var(--color-text-light); }
+    .pricing-box__save { display: inline-block; background: #e8f5e9; color: var(--color-success); font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; margin-top: 10px; letter-spacing: 0.04em; }
+    .pricing-box__installment { font-size: 13px; color: var(--color-text-muted); text-align: center; margin-top: 12px; }
+    .pricing-box__installment strong { color: var(--color-text); }
+    .pricing-box__urgency { background: #fff3e0; border: 1px solid #ffe0b2; border-radius: 10px; padding: 12px 16px; font-size: 13px; font-weight: 700; color: var(--color-warning); text-align: center; margin: 18px 0; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .pricing-box__includes { list-style: none; margin: 0 0 18px 0; display: flex; flex-direction: column; gap: 8px; }
+    .pricing-box__includes li { font-size: 14px; display: flex; gap: 10px; }
+    .pricing-box__includes li::before { content: '✓'; color: var(--color-success); font-weight: 800; }
+    .pricing-box__trust { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 16px; padding-top: 16px; border-top: 1px solid #eee; }
+    .pricing-box__trust-item { font-size: 12px; color: var(--color-text-muted); display: flex; align-items: center; gap: 5px; }
+    .pricing-box__trust-item::before { content: '✓'; color: var(--color-success); font-weight: 800; }
+    .pricing-box__payment { display: flex; justify-content: center; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+    .pay-pill { background: #f5f5f5; border: 1px solid #e5e5e5; border-radius: 6px; padding: 5px 10px; font-size: 11px; font-weight: 800; color: #555; letter-spacing: 0.05em; }
+
+    /* ══════════════════════════════════════════════
+       GUARANTEE
+       ══════════════════════════════════════════════ */
+    .guarantee { background: #f8f9fb; border: 2px solid var(--color-bg-dark); border-radius: 14px; padding: 32px; display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: center; max-width: 800px; margin: 40px auto 0; }
+    @media (max-width: 600px) { .guarantee { grid-template-columns: 1fr; text-align: center; } }
+    .guarantee__icon { width: 80px; height: 80px; background: var(--color-bg-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px; color: #fff; margin: 0 auto; }
+    .guarantee__title { font-size: 1.25rem; font-weight: 800; margin-bottom: 6px; }
+    .guarantee__body { font-size: 14px; color: var(--color-text-muted); line-height: 1.7; }
+
+    /* ══════════════════════════════════════════════
+       FAQ
+       ══════════════════════════════════════════════ */
+    .faq-list { margin-top: 40px; max-width: 760px; margin-left: auto; margin-right: auto; border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden; }
+    .faq-item { border-bottom: 1px solid var(--color-border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; font-size: 15px; font-weight: 700; cursor: pointer; background: #fff; border: none; width: 100%; text-align: left; font-family: var(--font); color: var(--color-text); transition: background 0.15s; }
+    .faq-q:hover { background: #fafafa; }
+    .faq-q[aria-expanded="true"] { background: #f7f9ff; }
+    .faq-arrow { font-size: 22px; font-weight: 400; transition: transform 0.25s; color: #999; flex-shrink: 0; }
+    .faq-q[aria-expanded="true"] .faq-arrow { transform: rotate(45deg); color: var(--color-accent-blue); }
+    .faq-a { display: none; padding: 0 22px 22px; font-size: 14px; color: var(--color-text-muted); line-height: 1.7; }
+    .faq-a.open { display: block; }
+
+    /* ══════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════ */
+    .footer { background: #132042; color: rgba(255,255,255,0.55); padding: 40px 0; text-align: center; font-size: 13px; }
+    .footer__links { display: flex; justify-content: center; gap: 24px; margin-bottom: 18px; flex-wrap: wrap; }
+    .footer__links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 12px; }
+    .footer__links a:hover { color: #fff; }
+    .footer__copy { font-size: 11px; color: rgba(255,255,255,0.28); margin-top: 6px; }
+
+    /* ══════════════════════════════════════════════
+       STICKY MOBILE CTA
+       ══════════════════════════════════════════════ */
+    .sticky-cta { display: none; }
+    @media (max-width: 768px) {
+      .sticky-cta { display: flex; align-items: center; gap: 12px; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid var(--color-border); padding: 10px 14px; z-index: 200; box-shadow: 0 -4px 20px rgba(0,0,0,0.10); }
+      .sticky-cta__info { flex: 1; min-width: 0; }
+      .sticky-cta__price { font-size: 16px; font-weight: 800; line-height: 1; }
+      .sticky-cta__sub { font-size: 11px; color: var(--color-text-muted); margin-top: 3px; }
+      .sticky-cta .btn-primary { padding: 13px 20px; font-size: 14px; flex-shrink: 0; }
+      body { padding-bottom: 72px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ ANNOUNCEMENT BAR ══════════════ -->
+<div class="announcement-bar">
+  🎯 BMI Calculator Visitors: Use Code <span class="code">BMI30</span> to get <strong>$30 OFF</strong> the Hume Pod <span class="pill">TODAY ONLY</span>
+</div>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="header">
+  <div class="container">
+    <div class="header__inner">
+      <a href="#" class="logo" aria-label="Hume Health">
+        <svg xmlns="http://www.w3.org/2000/svg" width="180" height="26" viewBox="0 0 267 36" fill="none">
+          <path d="M53.1355 4.2694L57.47 4.2694L57.47 15.7551L71.2936 15.7551L71.2936 4.2694L75.6616 4.2694L75.6616 31.7388L71.2936 31.7388L71.2936 19.4041L57.47 19.4041L57.47 31.7388L53.1355 31.7388L53.1355 4.2694Z" fill="#000"/>
+          <path d="M78.9837 25.7059L78.9837 12.1467L82.8413 12.1467L82.8413 24.6692C82.8413 27.3222 84.0212 29.0855 86.9332 29.0855C90.2384 29.0855 92.3639 27.1263 92.3639 24.1712L92.3639 12.1467L96.2214 12.1467L96.2214 31.7386L92.3639 31.7386L92.3639 29.2814L92.2886 29.2814C91.2259 30.7835 89.1423 32.2773 85.6696 32.2773C81.9711 32.2773 78.9754 30.2039 78.9754 25.7059L78.9837 25.7059Z" fill="#000"/>
+          <path d="M108.104 14.7918C105.225 14.7918 103.418 16.751 103.418 19.7061L103.418 31.7388L99.5601 31.7388L99.5601 12.1469L103.418 12.1469L103.418 14.6041L103.493 14.6041C104.556 13.1102 106.405 11.5674 109.442 11.5674C112.237 11.5674 113.969 12.8 114.756 14.9878L114.831 14.9878C116.287 13.102 118.337 11.5674 121.408 11.5674C125.467 11.5674 127.509 13.951 127.509 18.1388L127.509 31.7388L123.651 31.7388L123.651 19.1755C123.651 16.5633 123.099 14.7918 120.145 14.7918C117.266 14.7918 115.459 16.751 115.459 19.7061L115.459 31.7388L111.601 31.7388L111.601 19.1755C111.601 16.5633 111.049 14.7918 108.095 14.7918L108.104 14.7918Z" fill="#000"/>
+          <path d="M130.052 21.9019C130.052 15.755 133.835 11.5264 139.977 11.5264C146.077 11.5264 149.508 15.4448 149.508 21.5182C149.508 22.057 149.508 22.6284 149.466 22.9386L134.027 22.9386C134.102 26.2039 136.077 29.2407 140.052 29.2407C143.6 29.2407 144.972 27.0121 145.332 25.706L149.273 25.706C148.211 29.4692 145.257 32.3101 139.977 32.3101C133.6 32.3101 130.052 27.8937 130.052 21.9019ZM145.491 19.9835C145.491 16.9141 143.29 14.6039 139.859 14.6039C136.63 14.6039 134.27 16.759 134.027 19.9835L145.483 19.9835L145.491 19.9835Z" fill="#000"/>
+          <path d="M152.144 4.2694L156.478 4.2694L156.478 15.7551L170.302 15.7551L170.302 4.2694L174.67 4.2694L174.67 31.7388L170.302 31.7388L170.302 19.4041L156.478 19.4041L156.478 31.7388L152.144 31.7388L152.144 4.2694Z" fill="#000"/>
+          <path d="M-9.05991e-05 36L-9.02836e-05 32.3918C-9.01801e-05 31.2082 0.627485 30.0571 1.7153 29.2327L6.16698 25.8694C6.577 25.5592 6.79457 25.1592 6.79457 24.7347L6.79457 11.2653C6.79457 10.8408 6.56864 10.4408 6.16698 10.1306L1.7153 6.7592C0.627487 5.93471 -8.787e-05 4.78369 -8.77673e-05 3.60818L-8.74518e-05 2.1616e-05L7.75686 2.22942e-05L7.75686 9.33879C7.75686 9.76328 7.98279 10.1633 8.38445 10.4735L12.8361 13.8367C13.9407 14.6776 14.5515 15.7959 14.5515 16.9959L14.5515 19.0123C14.5515 20.1878 13.9239 21.3388 12.8361 22.1633L8.38444 25.5347C7.98279 25.8449 7.75686 26.2449 7.75686 26.6694L7.75686 36L-9.05991e-05 36Z" fill="#31ABE8"/>
+          <path d="M26.8356 36L26.8356 26.6612C26.8356 26.2367 26.6096 25.8367 26.208 25.5265L21.7563 22.1633C20.6685 21.3306 20.0409 20.1878 20.0409 19.0041L20.0409 16.9878C20.0409 15.8123 20.6685 14.6612 21.7563 13.8367L26.208 10.4653C26.6096 10.1551 26.8356 9.75512 26.8356 9.33063L26.8356 -0.00814124L34.5925 -0.00814056L34.5925 3.60002C34.5925 4.78369 33.9649 5.93471 32.8771 6.7592L28.4255 10.1225C28.0154 10.4327 27.7979 10.8327 27.7979 11.2572L27.7979 24.7347C27.7979 25.1592 28.0238 25.5592 28.4255 25.8694L32.8771 29.2408C33.9649 30.0653 34.5925 31.2163 34.5925 32.3918L34.5925 36, 32.4-9.05991e-05L26.8356 36Z" fill="#31ABE8"/>
+        </svg>
+      </a>
+      <div class="header__trust">
+        <span class="stars">★★★★★</span>
+        <span><strong>4.8</strong> · 48,252 reviews</span>
+      </div>
+      <a href="#buy" class="header__cta">Get $30 Off →</a>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════ HERO + CALCULATOR ══════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__grid">
+
+      <!-- LEFT: COPY -->
+      <div class="hero__copy">
+        <div class="hero__pre">
+          <span class="badge badge--green">FREE • NO SIGN-UP</span>
+          <span class="hero__rating"><span class="stars">★★★★★</span> 4.8 (48,252)</span>
+        </div>
+
+        <h1 class="hero__headline">
+          Calculate your BMI — then see what <em>your scale isn't telling you</em>.
+        </h1>
+        <p class="hero__sub">
+          BMI is a 200-year-old number that treats muscle and fat the same. It can call a marathon runner "obese" and miss 25 lbs of dangerous visceral fat in someone with a "normal" weight. Get your number, then see the real picture.
+        </p>
+
+        <ul class="hero__points">
+          <li>Instant BMI in seconds — no email required</li>
+          <li>See exactly <strong>what BMI gets wrong for your body type</strong></li>
+          <li>Get a personalized next step (and a $30 code) when you finish</li>
+        </ul>
+
+        <div class="hero__trust-line">
+          <div class="hero__avatars">
+            <img src="https://humehealth.com/cdn/shop/files/amyinhalf_1x_dbd785df-659f-47a8-9a02-e12cff490e6a.webp" alt="user" />
+            <img src="https://humehealth.com/cdn/shop/files/drnicolemartin_1x_8e62cfa6-ff7f-46c5-a387-209f221fada4.webp" alt="user" />
+            <img src="https://humehealth.com/cdn/shop/files/nimai_delgado_1x_6d9ae13e-ae3f-4b73-9b56-4cadd89cc93e.webp" alt="user" />
+            <img src="https://humehealth.com/cdn/shop/files/tim-biohacker.webp" alt="user" />
+          </div>
+          <span><strong>48,252 people</strong> use the Hume Pod to see what BMI misses</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: CALCULATOR -->
+      <div class="calc-card" id="calculator">
+
+        <!-- INPUT VIEW -->
+        <div class="calc-input-view" id="calcInputView">
+          <div class="calc-card__head">
+            <span class="badge badge--blue">BMI CALCULATOR</span>
+          </div>
+          <div class="calc-card__title">What's my BMI?</div>
+          <div class="calc-card__sub">Takes 5 seconds. We never store your info.</div>
+
+          <div class="unit-toggle" role="tablist">
+            <button type="button" class="active" data-unit="imperial">Imperial (ft / lb)</button>
+            <button type="button" data-unit="metric">Metric (cm / kg)</button>
+          </div>
+
+          <form class="calc-form" id="calcForm" onsubmit="return false;">
+            <div class="calc-row" id="heightImperial">
+              <div class="calc-field">
+                <label for="ftIn">Height — Feet</label>
+                <div class="calc-input-wrap">
+                  <input class="calc-input" type="number" id="ftIn" min="3" max="8" step="1" placeholder="5" inputmode="numeric" />
+                  <span class="calc-input-suffix">ft</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="inIn">Inches</label>
+                <div class="calc-input-wrap">
+                  <input class="calc-input" type="number" id="inIn" min="0" max="11" step="1" placeholder="9" inputmode="numeric" />
+                  <span class="calc-input-suffix">in</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-row calc-row--single" id="heightMetric" style="display:none;">
+              <div class="calc-field">
+                <label for="cmIn">Height</label>
+                <div class="calc-input-wrap">
+                  <input class="calc-input" type="number" id="cmIn" min="100" max="240" step="1" placeholder="175" inputmode="numeric" />
+                  <span class="calc-input-suffix">cm</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-row">
+              <div class="calc-field">
+                <label for="weightIn">Weight</label>
+                <div class="calc-input-wrap">
+                  <input class="calc-input" type="number" id="weightIn" min="40" max="600" step="1" placeholder="165" inputmode="numeric" />
+                  <span class="calc-input-suffix" id="weightUnit">lb</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="sexIn">Biological Sex</label>
+                <select class="calc-select" id="sexIn">
+                  <option value="">Select</option>
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="calc-row">
+              <div class="calc-field">
+                <label for="ageIn">Age</label>
+                <div class="calc-input-wrap">
+                  <input class="calc-input" type="number" id="ageIn" min="13" max="100" step="1" placeholder="35" inputmode="numeric" />
+                  <span class="calc-input-suffix">years</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="goalIn">Goal</label>
+                <select class="calc-select" id="goalIn">
+                  <option value="">Select</option>
+                  <option value="lose">Lose weight</option>
+                  <option value="muscle">Build muscle</option>
+                  <option value="recomp">Tone / recomp</option>
+                  <option value="glp1">I'm on a GLP-1</option>
+                  <option value="health">General health</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="button" class="btn-primary btn-primary--block calc-cta" id="calcBtn">Calculate my BMI →</button>
+            <div class="calc-foot">🔒 Your data stays in your browser. No emails, no spam.</div>
+          </form>
+        </div>
+
+        <!-- RESULT VIEW -->
+        <div class="result-panel" id="resultPanel">
+          <div class="result-head">
+            <div class="result-head__label">Your BMI is</div>
+            <div class="result-bmi" id="resultBmi">—</div>
+            <div class="result-category" id="resultCategory">—</div>
+          </div>
+
+          <div class="bmi-scale">
+            <div class="bmi-scale__bar">
+              <div class="bmi-scale__marker" id="bmiMarker" style="left: 50%;"></div>
+            </div>
+            <div class="bmi-scale__labels">
+              <span>Under</span>
+              <span>Healthy</span>
+              <span>Over</span>
+              <span>Obese</span>
+            </div>
+          </div>
+
+          <div class="result-reframe" id="resultReframe">—</div>
+
+          <div class="result-offer">
+            <span class="result-offer__tag">⚡ YOUR PERSONALIZED OFFER</span>
+            <div class="result-offer__title" id="offerTitle">See what BMI missed — at home, in 60 seconds</div>
+            <div class="result-offer__sub">The Hume Pod measures 45+ metrics BMI can't: body fat, lean muscle in each limb, visceral fat, metabolic age and more. Validated against DEXA (98% accuracy).</div>
+            <div class="result-offer__row">
+              <span class="result-offer__price">$199</span>
+              <span class="result-offer__orig">$229</span>
+              <span class="result-offer__save">SAVE $30</span>
+            </div>
+            <div class="result-offer__code">Code <span class="code">BMI30</span> auto-applies at checkout</div>
+            <a href="https://humehealth.com/pages/hume-body-pod" class="result-offer__cta" id="offerCta">Get my real body composition →</a>
+            <div class="result-offer__finance">or 4 payments of $49.75 with Shop Pay · Free shipping · 30-day guarantee</div>
+          </div>
+
+          <button type="button" class="result-recalc" id="recalcBtn">↻ Recalculate</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PROOF BAR ══════════════ -->
+<div class="proof-bar">
+  <div class="container">
+    <div class="proof-bar__inner">
+      <div class="proof-stat"><div class="proof-stat__num">48,252+</div><div class="proof-stat__label">Customers tracking real body composition</div></div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat"><div class="proof-stat__num">★ 4.8 / 5</div><div class="proof-stat__label">Average rating across 12,000+ reviews</div></div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat"><div class="proof-stat__num">98%</div><div class="proof-stat__label">Agreement with DEXA gold-standard scans</div></div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat"><div class="proof-stat__num">45+</div><div class="proof-stat__label">Health metrics tracked in 60 seconds</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ "BMI IS WRONG" SECTION ══════════════ -->
+<section class="section section--soft">
+  <div class="container">
+    <div style="text-align:center; max-width: 720px; margin: 0 auto;">
+      <span class="eyebrow">WHY BMI LIES</span>
+      <h2 class="h2">Same height. Same weight. Same BMI.<br/>One healthy. One at risk.</h2>
+      <p class="lead mt-4">BMI is just height divided by weight squared. It cannot tell the difference between muscle and fat — or where fat actually lives in your body. That's why 54% of "normal BMI" adults are metabolically unhealthy.</p>
+    </div>
+
+    <div class="twin-grid">
+      <div class="twin-card">
+        <img src="https://humehealth.com/cdn/shop/files/performance_2x_5d8647a4-9863-424f-a5f5-a10ac6a4e87d.webp" alt="Active person" class="twin-card__img" />
+        <div class="twin-card__name">Maya, 34 — Marathon runner</div>
+        <div class="twin-card__bmi">BMI 25.4 · "Overweight"</div>
+        <div class="twin-card__row"><span class="twin-card__label">Body fat</span><span class="twin-card__value ok">19% (athletic)</span></div>
+        <div class="twin-card__row"><span class="twin-card__label">Lean muscle mass</span><span class="twin-card__value ok">62.4 lb</span></div>
+        <div class="twin-card__row"><span class="twin-card__label">Visceral fat</span><span class="twin-card__value ok">Level 3 (low)</span></div>
+        <div class="twin-card__row"><span class="twin-card__label">Metabolic age</span><span class="twin-card__value ok">27</span></div>
+        <div class="twin-card__row"><span class="twin-card__label">Real risk</span><span class="twin-card__value ok">Very low ✓</span></div>
+      </div>
+
+      <div class="twin-card">
+        <img src="https://humehealth.com/cdn/shop/files/weight_loss_2x_2b607e11-e1a2-4111-b320-0529b66e7792.webp" alt="Sedentary person" class="twin-card__img" />
+        <div class="twin-card__name">James, 34 — Desk job, no exercise</div>
+        <div class="twin-card__bmi">BMI 25.4 · "Overweight"</div>
+        <div class="twin-card__row"><span class="twin-card__label">Body fat</span><span class="twin-card__value bad">34% (high)</span></div>
+        <div class="twin-card__row"><span class="twin-card__label">Lean muscle mass</span><span class="twin-card__value bad">42.1 lb</span></div>
+        <div class="twin-card__row"><span class="twin-card__label">Visceral fat</span><span class="twin-card__value bad">Level 14 (danger)</span></div>
+        <div class="twin-card__row"><span class="twin-card__label">Metabolic age</span><span class="twin-card__value bad">52</span></div>
+        <div class="twin-card__row"><span class="twin-card__label">Real risk</span><span class="twin-card__value bad">High — pre-diabetic</span></div>
+      </div>
+    </div>
+
+    <p class="lead text-center mt-8" style="max-width: 640px; margin-left: auto; margin-right: auto;">
+      A bathroom scale says they weigh the same. BMI calls them both overweight. Body composition tells the truth. <strong style="color: var(--color-text);">The Hume Pod gives you all five of those numbers — every morning, from home.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════ FEATURE BLOCKS ══════════════ -->
+<section class="section">
+  <div class="container">
+
+    <div class="feature-block">
+      <div>
+        <div class="feature-block__tag">FAT vs MUSCLE</div>
+        <h3 class="feature-block__title">Know if you're losing fat — or just water and muscle.</h3>
+        <p class="feature-block__body">The scale says you're down 5 lbs. But what came off? When you don't know, you keep doing what got the scale to move — even if it's wrecking your metabolism and your shape. The Hume Pod separates fat loss from muscle loss so every workout and every meal actually moves you forward.</p>
+        <ul class="feature-list">
+          <li><span class="feature-list__icon">✓</span><span><strong>Body fat %</strong> — the only weight number that actually matters</span></li>
+          <li><span class="feature-list__icon">✓</span><span><strong>Segmental muscle mass</strong> — see which arm or leg is lagging</span></li>
+          <li><span class="feature-list__icon">✓</span><span><strong>Visceral fat</strong> — the dangerous fat that surrounds your organs</span></li>
+        </ul>
+      </div>
+      <img src="https://humehealth.com/cdn/shop/files/New20-Pod-NoTag-2_a2b50767-2071-4f77-85b4-4880a18a145a.webp" alt="Hume Pod tracks fat vs muscle" class="feature-block__img" />
+    </div>
+
+    <div class="feature-block feature-block--reverse">
+      <div>
+        <div class="feature-block__tag">REAL-TIME TRENDS</div>
+        <h3 class="feature-block__title">Daily readings. Crystal-clear trends. No more guessing.</h3>
+        <p class="feature-block__body">Step on for 60 seconds in the morning. Your phone shows you 45+ metrics across body composition, heart health, and metabolism — with weekly trend lines that tell you exactly whether your plan is working. No subscription needed.</p>
+        <ul class="feature-list">
+          <li><span class="feature-list__icon">✓</span><span><strong>45+ metrics</strong> in a single 60-second reading</span></li>
+          <li><span class="feature-list__icon">✓</span><span><strong>Weekly trend reports</strong> that show what's actually changing</span></li>
+          <li><span class="feature-list__icon">✓</span><span><strong>Up to 24 user profiles</strong> — works for the whole family</span></li>
+        </ul>
+      </div>
+      <img src="https://humehealth.com/cdn/shop/files/frame_2134722355.webp" alt="Hume Health app dashboard" class="feature-block__img" />
+    </div>
+
+    <div class="feature-block">
+      <div>
+        <div class="feature-block__tag">SCIENCE-GRADE</div>
+        <h3 class="feature-block__title">Built on the same tech as a $300 DEXA scan.</h3>
+        <p class="feature-block__body">8 medical-grade bio-impedance sensors. 4 frequencies. Validated against DEXA (the gold standard) at 98% agreement on body fat percentage — at a fraction of the price and without driving to a clinic. Trusted by Olympians, UFC champions, and 48,000+ everyday people.</p>
+        <ul class="feature-list">
+          <li><span class="feature-list__icon">✓</span><span><strong>8-electrode BIA</strong> — hand-to-foot accuracy, not just foot-to-foot</span></li>
+          <li><span class="feature-list__icon">✓</span><span><strong>DEXA-validated</strong> in clinical testing</span></li>
+          <li><span class="feature-list__icon">✓</span><span><strong>No subscription required</strong> for core data</span></li>
+        </ul>
+      </div>
+      <img src="https://humehealth.com/cdn/shop/files/visionhealthpic_1_1_5a1b984e-2609-4743-ba42-2e84bdbd3d88.webp" alt="Science-grade body composition" class="feature-block__img" />
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ GLP-1 SECTION ══════════════ -->
+<section class="section section--alt">
+  <div class="container">
+    <div style="text-align:center; max-width:720px;margin:0 auto;">
+      <span class="eyebrow">FOR OZEMPIC, WEGOVY, MOUNJARO & ZEPBOUND USERS</span>
+      <h2 class="h2">Losing weight on a GLP-1? You could be losing muscle, too.</h2>
+    </div>
+
+    <div class="glp1">
+      <div>
+        <span class="glp1__tag">⚠ Critical for GLP-1 users</span>
+        <h3 class="glp1__title">Up to 40% of GLP-1 weight loss is muscle, not fat.</h3>
+
+        <div class="glp1__stat">
+          <div class="glp1__stat-num">25–40%</div>
+          <div class="glp1__stat-label">Of weight lost on Ozempic/Wegovy is lean muscle, per multiple clinical trials</div>
+        </div>
+
+        <p class="glp1__body">
+          GLP-1s work — but they don't discriminate between fat and muscle. Losing muscle wrecks your metabolism, makes you weaker, ages you visibly, and almost guarantees you'll regain the weight (as fat) when you stop the medication. <strong>Most people only find out months too late.</strong>
+        </p>
+        <p class="glp1__body">
+          The Hume Pod shows you exactly what's coming off — fat or muscle — every single day. So you can adjust protein, training, and dosing before muscle loss becomes permanent.
+        </p>
+        <a href="#buy" class="btn-primary">Protect my muscle — Get the Pod →</a>
+      </div>
+      <img src="https://humehealth.com/cdn/shop/files/weight_loss_2x_2b607e11-e1a2-4111-b320-0529b66e7792.webp" alt="GLP-1 muscle tracking" class="glp1__img" />
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 45 METRICS GRID ══════════════ -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center; max-width:720px;margin:0 auto;">
+      <span class="eyebrow">WHAT YOU SEE EVERY MORNING</span>
+      <h2 class="h2">BMI gives you 1 number. The Hume Pod gives you 45+.</h2>
+      <p class="lead mt-4">Every metric your doctor wishes you'd track — from body fat percentage to metabolic age, hydration to bone density, heart rate to muscle balance.</p>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card"><div class="metric-card__icon">🔥</div><div class="metric-card__name">Body Fat %</div><div class="metric-card__why">The number that actually matters for risk</div></div>
+      <div class="metric-card"><div class="metric-card__icon">💪</div><div class="metric-card__name">Lean Muscle Mass</div><div class="metric-card__why">Per-limb breakdown of muscle</div></div>
+      <div class="metric-card"><div class="metric-card__icon">🫀</div><div class="metric-card__name">Visceral Fat</div><div class="metric-card__why">The dangerous fat around your organs</div></div>
+      <div class="metric-card"><div class="metric-card__icon">⏱</div><div class="metric-card__name">Metabolic Age</div><div class="metric-card__why">How old your body actually behaves</div></div>
+      <div class="metric-card"><div class="metric-card__icon">🦴</div><div class="metric-card__name">Bone Density</div><div class="metric-card__why">Especially critical post-40</div></div>
+      <div class="metric-card"><div class="metric-card__icon">💧</div><div class="metric-card__name">Hydration</div><div class="metric-card__why">Total body water in pounds</div></div>
+      <div class="metric-card"><div class="metric-card__icon">❤️</div><div class="metric-card__name">Resting Heart Rate</div><div class="metric-card__why">Cardio health marker</div></div>
+      <div class="metric-card"><div class="metric-card__icon">⚡</div><div class="metric-card__name">BMR</div><div class="metric-card__why">Calories you burn at rest</div></div>
+      <div class="metric-card"><div class="metric-card__icon">📊</div><div class="metric-card__name">Protein %</div><div class="metric-card__why">Are you eating enough?</div></div>
+      <div class="metric-card"><div class="metric-card__icon">⚖️</div><div class="metric-card__name">Body Symmetry</div><div class="metric-card__why">Left vs right imbalances</div></div>
+      <div class="metric-card"><div class="metric-card__icon">🧬</div><div class="metric-card__name">Cell Health</div><div class="metric-card__why">Phase angle — cellular integrity</div></div>
+      <div class="metric-card"><div class="metric-card__icon">+</div><div class="metric-card__name">34 more</div><div class="metric-card__why">Including segmental fat, ECW/ICW, and more</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TESTIMONIALS ══════════════ -->
+<section class="section section--alt">
+  <div class="container">
+    <div style="text-align:center;max-width:720px;margin:0 auto;">
+      <span class="eyebrow">REAL CUSTOMERS · VERIFIED REVIEWS</span>
+      <h2 class="h2">"It changed how I look at my body completely."</h2>
+      <p class="lead mt-4">4.8 stars from 12,000+ verified reviews. Here are three favorites.</p>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <div class="testimonial-card__title">The BMI shock was real.</div>
+        <p class="testimonial-card__body">"BMI said I was 'overweight' for a decade. The Pod showed me I was at <em>19% body fat with high lean mass</em>. I was healthier than half the 'normal BMI' people I know. I cancelled my $300/mo PT and just trust the data now."</p>
+        <div class="testimonial-card__author">
+          <img class="testimonial-card__avatar" src="https://humehealth.com/cdn/shop/files/amyinhalf_1x_dbd785df-659f-47a8-9a02-e12cff490e6a.webp" alt="Reviewer" />
+          <div>
+            <div class="testimonial-card__name">Amy R.</div>
+            <div class="testimonial-card__meta">Verified Buyer · 6 months in</div>
+            <div class="testimonial-card__verified">✓ VERIFIED PURCHASE</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <div class="testimonial-card__title">Saved my muscle on Mounjaro.</div>
+        <p class="testimonial-card__body">"I'd lost 38 lbs on Mounjaro and felt great until I weighed in. <em>14 of those pounds were muscle.</em> I had no idea. I added 40g of protein and resistance training and now the trend line is flipped. Wish I'd had this from day one."</p>
+        <div class="testimonial-card__author">
+          <img class="testimonial-card__avatar" src="https://humehealth.com/cdn/shop/files/drnicolemartin_1x_8e62cfa6-ff7f-46c5-a387-209f221fada4.webp" alt="Reviewer" />
+          <div>
+            <div class="testimonial-card__name">Nicole M.</div>
+            <div class="testimonial-card__meta">Verified Buyer · GLP-1 user</div>
+            <div class="testimonial-card__verified">✓ VERIFIED PURCHASE</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <div class="testimonial-card__title">Replaced my $40 scale + $300 DEXA.</div>
+        <p class="testimonial-card__body">"I was paying $300 every 3 months for DEXA scans. Numbers from the Pod tracked the DEXA within 1%. <em>The Pod paid for itself in two months.</em> The segmental muscle data is genuinely better than what I got at the clinic."</p>
+        <div class="testimonial-card__author">
+          <img class="testimonial-card__avatar" src="https://humehealth.com/cdn/shop/files/tim-biohacker.webp" alt="Reviewer" />
+          <div>
+            <div class="testimonial-card__name">Tim G.</div>
+            <div class="testimonial-card__meta">Verified Buyer · 14 months in</div>
+            <div class="testimonial-card__verified">✓ VERIFIED PURCHASE</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ COMPARISON TABLE ══════════════ -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;max-width:720px;margin:0 auto;">
+      <span class="eyebrow">VS. THE OTHERS</span>
+      <h2 class="h2">Why not just buy the $50 scale on Amazon?</h2>
+      <p class="lead mt-4">A fair question. Here's the honest side-by-side.</p>
+    </div>
+
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="hume">Hume Pod</th>
+            <th>Renpho Elis</th>
+            <th>Withings Body+</th>
+            <th>Eufy Smart Scale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Number of metrics</td>
+            <td class="hume-col"><strong>45+</strong></td>
+            <td>13</td>
+            <td>15</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td>Segmental (per-limb) analysis</td>
+            <td class="hume-col"><span class="check-icon">✓</span></td>
+            <td><span class="cross-icon">✗</span></td>
+            <td><span class="cross-icon">✗</span></td>
+            <td><span class="cross-icon">✗</span></td>
+          </tr>
+          <tr>
+            <td>Hand sensors (not just feet)</td>
+            <td class="hume-col"><span class="check-icon">✓</span> 8 sensors</td>
+            <td><span class="cross-icon">✗</span> 4 sensors</td>
+            <td><span class="cross-icon">✗</span> 4 sensors</td>
+            <td><span class="cross-icon">✗</span> 4 sensors</td>
+          </tr>
+          <tr>
+            <td>Validated against DEXA</td>
+            <td class="hume-col"><span class="check-icon">✓</span> 98% agreement</td>
+            <td><span class="cross-icon">✗</span></td>
+            <td>Partial</td>
+            <td><span class="cross-icon">✗</span></td>
+          </tr>
+          <tr>
+            <td>Visceral fat measurement</td>
+            <td class="hume-col"><span class="check-icon">✓</span></td>
+            <td>Estimate</td>
+            <td>Estimate</td>
+            <td>Estimate</td>
+          </tr>
+          <tr>
+            <td>HSA / FSA eligible</td>
+            <td class="hume-col"><span class="check-icon">✓</span></td>
+            <td><span class="cross-icon">✗</span></td>
+            <td><span class="cross-icon">✗</span></td>
+            <td><span class="cross-icon">✗</span></td>
+          </tr>
+          <tr>
+            <td>App subscription required</td>
+            <td class="hume-col"><strong>No</strong></td>
+            <td>No</td>
+            <td><strong>Yes ($9.99/mo)</strong></td>
+            <td>No</td>
+          </tr>
+          <tr class="price-row">
+            <td>Price</td>
+            <td class="hume-col"><strong>$199</strong> with code BMI30</td>
+            <td>$49</td>
+            <td>$149</td>
+            <td>$59</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="lead text-center mt-8" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      $50 scales give you what BMI gave you: a number. The Pod gives you the picture.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════ DEXA / SCIENCE ══════════════ -->
+<section class="section section--soft">
+  <div class="container">
+    <div style="text-align:center;max-width:720px;margin:0 auto;">
+      <span class="eyebrow">THE SCIENCE</span>
+      <h2 class="h2">Validated against the gold standard.</h2>
+    </div>
+
+    <div class="science-card">
+      <div>
+        <div class="science-stat">98%</div>
+        <div class="science-stat__label">Agreement with DEXA scans on body fat percentage in clinical validation testing — the same gold standard used by sports medicine and research labs.</div>
+        <ul class="feature-list mt-6">
+          <li><span class="feature-list__icon">✓</span><span><strong>8-electrode bioelectrical impedance</strong> measures with hand AND foot sensors</span></li>
+          <li><span class="feature-list__icon">✓</span><span><strong>4 frequencies (5/50/250/1000 kHz)</strong> for precise tissue analysis</span></li>
+          <li><span class="feature-list__icon">✓</span><span><strong>FDA-registered facility manufacturing</strong></span></li>
+        </ul>
+      </div>
+      <img src="https://humehealth.com/cdn/shop/files/New20-Pod-NoTag-7.webp" alt="DEXA-validated body composition" style="width:100%;border-radius:14px;" />
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ HOW IT WORKS ══════════════ -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;max-width:720px;margin:0 auto;">
+      <span class="eyebrow">HOW IT WORKS</span>
+      <h2 class="h2">From doorstep to insight in under 5 minutes.</h2>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-card__num">STEP 01</div>
+        <div class="step-card__title">Unbox & pair</div>
+        <p class="step-card__body">Charge once, pair the Pod to your phone in under 2 minutes via Bluetooth. The free Hume app guides you.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-card__num">STEP 02</div>
+        <div class="step-card__title">Step on, hold the handle</div>
+        <p class="step-card__body">60 seconds. Bare feet on the Pod, hands on the handle. 8 sensors read across your whole body — no clinic, no waiting.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-card__num">STEP 03</div>
+        <div class="step-card__title">See 45+ metrics</div>
+        <p class="step-card__body">Body fat, muscle, visceral fat, metabolic age — all in your app. Daily readings build trend lines that show what's actually working.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PRICING / FINAL CTA ══════════════ -->
+<section class="section section--alt" id="buy">
+  <div class="container">
+    <div style="text-align:center;max-width:720px;margin:0 auto;">
+      <span class="eyebrow">CLAIM YOUR $30 OFF</span>
+      <h2 class="h2">Stop guessing. Start measuring.</h2>
+      <p class="lead mt-4">Code BMI30 is loaded for BMI calculator visitors. Free shipping. 30-day guarantee.</p>
+    </div>
+
+    <div class="pricing-box mt-12">
+      <div class="pricing-box__head">
+        <div class="pricing-box__label">HUME POD · BMI CALCULATOR DEAL</div>
+        <div class="pricing-box__price-row">
+          <div class="pricing-box__price">$199</div>
+          <div class="pricing-box__orig">$229</div>
+        </div>
+        <div class="pricing-box__save">YOU SAVE $30 WITH CODE BMI30</div>
+        <div class="pricing-box__installment">or 4 interest-free payments of <strong>$49.75</strong> with Shop Pay, Affirm, or Klarna</div>
+      </div>
+
+      <div class="pricing-box__urgency">
+        🔥 BMI30 expires tonight at 11:59pm — code auto-applied at checkout
+      </div>
+
+      <ul class="pricing-box__includes">
+        <li>The Hume Pod (8-sensor body composition scanner)</li>
+        <li>Free Hume Health app — 45+ metrics, no subscription</li>
+        <li>Up to 24 user profiles (for the whole family)</li>
+        <li>Free fast shipping (2–4 business days)</li>
+        <li>2-year warranty + 30-day money-back guarantee</li>
+        <li>HSA / FSA eligible</li>
+      </ul>
+
+      <a href="https://humehealth.com/pages/hume-body-pod" class="btn-primary btn-primary--lg btn-primary--block">Get my Hume Pod for $199 →</a>
+
+      <div class="pricing-box__trust">
+        <div class="pricing-box__trust-item">30-day guarantee</div>
+        <div class="pricing-box__trust-item">2-year warranty</div>
+        <div class="pricing-box__trust-item">Free shipping</div>
+        <div class="pricing-box__trust-item">HSA / FSA eligible</div>
+      </div>
+
+      <div class="pricing-box__payment">
+        <span class="pay-pill">VISA</span>
+        <span class="pay-pill">MASTERCARD</span>
+        <span class="pay-pill">AMEX</span>
+        <span class="pay-pill">SHOP PAY</span>
+        <span class="pay-pill">AFFIRM</span>
+        <span class="pay-pill">KLARNA</span>
+        <span class="pay-pill">PAYPAL</span>
+      </div>
+    </div>
+
+    <!-- GUARANTEE -->
+    <div class="guarantee">
+      <div class="guarantee__icon">🛡</div>
+      <div>
+        <div class="guarantee__title">Love your data — or your money back.</div>
+        <div class="guarantee__body">Try the Hume Pod for 30 days. If you're not seeing things about your body you couldn't see before, send it back. Full refund, no questions asked. Backed by a 2-year warranty. This is the safest decision you'll make this week.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FAQ ══════════════ -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;max-width:720px;margin:0 auto;">
+      <span class="eyebrow">QUESTIONS</span>
+      <h2 class="h2">Everything you might be wondering.</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">My BMI was "normal" — do I still need this?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">Yes — possibly more than someone with a high BMI. About 54% of "normal BMI" adults are metabolically unhealthy ("skinny fat"): low muscle, high visceral fat, and a metabolic age much older than their actual age. BMI completely misses this. The Pod is how you find out.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">I'm on Ozempic / Wegovy / Mounjaro. How does this help?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">GLP-1 medications cause 25–40% of weight loss to come from muscle, not fat. Losing muscle wrecks metabolism and almost guarantees rebound weight gain when you stop the medication. The Pod shows you exactly what's coming off — every single day — so you can protect muscle with protein and resistance training before damage is permanent.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How is this different from a $40 Amazon body fat scale?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">Two big things: (1) Cheap scales use only 4 foot sensors and measure your lower body — then guess about the rest. The Pod uses 8 sensors with a handle, reading both halves of your body separately for per-limb muscle and fat data. (2) Cheap scales aren't validated against medical-grade DEXA. The Pod is — at 98% agreement. The metrics are real, not estimates of estimates.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Is there a subscription?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">No subscription for the core 45+ metrics. The Hume app is free for life. Optional premium coaching and AI insights are available, but you'll never need them to use the Pod or see your full body composition.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Does it work for the whole family?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">Yes. Up to 24 user profiles. The Pod auto-recognizes who's stepping on it (after you've each scanned once) and saves each person's data privately to their own phone.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What's the 30-day guarantee?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">Try the Pod for 30 days. If you don't love the insights, send it back for a full refund — we even cover return shipping in the US. After that, a 2-year warranty covers any defects.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Can I use my HSA / FSA?<span class="faq-arrow">+</span></button>
+        <div class="faq-a">Yes. The Hume Pod is HSA and FSA eligible. You can use your card directly at checkout, or submit the receipt for reimbursement.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FINAL CTA STRIP ══════════════ -->
+<section class="section section--dark">
+  <div class="container text-center">
+    <span class="eyebrow eyebrow--light">ONE LAST THING</span>
+    <h2 class="h2" style="color:#fff;">You came here for a number.<br/>Leave with the truth.</h2>
+    <p class="lead lead--light mt-4" style="max-width:600px;margin-left:auto;margin-right:auto;">BMI gives you 1 number that's wrong 50% of the time. The Hume Pod gives you 45+ numbers that are right 98% of the time — every morning, in 60 seconds.</p>
+    <div class="mt-8">
+      <a href="https://humehealth.com/pages/hume-body-pod" class="btn-primary btn-primary--lg">Claim My Pod for $199 →</a>
+    </div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:14px;">Code BMI30 applied · Free shipping · 30-day money-back guarantee</div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Shipping & Returns</a>
+      <a href="#">Contact</a>
+      <a href="#">FAQ</a>
+    </div>
+    <div>© 2026 Hume Health. All rights reserved.</div>
+    <div class="footer__copy">Statements have not been evaluated by the FDA. The Hume Pod is not a medical device and is not intended to diagnose, treat, cure, or prevent any disease.</div>
+  </div>
+</footer>
+
+<!-- ══════════════ STICKY MOBILE CTA ══════════════ -->
+<div class="sticky-cta">
+  <div class="sticky-cta__info">
+    <div class="sticky-cta__price">$199 <span style="text-decoration:line-through;color:#a0a0a0;font-weight:500;font-size:12px;">$229</span></div>
+    <div class="sticky-cta__sub">Code BMI30 · 4× $49.75 · Free shipping</div>
+  </div>
+  <a href="https://humehealth.com/pages/hume-body-pod" class="btn-primary">Get my Pod →</a>
+</div>
+
+<script>
+  // ── UNIT TOGGLE ─────────────────────────────────
+  const unitButtons = document.querySelectorAll('.unit-toggle button');
+  let currentUnit = 'imperial';
+  unitButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      unitButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentUnit = btn.dataset.unit;
+      document.getElementById('heightImperial').style.display = currentUnit === 'imperial' ? '' : 'none';
+      document.getElementById('heightMetric').style.display = currentUnit === 'metric' ? '' : 'none';
+      document.getElementById('weightUnit').textContent = currentUnit === 'imperial' ? 'lb' : 'kg';
+    });
+  });
+
+  // ── BMI CALCULATION ─────────────────────────────
+  const calcBtn = document.getElementById('calcBtn');
+  const recalcBtn = document.getElementById('recalcBtn');
+  const calcInputView = document.getElementById('calcInputView');
+  const resultPanel = document.getElementById('resultPanel');
+
+  function calcBMI() {
+    let heightM;
+    if (currentUnit === 'imperial') {
+      const ft = parseFloat(document.getElementById('ftIn').value) || 0;
+      const inches = parseFloat(document.getElementById('inIn').value) || 0;
+      const totalIn = ft * 12 + inches;
+      if (totalIn < 36 || totalIn > 96) { alert('Please enter a valid height.'); return; }
+      heightM = totalIn * 0.0254;
+    } else {
+      const cm = parseFloat(document.getElementById('cmIn').value) || 0;
+      if (cm < 100 || cm > 240) { alert('Please enter a valid height in cm.'); return; }
+      heightM = cm / 100;
+    }
+    let weight = parseFloat(document.getElementById('weightIn').value) || 0;
+    if (weight <= 0) { alert('Please enter your weight.'); return; }
+    const weightKg = currentUnit === 'imperial' ? weight * 0.453592 : weight;
+    if (weightKg < 25 || weightKg > 300) { alert('Please enter a valid weight.'); return; }
+
+    const sex = document.getElementById('sexIn').value;
+    const age = parseInt(document.getElementById('ageIn').value, 10) || 0;
+    const goal = document.getElementById('goalIn').value;
+
+    const bmi = weightKg / (heightM * heightM);
+    showResult(bmi, sex, age, goal);
+  }
+
+  function showResult(bmi, sex, age, goal) {
+    document.getElementById('resultBmi').textContent = bmi.toFixed(1);
+
+    // Category
+    let category, categoryClass;
+    if (bmi < 18.5)      { category = 'Underweight'; categoryClass = 'under'; }
+    else if (bmi < 25)   { category = 'Healthy Weight'; categoryClass = 'healthy'; }
+    else if (bmi < 30)   { category = 'Overweight'; categoryClass = 'overweight'; }
+    else                 { category = 'Obese'; categoryClass = 'obese'; }
+    const catEl = document.getElementById('resultCategory');
+    catEl.textContent = category;
+    catEl.className = 'result-category ' + categoryClass;
+
+    // Scale marker — map BMI 15→0%, 40→100%
+    const pct = Math.min(100, Math.max(0, ((bmi - 15) / (40 - 15)) * 100));
+    document.getElementById('bmiMarker').style.left = pct + '%';
+
+    // Reframe & offer copy — branch by category + goal
+    let reframe = '';
+    let offerTitle = '';
+
+    if (categoryClass === 'under') {
+      reframe = `<strong>Heads up.</strong> A "Underweight" BMI usually means low body weight — but the more important question is <strong>how much of that is muscle</strong>. Low muscle at any age accelerates aging, weakens bones, and tanks metabolism. The Pod tells you if you need to gain weight, or specifically gain muscle.`;
+      offerTitle = `See if you're under-muscled — or just lean.`;
+    } else if (categoryClass === 'healthy') {
+      reframe = `<strong>Your BMI looks healthy — but here's the catch.</strong> Research shows <strong>54% of "normal BMI" adults are metabolically unhealthy</strong> ("skinny fat"): too little muscle, too much visceral fat, and a metabolic age much older than they look. BMI cannot see this. The Pod can.`;
+      offerTitle = `"Normal BMI" hides skinny-fat. Find out where you stand.`;
+    } else if (categoryClass === 'overweight') {
+      reframe = `<strong>Hold on.</strong> "Overweight" BMI could mean dangerous excess fat — OR it could mean you carry extra muscle and your real body fat is healthy. <strong>BMI cannot tell the difference.</strong> The only way to know is to measure body fat, lean muscle, and visceral fat directly.`;
+      offerTitle = `Are you actually overweight — or just carrying muscle?`;
+    } else {
+      reframe = `<strong>This is important.</strong> A BMI in the "Obese" range raises real health risk — but BMI doesn't tell you <strong>where the fat is (visceral vs subcutaneous), how much muscle you have to work with, or your metabolic age</strong>. Those numbers are what your plan should be built around — not BMI.`;
+      offerTitle = `BMI says "Obese" — but the picture is more useful than that.`;
+    }
+
+    // Goal-specific override
+    if (goal === 'glp1') {
+      reframe = `<strong>If you're on a GLP-1 (Ozempic, Wegovy, Mounjaro, Zepbound), BMI is the wrong tool entirely.</strong> 25–40% of GLP-1 weight loss is muscle, not fat. Losing muscle silently destroys your metabolism and almost guarantees rebound when you stop. The Pod tracks fat-vs-muscle daily — exactly what you need to protect your results.`;
+      offerTitle = `On a GLP-1? Stop losing the muscle you'll regret losing.`;
+    } else if (goal === 'muscle') {
+      reframe = `<strong>If you're trying to build muscle, BMI is useless.</strong> Lifters routinely get labeled "Overweight" or "Obese" with single-digit body fat. The Pod tracks <strong>lean muscle mass per limb</strong> — so you can see which side is lagging, hit it harder, and prove your training works.`;
+      offerTitle = `Built for lifters: per-limb muscle data, daily.`;
+    } else if (goal === 'recomp') {
+      reframe = `<strong>Recomp is the hardest goal to track</strong> — scale weight barely moves, but body fat is dropping and muscle is rising. BMI will tell you "nothing changed" for months while you're transforming. The Pod tracks fat and muscle separately so you can actually <strong>see the recomp happening</strong>.`;
+      offerTitle = `Recomp invisible on the scale? See it on the Pod.`;
+    } else if (goal === 'lose' && (categoryClass === 'overweight' || categoryClass === 'obese')) {
+      reframe = `<strong>Most weight loss plans fail because the scale lies.</strong> You can lose 5 lbs on the scale but actually have lost 1 lb of fat and 4 lbs of water and muscle — guaranteeing rebound. The Pod separates real fat loss from water and muscle loss, every single day. This is how lasting weight loss actually works.`;
+      offerTitle = `Lose fat, not muscle. See the difference daily.`;
+    }
+
+    document.getElementById('resultReframe').innerHTML = reframe;
+    document.getElementById('offerTitle').textContent = offerTitle;
+
+    // Swap views
+    calcInputView.style.display = 'none';
+    resultPanel.classList.add('show');
+
+    // Scroll into view
+    setTimeout(() => {
+      document.getElementById('calculator').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
+  }
+
+  calcBtn.addEventListener('click', calcBMI);
+  recalcBtn.addEventListener('click', () => {
+    resultPanel.classList.remove('show');
+    calcInputView.style.display = '';
+  });
+
+  // ── FAQ TOGGLE ──────────────────────────────────
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const expanded = q.getAttribute('aria-expanded') === 'true';
+      q.setAttribute('aria-expanded', !expanded);
+      const a = q.nextElementSibling;
+      if (a) a.classList.toggle('open');
+    });
+  });
+</script>
+
+</body>
+</html>
