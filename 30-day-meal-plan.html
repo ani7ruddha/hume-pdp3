@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>30-Day Meal Plan — Inspired by @fit.khurana (Vanshika Khurana)</title>
+<style>
+  :root{
+    --bg:#fffaf3;
+    --ink:#1b1b1b;
+    --muted:#6b6b6b;
+    --accent:#d94f2a;
+    --accent-2:#0f6e4e;
+    --card:#ffffff;
+    --line:#ecdfd0;
+    --macro:#3a2f7a;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.55;
+  }
+  header{
+    padding:48px 24px 32px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#fff3e3,#fffaf3);
+  }
+  header h1{
+    font-size:32px;
+    margin:0 0 8px;
+    letter-spacing:-.5px;
+  }
+  header p{
+    color:var(--muted);
+    margin:6px auto;
+    max-width:680px;
+  }
+  .tag{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    padding:4px 10px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.3px;
+    text-transform:uppercase;
+  }
+  main{
+    max-width:1000px;
+    margin:0 auto;
+    padding:32px 20px 80px;
+  }
+  .intro{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px 22px;
+    margin-bottom:28px;
+  }
+  .intro h2{margin-top:0}
+  .intro ul{padding-left:20px;margin:8px 0}
+  .week{margin-top:36px}
+  .week h2{
+    font-size:22px;
+    color:var(--accent-2);
+    border-left:4px solid var(--accent);
+    padding-left:12px;
+    margin-bottom:12px;
+  }
+  .day{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 20px;
+    margin-bottom:14px;
+    box-shadow:0 1px 0 rgba(0,0,0,.02);
+  }
+  .day h3{
+    margin:0 0 12px;
+    font-size:18px;
+    display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  }
+  .day h3 .num{
+    background:var(--accent-2);color:#fff;
+    font-size:12px;padding:3px 8px;border-radius:6px;font-weight:700;
+  }
+  .day h3 .total{
+    margin-left:auto;font-size:12px;color:var(--macro);
+    background:#efeaff;padding:3px 8px;border-radius:6px;font-weight:600;
+  }
+  .meal{
+    padding:12px 0;border-top:1px dashed var(--line);
+  }
+  .meal:first-of-type{border-top:none}
+  .meal b{color:var(--accent)}
+  .macros{
+    display:inline-block;background:#efeaff;color:var(--macro);
+    font-size:12px;padding:2px 8px;border-radius:999px;
+    font-weight:600;margin-left:6px;
+  }
+  .recipe{
+    color:var(--muted);font-size:14px;margin-top:6px;
+  }
+  .signature{
+    display:inline-block;font-size:11px;background:#fdecdf;color:#9c3d18;
+    padding:2px 8px;border-radius:999px;font-weight:600;margin-left:4px;
+  }
+  footer{
+    text-align:center;padding:24px;color:var(--muted);font-size:13px;
+  }
+  .callout{
+    background:#fff6ec;border-left:4px solid var(--accent);
+    padding:10px 14px;border-radius:8px;margin:10px 0;font-size:14px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag">30-Day Plan</span>
+  <h1>30-Day Meal Plan — Inspired by @fit.khurana</h1>
+  <p>Vanshika Khurana's signature style: high-protein Indian meals, every meal with macros, homemade low-fat paneer, tofu/soya combos, stevia &amp; double-toned milk swaps, minimal ghee, kasuri methi finishes. ~25-30g protein per meal target.</p>
+  <p style="font-size:13px;color:#999;margin-top:14px;">Inspired by her public reels (paneer steak, low-fat paneer curry, protein theplas, paneer toast, mango shake). Not affiliated with her — adapt portions to your goals.</p>
+</header>
+
+<main>
+
+  <section class="intro">
+    <h2>The fit.khurana rulebook (so this plan actually works)</h2>
+    <ul>
+      <li><b>Daily target:</b> 1700-1900 kcal • 100-120g protein • 3-4 L water.</li>
+      <li><b>Homemade low-fat paneer:</b> her trademark. Boil 1L double-toned milk, add 2 tbsp vinegar/lemon, strain, press 30 min. Yields ~150-180g paneer, ~25g protein, &lt;200 kcal.</li>
+      <li><b>Sweetener swap:</b> stevia instead of sugar — everywhere.</li>
+      <li><b>Milk swap:</b> double-toned/skimmed milk only.</li>
+      <li><b>Veg protein stack:</b> low-fat paneer + tofu + soya chunks + Greek yogurt + whey — combine 2 in one meal to hit 25g+.</li>
+      <li><b>Flavor profile:</b> kasuri methi, schezwan, sriracha, garlic, kalonji, mixed herbs, chaat masala.</li>
+      <li><b>Plate rule:</b> protein 25-30g first, complex carbs 50-80g cooked rice or 1-2 phulkas, fistful veggies, 1 tsp ghee max.</li>
+      <li><b>Pre-workout:</b> black coffee + 1 banana. <b>Post-workout:</b> 1 scoop whey + water or 200g Greek yogurt.</li>
+      <li><b>1 cheat meal/week</b> — stay within Sunday dinner. No cheat <i>day</i>, just a meal.</li>
+    </ul>
+    <div class="callout"><b>Macros legend:</b> P = protein (g) • C = carbs (g) • F = fat (g) • kcal = calories.</div>
+  </section>
+
+  <!-- WEEK 1 -->
+  <section class="week">
+    <h2>Week 1 — Build the protein floor</h2>
+
+    <div class="day">
+      <h3><span class="num">Day 1</span> Mon <span class="total">~110g P • ~1750 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Besan-paneer chilla (2)</b> <span class="macros">P 28 • C 30 • F 12 • 360 kcal</span>
+        <div class="recipe">½ cup besan + water + chopped onion, tomato, coriander, ajwain, salt, ¼ tsp red chilli. Cook on tawa with ½ tsp ghee. Stuff with 60g crumbled low-fat paneer + mint chutney.</div>
+      </div>
+      <div class="meal"><b>Lunch — Low-fat paneer curry + 80g rice</b> <span class="macros">P 25 • C 50 • F 10 • 430 kcal</span> <span class="signature">her signature</span>
+        <div class="recipe">Sauté 1 tsp jeera + 5-6 crushed garlic + 2 green chillies in 1 tsp ghee. Add blended 1 onion + 2 tomatoes. Add ½ tsp turmeric, 1 tsp red chilli, ½ tsp dhaniya, 1 tsp garam masala, pinch cinnamon, ½ tsp stevia, salt. Cook 4-5 min. Add 70-80ml double-toned milk + 1 tsp malai, stir. Add 150g paneer cubes + kasuri methi. Cook 5 min.</div>
+      </div>
+      <div class="meal"><b>Dinner — Paneer steak + sautéed veggies + loaded raita</b> <span class="macros">P 30 • C 18 • F 14 • 380 kcal</span> <span class="signature">her signature</span>
+        <div class="recipe"><b>Steak:</b> marinate 150g low-fat paneer in 1 tbsp hot-sweet sauce + 1 tbsp schezwan + 1 tsp olive oil + 2 crushed garlic + 1 tsp soy + 1 tsp vinegar + ½ tsp red chilli + 1 tsp mixed herbs + salt. Rest 15 min, grill both sides.<br><b>Veggies:</b> sauté garlic + chilli flakes, toss bell peppers, zucchini, broccoli, corn, mushrooms, carrot, cherry tomato 5 min. Finish with 1 grated cheese cube + soy.<br><b>Raita:</b> 150g Greek yogurt + grated carrot + grated boiled beetroot + 2 tbsp pomegranate + chaat masala.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 2</span> Tue <span class="total">~115g P • ~1800 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Paneer toast (2)</b> <span class="macros">P 25 • C 30 • F 12 • 370 kcal</span> <span class="signature">her signature</span>
+        <div class="recipe">2 slices multigrain toast spread with mash of 150g low-fat paneer + 1 tsp Greek yogurt + finely chopped onion, tomato, capsicum, coriander, green chilli, black pepper, chaat masala. Toast in air-fryer 5 min OR pan-toast 3 min/side.</div>
+      </div>
+      <div class="meal"><b>Lunch — Protein theplas (2) + Greek yogurt</b> <span class="macros">P 26 • C 38 • F 8 • 380 kcal</span> <span class="signature">her signature</span>
+        <div class="recipe">Boil 25g soya chunks, blend with ½ cup peas + handful methi + 2 tbsp onion + 2 green chillies + 3 garlic + salt + red chilli + amchur + pepper + turmeric. Mix with 1 small cup wheat flour + 1 tsp ghee. Rest 10 min. Roll, sprinkle kalonji + sesame, cook on hot tawa with ½ tsp ghee/side. Serve with 90g Greek yogurt.</div>
+      </div>
+      <div class="meal"><b>Dinner — Egg bhurji (3 eggs, 1 yolk) + 1 phulka</b> <span class="macros">P 22 • C 22 • F 12 • 320 kcal</span>
+        <div class="recipe">Sauté onion-tomato-green chilli-ginger. Add 3 beaten eggs (drop 2 yolks) + turmeric + garam masala + salt. Scramble. Finish with coriander.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 3</span> Wed <span class="total">~110g P • ~1750 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Greek yogurt protein bowl</b> <span class="macros">P 30 • C 30 • F 8 • 320 kcal</span>
+        <div class="recipe">200g Greek yogurt + ½ scoop whey whisked smooth + 1 tbsp chia + 1 tbsp oats + stevia + cinnamon. Top with berries + 4 crushed almonds.</div>
+      </div>
+      <div class="meal"><b>Lunch — Tofu-paneer stir fry + 80g rice</b> <span class="macros">P 32 • C 50 • F 12 • 470 kcal</span> <span class="signature">her veg combo</span>
+        <div class="recipe">Cube 100g tofu + 80g low-fat paneer. Sauté 3 garlic + chilli flakes in 1 tsp olive oil. Add capsicum + broccoli + mushrooms + spring onion. Toss tofu + paneer with 1 tsp soy + 1 tsp schezwan + black pepper + mixed herbs. Serve over 80g boiled rice.</div>
+      </div>
+      <div class="meal"><b>Dinner — Methi-malai chicken (light) + 1 phulka</b> <span class="macros">P 30 • C 18 • F 10 • 320 kcal</span>
+        <div class="recipe">Marinate 150g chicken breast cubes in hung curd + ginger-garlic + turmeric + red chilli + salt 30 min. Sauté with 1 tsp ghee + onion paste, add tomato puree, garam masala, kasuri methi. Splash 50ml double-toned milk at end. Simmer 12 min.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 4</span> Thu <span class="total">~108g P • ~1750 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Moong dal-paneer chilla</b> <span class="macros">P 26 • C 30 • F 8 • 320 kcal</span>
+        <div class="recipe">Soak ½ cup yellow moong dal 4 hr. Blend with ginger + green chilli + salt. Spread on tawa with ½ tsp ghee. Top with 60g crumbled paneer + onion + coriander. Fold.</div>
+      </div>
+      <div class="meal"><b>Lunch — Soya kheema + 2 phulkas + kachumber</b> <span class="macros">P 30 • C 45 • F 10 • 420 kcal</span>
+        <div class="recipe">Soak 40g soya granules in hot water, squeeze. Sauté with onion-tomato-ginger-garlic-green chilli + turmeric + garam masala + dhaniya. Add splash water. Cook 10 min. Finish with lemon + coriander.</div>
+      </div>
+      <div class="meal"><b>Dinner — Grilled chicken + sautéed veggies + 90g Greek yogurt</b> <span class="macros">P 38 • C 14 • F 12 • 380 kcal</span>
+        <div class="recipe">Marinate 150g chicken in Greek yogurt + ginger-garlic + tandoori masala + lemon. Grill 4 min/side. Sauté broccoli + bell pepper + mushroom in 1 tsp olive oil with garlic + chilli flakes + soy.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 5</span> Fri <span class="total">~112g P • ~1780 kcal</span></h3>
+      <div class="meal"><b>Breakfast — 3-egg veggie omelette + 1 toast + mango shake</b> <span class="macros">P 26 • C 32 • F 14 • 390 kcal</span> <span class="signature">her shake</span>
+        <div class="recipe"><b>Omelette:</b> 3 eggs (2 whites + 1 whole) + onion-tomato-capsicum-coriander, pinch turmeric, salt, pepper. Cook in 1 tsp olive oil.<br><b>Mango shake:</b> 90g mango + 150ml skimmed milk + water + stevia, blend. <span class="macros">+ P 4 • 120 kcal</span></div>
+      </div>
+      <div class="meal"><b>Lunch — Chickpea-paneer salad bowl + 1 jowar roti</b> <span class="macros">P 28 • C 50 • F 10 • 440 kcal</span>
+        <div class="recipe">½ cup boiled kabuli chana + 80g cubed low-fat paneer + cucumber + tomato + onion + pomegranate + coriander + lemon + chaat masala + 1 tsp olive oil + roasted jeera powder.</div>
+      </div>
+      <div class="meal"><b>Dinner — Pan-grilled fish (basa) + steamed broccoli + lemon</b> <span class="macros">P 32 • C 12 • F 8 • 280 kcal</span>
+        <div class="recipe">Marinate 150g basa in lemon + garlic + black pepper + ajwain + salt + ¼ tsp turmeric 15 min. Pan-grill in 1 tsp olive oil 3 min/side. Plate with steamed broccoli, drizzle lemon-olive oil.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 6</span> Sat <span class="total">~115g P • ~1800 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Protein smoothie</b> <span class="macros">P 32 • C 40 • F 6 • 340 kcal</span>
+        <div class="recipe">1 scoop whey + 1 banana + 1 tbsp oats + 1 tsp peanut butter + 250ml double-toned milk + cinnamon + stevia. Blend.</div>
+      </div>
+      <div class="meal"><b>Lunch — Paneer bhurji + 2 phulkas</b> <span class="macros">P 28 • C 30 • F 12 • 380 kcal</span>
+        <div class="recipe">Crumble 150g low-fat paneer. Sauté onion-tomato-capsicum-ginger-garlic-green chilli + turmeric + garam masala + kasuri methi. Toss paneer 2 min. Finish with coriander + lemon.</div>
+      </div>
+      <div class="meal"><b>Dinner — Tofu schezwan stir-fry + 60g rice</b> <span class="macros">P 25 • C 45 • F 10 • 400 kcal</span>
+        <div class="recipe">Cube 150g firm tofu. Sauté 3 garlic + ginger + chilli flakes. Add capsicum + onion + spring onion + corn. Toss tofu with 1 tbsp schezwan + 1 tsp soy + 1 tsp vinegar + mixed herbs.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 7</span> Sun — cheat dinner <span class="total">~105g P</span></h3>
+      <div class="meal"><b>Breakfast — Paneer paratha (1) + curd</b> <span class="macros">P 22 • C 35 • F 12 • 350 kcal</span>
+        <div class="recipe">Whole-wheat dough stuffed with 80g low-fat paneer + onion + green chilli + coriander + ajwain. Cook with ½ tsp ghee.</div>
+      </div>
+      <div class="meal"><b>Lunch — Mixed veg pulao + boiled egg + raita</b> <span class="macros">P 20 • C 55 • F 10 • 410 kcal</span>
+        <div class="recipe">Sauté whole spices in 1 tsp ghee, add carrot/beans/peas/capsicum + ½ cup soaked basmati + water. Cover-cook 12 min. Pair 1 boiled egg + loaded raita.</div>
+      </div>
+      <div class="meal"><b>Dinner (cheat) — 1 chicken biryani plate OR 2 thin-crust pizza slices</b>
+        <div class="recipe">Eat slow, stop at full, no soft drinks. Pair with raw onion / side salad.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEEK 2 -->
+  <section class="week">
+    <h2>Week 2 — Push veg protein to 100g</h2>
+
+    <div class="day">
+      <h3><span class="num">Day 8</span> Mon <span class="total">~110g P • ~1750 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Overnight oats + whey</b> <span class="macros">P 28 • C 45 • F 7 • 360 kcal</span>
+        <div class="recipe">½ cup oats + ½ scoop whey + 200ml double-toned milk + 1 tbsp chia + cinnamon + stevia + chopped apple. Soak overnight.</div>
+      </div>
+      <div class="meal"><b>Lunch — Low-fat paneer curry + 80g rice</b> <span class="macros">P 25 • C 50 • F 10 • 430 kcal</span>
+        <div class="recipe">Same as Day 1 lunch (her signature curry).</div>
+      </div>
+      <div class="meal"><b>Dinner — Murgh shorba (chicken soup) + 1 multigrain toast</b> <span class="macros">P 28 • C 22 • F 6 • 280 kcal</span>
+        <div class="recipe">Simmer 150g shredded chicken in chicken stock + ginger + black pepper + bay leaf + 1 chopped tomato + spring onion. Finish with lemon + coriander.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 9</span> Tue <span class="total">~115g P • ~1800 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Sprouts-paneer salad + boiled egg</b> <span class="macros">P 28 • C 25 • F 8 • 300 kcal</span>
+        <div class="recipe">1 cup moong sprouts + 60g paneer cubes + cucumber + tomato + onion + lemon + chaat masala + coriander. Side: 1 boiled egg.</div>
+      </div>
+      <div class="meal"><b>Lunch — Palak paneer (low cream) + 2 phulkas</b> <span class="macros">P 28 • C 35 • F 12 • 410 kcal</span>
+        <div class="recipe">Blanch 200g spinach, blend with green chilli-ginger. Sauté 1 tsp ghee + jeera + onion-tomato puree + garam masala. Add purée + 100g low-fat paneer + 50ml double-toned milk. Kasuri methi finish.</div>
+      </div>
+      <div class="meal"><b>Dinner — Tandoori chicken (2 drumsticks, skinless) + kachumber</b> <span class="macros">P 32 • C 12 • F 10 • 320 kcal</span>
+        <div class="recipe">Marinate in hung curd + tandoori masala + lemon + ginger-garlic + 1 tsp mustard oil 2 hr. Bake 200°C 22 min OR pan-grill.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 10</span> Wed <span class="total">~108g P • ~1750 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Masala oats + boiled egg</b> <span class="macros">P 22 • C 40 • F 7 • 320 kcal</span>
+        <div class="recipe">Sauté onion-tomato-peas-carrot-green chilli in 1 tsp ghee. Add ½ cup oats + 1 cup water + turmeric + garam masala + salt. Cook 5 min. Side: 1 boiled egg.</div>
+      </div>
+      <div class="meal"><b>Lunch — Tofu-paneer bhurji + 2 phulkas</b> <span class="macros">P 32 • C 28 • F 12 • 400 kcal</span> <span class="signature">her veg combo</span>
+        <div class="recipe">Crumble 80g tofu + 80g low-fat paneer. Sauté onion-tomato-capsicum-ginger-garlic-green chilli + turmeric + garam masala + kasuri methi. Toss 3 min. Coriander.</div>
+      </div>
+      <div class="meal"><b>Dinner — Mixed dal + 1 phulka + lauki sabzi</b> <span class="macros">P 20 • C 45 • F 8 • 370 kcal</span>
+        <div class="recipe">Pressure cook ½ cup mixed (toor+moong+chana) dal with turmeric, salt. Tadka of 1 tsp ghee + jeera + hing + garlic + red chilli + curry leaves.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 11</span> Thu <span class="total">~112g P • ~1770 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Ragi-paneer dosa (2) + chutney</b> <span class="macros">P 22 • C 38 • F 8 • 340 kcal</span>
+        <div class="recipe">Ragi flour + rice flour + curd + water + onion + green chilli + curry leaves. Pour on tawa. Top with 60g grated paneer + fold.</div>
+      </div>
+      <div class="meal"><b>Lunch — Chicken curry (light) + 80g rice + cucumber</b> <span class="macros">P 32 • C 45 • F 10 • 430 kcal</span>
+        <div class="recipe">Sauté 1 tsp ghee + jeera + onion paste, add tomato puree + ginger-garlic + turmeric + dhaniya + garam masala. Add 150g chicken + ¾ cup water. Simmer 20 min, kasuri methi finish.</div>
+      </div>
+      <div class="meal"><b>Dinner — Paneer steak salad bowl</b> <span class="macros">P 28 • C 18 • F 12 • 320 kcal</span>
+        <div class="recipe">Grill 120g marinated paneer steak (Day 1 marinade). Plate over lettuce + cucumber + cherry tomato + roasted chana + olive oil-lemon-mustard dressing.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 12</span> Fri <span class="total">~110g P • ~1780 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Banana-oats-egg pancake</b> <span class="macros">P 22 • C 40 • F 8 • 340 kcal</span>
+        <div class="recipe">Blend 1 banana + ½ cup oats + 2 eggs + cinnamon + stevia + pinch baking soda. Cook 3-4 small pancakes in ½ tsp ghee. Top with 1 tbsp Greek yogurt.</div>
+      </div>
+      <div class="meal"><b>Lunch — Soya chunk curry + 80g rice</b> <span class="macros">P 30 • C 50 • F 10 • 430 kcal</span>
+        <div class="recipe">Soak 40g soya chunks in hot water, squeeze. Cook in onion-tomato masala + ginger-garlic + garam masala + kasuri methi + ½ cup water. Simmer 12 min.</div>
+      </div>
+      <div class="meal"><b>Dinner — Egg curry (2 whole + 2 whites) + 1 phulka</b> <span class="macros">P 22 • C 22 • F 12 • 320 kcal</span>
+        <div class="recipe">Onion-tomato gravy + ginger-garlic + turmeric + garam masala. Add boiled eggs slit, simmer 5 min in 50ml double-toned milk + kasuri methi.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 13</span> Sat <span class="total">~115g P • ~1810 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Paneer-cottage cheese toast + fruit</b> <span class="macros">P 25 • C 30 • F 12 • 370 kcal</span>
+        <div class="recipe">2 toasts topped with mash of 150g low-fat paneer + black pepper + chaat masala + onion + coriander. Air-fry 5 min. Side: 1 fruit.</div>
+      </div>
+      <div class="meal"><b>Lunch — Veg khichdi (moong) + curd + 1 boiled egg</b> <span class="macros">P 24 • C 50 • F 8 • 410 kcal</span>
+        <div class="recipe">¼ cup moong dal + ¼ cup brown rice + carrot + beans + peas + turmeric + salt. Pressure cook. Tadka: 1 tsp ghee + jeera + hing + garlic + curry leaves.</div>
+      </div>
+      <div class="meal"><b>Dinner — Tandoori paneer tikka + sautéed veggies</b> <span class="macros">P 28 • C 18 • F 12 • 330 kcal</span>
+        <div class="recipe">Marinate 120g low-fat paneer + capsicum + onion + tomato chunks in hung curd + tandoori masala + lemon + 1 tsp mustard oil 30 min. Pan-grill on skewers.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 14</span> Sun — cheat dinner</h3>
+      <div class="meal"><b>Breakfast — Aloo-paneer paratha (1) + curd</b> <span class="macros">P 22 • C 40 • F 12 • 380 kcal</span></div>
+      <div class="meal"><b>Lunch — Rajma + 80g brown rice + onion-lemon salad</b> <span class="macros">P 22 • C 60 • F 8 • 430 kcal</span></div>
+      <div class="meal"><b>Dinner (cheat) — Butter chicken + 1 garlic naan</b>
+        <div class="recipe">Eat with side salad. No dessert. Stop at full.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEEK 3 -->
+  <section class="week">
+    <h2>Week 3 — Lean &amp; cut sugar</h2>
+
+    <div class="day">
+      <h3><span class="num">Day 15</span> Mon <span class="total">~110g P • ~1700 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Veg poha + 2 boiled egg whites + 1 whole egg</b> <span class="macros">P 22 • C 40 • F 8 • 340 kcal</span>
+        <div class="recipe">Wash 1 cup poha, sauté mustard-curry leaves-onion-peas-turmeric in 1 tsp oil. Toss poha + lemon + coriander + roasted peanuts.</div>
+      </div>
+      <div class="meal"><b>Lunch — Grilled chicken multigrain sandwich</b> <span class="macros">P 32 • C 35 • F 10 • 380 kcal</span>
+        <div class="recipe">2 slices multigrain, fill with shredded 120g grilled chicken + hung curd + mustard + lettuce + tomato + black pepper. Air-fry 4 min.</div>
+      </div>
+      <div class="meal"><b>Dinner — Mixed dal + 1 phulka + bhindi sabzi</b> <span class="macros">P 18 • C 45 • F 8 • 360 kcal</span>
+        <div class="recipe">Bhindi: sauté chopped bhindi till crisp in 1 tsp oil. Add onion-tomato masala + amchur + dhaniya + red chilli.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 16</span> Tue <span class="total">~115g P • ~1780 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Smoothie bowl</b> <span class="macros">P 32 • C 40 • F 8 • 360 kcal</span>
+        <div class="recipe">1 scoop whey + 200g Greek yogurt + ½ banana + 1 tbsp oats + 1 tbsp chia + stevia + cinnamon. Top with 4 crushed walnuts + berries.</div>
+      </div>
+      <div class="meal"><b>Lunch — Chole (light gravy) + 2 jowar rotis</b> <span class="macros">P 22 • C 55 • F 8 • 420 kcal</span>
+        <div class="recipe">Soaked chana + onion-tomato + anardana + chana masala + ginger. Pressure cook 5 whistles. Low oil.</div>
+      </div>
+      <div class="meal"><b>Dinner — Tofu-bell pepper stir-fry + 1 small quinoa bowl</b> <span class="macros">P 26 • C 40 • F 12 • 420 kcal</span>
+        <div class="recipe">150g tofu + zucchini + bell pepper + broccoli sautéed in 1 tsp olive oil with garlic + chilli flakes + soy + black pepper.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 17</span> Wed <span class="total">~112g P • ~1770 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Protein theplas (2) + Greek yogurt</b> <span class="macros">P 26 • C 38 • F 8 • 380 kcal</span> <span class="signature">her signature</span>
+        <div class="recipe">Same as Day 2 lunch.</div>
+      </div>
+      <div class="meal"><b>Lunch — Chicken keema + 2 phulkas + raita</b> <span class="macros">P 32 • C 35 • F 10 • 400 kcal</span>
+        <div class="recipe">150g chicken mince + onion-tomato-ginger-garlic + ¼ cup peas + garam masala + 1 tsp ghee. Cook 12 min. Coriander, lemon.</div>
+      </div>
+      <div class="meal"><b>Dinner — Paneer-veg skewers</b> <span class="macros">P 24 • C 18 • F 12 • 300 kcal</span>
+        <div class="recipe">120g paneer + capsicum + onion + tomato + zucchini marinated in tandoori paste. Skewer + pan-grill.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 18</span> Thu <span class="total">~110g P • ~1740 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Besan-paneer chilla (2)</b> <span class="macros">P 28 • C 30 • F 12 • 360 kcal</span>
+        <div class="recipe">Same as Day 1 breakfast.</div>
+      </div>
+      <div class="meal"><b>Lunch — Dal palak + 80g rice + cucumber</b> <span class="macros">P 20 • C 55 • F 8 • 400 kcal</span>
+        <div class="recipe">Cook ½ cup toor dal + 1 cup chopped spinach + turmeric. Tadka: 1 tsp ghee + jeera + garlic + hing + red chilli.</div>
+      </div>
+      <div class="meal"><b>Dinner — Chicken tikka (150g) + sautéed mushrooms + onion salad</b> <span class="macros">P 32 • C 12 • F 10 • 320 kcal</span></div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 19</span> Fri <span class="total">~115g P • ~1800 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Paneer bhurji + 1 multigrain toast + green tea</b> <span class="macros">P 25 • C 25 • F 12 • 340 kcal</span>
+        <div class="recipe">Same paneer bhurji method, 100g paneer.</div>
+      </div>
+      <div class="meal"><b>Lunch — Fish tikka + 80g jeera rice + kachumber</b> <span class="macros">P 30 • C 48 • F 8 • 420 kcal</span>
+        <div class="recipe">Marinate 150g basa in hung curd + ajwain + turmeric + red chilli + lemon + ginger-garlic. Pan-grill 3 min/side.</div>
+      </div>
+      <div class="meal"><b>Dinner — Lentil-veg soup + 1 multigrain toast</b> <span class="macros">P 18 • C 30 • F 6 • 280 kcal</span>
+        <div class="recipe">Cook ½ cup toor dal + carrot + tomato + garlic + black pepper. Blend smooth. Coriander, lemon.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 20</span> Sat <span class="total">~112g P • ~1780 kcal</span></h3>
+      <div class="meal"><b>Breakfast — 3-egg veg frittata + 1 toast</b> <span class="macros">P 22 • C 28 • F 12 • 340 kcal</span>
+        <div class="recipe">Whisk 3 eggs (2 whites + 1 whole) + 60g grated paneer + spring onion + bell pepper + coriander. Cook in 1 tsp olive oil covered 5 min.</div>
+      </div>
+      <div class="meal"><b>Lunch — Bhindi masala + dal + 2 phulkas</b> <span class="macros">P 22 • C 50 • F 8 • 400 kcal</span></div>
+      <div class="meal"><b>Dinner — Grilled chicken + roasted sweet potato + greens</b> <span class="macros">P 32 • C 30 • F 10 • 360 kcal</span>
+        <div class="recipe">150g chicken breast grilled with herbs + lemon + black pepper. Roast 100g sweet potato wedges with paprika.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 21</span> Sun — cheat dinner</h3>
+      <div class="meal"><b>Breakfast — Masala dosa (1) + sambar</b> <span class="macros">P 12 • C 50 • F 8 • 340 kcal</span></div>
+      <div class="meal"><b>Lunch — Mutter-paneer (light) + 1 phulka</b> <span class="macros">P 22 • C 28 • F 12 • 350 kcal</span>
+        <div class="recipe">Onion-tomato puree + ginger-garlic + 100g low-fat paneer + ½ cup peas + garam masala + kasuri methi + 1 tsp cream.</div>
+      </div>
+      <div class="meal"><b>Dinner (cheat) — Chole bhature (1 bhatura) OR pav bhaji</b>
+        <div class="recipe">Pair with raw onion + lemon. One plate, no second helping.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEEK 4 -->
+  <section class="week">
+    <h2>Week 4 — Strong finish</h2>
+
+    <div class="day">
+      <h3><span class="num">Day 22</span> Mon <span class="total">~112g P • ~1780 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Sprouts-paneer paratha (1) + curd</b> <span class="macros">P 24 • C 38 • F 10 • 370 kcal</span>
+        <div class="recipe">Add boiled mashed sprouts + 50g paneer + onion + ginger + green chilli to whole-wheat dough. Cook with ½ tsp ghee.</div>
+      </div>
+      <div class="meal"><b>Lunch — Chicken tikka masala (light) + 2 phulkas</b> <span class="macros">P 32 • C 35 • F 10 • 410 kcal</span>
+        <div class="recipe">150g grilled tikka tossed in onion-tomato gravy + ginger-garlic + kasuri methi + 50ml double-toned milk. Simmer 8 min.</div>
+      </div>
+      <div class="meal"><b>Dinner — Lauki-chana dal + 1 phulka + salad</b> <span class="macros">P 20 • C 38 • F 8 • 340 kcal</span></div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 23</span> Tue <span class="total">~115g P • ~1800 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Greek yogurt + whey + PB + banana bowl</b> <span class="macros">P 35 • C 35 • F 10 • 370 kcal</span>
+        <div class="recipe">200g Greek yogurt + ½ scoop whey + 1 tbsp PB + ½ banana + stevia + cinnamon.</div>
+      </div>
+      <div class="meal"><b>Lunch — Veg pulao + egg curry (2 eggs) + raita</b> <span class="macros">P 24 • C 55 • F 12 • 460 kcal</span></div>
+      <div class="meal"><b>Dinner — Roasted chicken breast + steamed broccoli</b> <span class="macros">P 32 • C 12 • F 8 • 280 kcal</span>
+        <div class="recipe">150g chicken breast rubbed with garlic, herbs, paprika, black pepper, salt. Pan-sear + finish in oven 8 min.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 24</span> Wed <span class="total">~108g P • ~1740 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Oats upma + 1 boiled egg</b> <span class="macros">P 18 • C 38 • F 7 • 300 kcal</span>
+        <div class="recipe">Dry-roast ½ cup oats. Sauté mustard-curry leaves-onion-tomato-peas-carrot in 1 tsp ghee. Add oats + hot water + salt + turmeric. Cook 4 min. Lemon, coriander.</div>
+      </div>
+      <div class="meal"><b>Lunch — Kadhi (low oil) + 60g rice + bhindi</b> <span class="macros">P 18 • C 50 • F 10 • 410 kcal</span>
+        <div class="recipe">Whisk 3 tbsp besan + 1 cup curd + 1 cup water smooth. Simmer 20 min with turmeric, jeera, curry leaves, ginger.</div>
+      </div>
+      <div class="meal"><b>Dinner — Egg curry (3 eggs, 1 yolk) + 1 jowar roti</b> <span class="macros">P 22 • C 22 • F 12 • 330 kcal</span></div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 25</span> Thu <span class="total">~115g P • ~1790 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Paneer toast (2) + fruit</b> <span class="macros">P 25 • C 32 • F 12 • 380 kcal</span>
+        <div class="recipe">Same as Day 2 breakfast.</div>
+      </div>
+      <div class="meal"><b>Lunch — Soya keema pulao + raita</b> <span class="macros">P 28 • C 52 • F 8 • 420 kcal</span>
+        <div class="recipe">Cooked 80g basmati tossed with soya keema (recipe Day 4) + peas + garam masala + fried onion. 90g Greek yogurt raita.</div>
+      </div>
+      <div class="meal"><b>Dinner — Grilled fish + sautéed green beans + lemon</b> <span class="macros">P 30 • C 14 • F 8 • 280 kcal</span></div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 26</span> Fri <span class="total">~112g P • ~1770 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Moong-paneer chilla + mango shake</b> <span class="macros">P 28 • C 40 • F 8 • 380 kcal</span>
+        <div class="recipe">Same chilla as Day 4. Mango shake: 90g mango + 150ml skimmed milk + stevia.</div>
+      </div>
+      <div class="meal"><b>Lunch — Rajma + 80g brown rice + onion salad</b> <span class="macros">P 22 • C 60 • F 8 • 430 kcal</span></div>
+      <div class="meal"><b>Dinner — Homemade chicken shawarma bowl</b> <span class="macros">P 32 • C 30 • F 12 • 400 kcal</span>
+        <div class="recipe">150g grilled chicken strips + hung curd-garlic-lemon dressing + cucumber + tomato + olive + pickled onion + 1 small whole-wheat pita.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 27</span> Sat <span class="total">~115g P • ~1800 kcal</span></h3>
+      <div class="meal"><b>Breakfast — 3-egg masala omelette + 1 toast + fruit</b> <span class="macros">P 22 • C 30 • F 12 • 350 kcal</span></div>
+      <div class="meal"><b>Lunch — Palak chicken + 1 phulka + salad</b> <span class="macros">P 32 • C 25 • F 10 • 360 kcal</span>
+        <div class="recipe">Blanched spinach purée + onion-tomato + 150g chicken + garam masala. Simmer 12 min. Kasuri methi finish.</div>
+      </div>
+      <div class="meal"><b>Dinner — Paneer tikka + sautéed bell peppers + green chutney</b> <span class="macros">P 28 • C 18 • F 12 • 330 kcal</span></div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 28</span> Sun — cheat dinner</h3>
+      <div class="meal"><b>Breakfast — Aloo-paneer paratha (1) + curd</b> <span class="macros">P 22 • C 40 • F 12 • 380 kcal</span></div>
+      <div class="meal"><b>Lunch — Yellow dal + 60g rice + bhindi + salad</b> <span class="macros">P 18 • C 50 • F 8 • 380 kcal</span></div>
+      <div class="meal"><b>Dinner (cheat) — Pizza (2 slices, thin crust, veggie) + side salad</b></div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 29</span> Mon <span class="total">~110g P • ~1750 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Veg poha + 3 egg whites + 1 whole egg</b> <span class="macros">P 22 • C 40 • F 8 • 340 kcal</span></div>
+      <div class="meal"><b>Lunch — Mixed dal + 2 phulkas + lauki sabzi + salad</b> <span class="macros">P 20 • C 50 • F 8 • 400 kcal</span></div>
+      <div class="meal"><b>Dinner — Tandoori paneer + roasted sweet potato + greens</b> <span class="macros">P 28 • C 28 • F 12 • 380 kcal</span>
+        <div class="recipe">120g paneer marinated tandoori-style, pan-grilled. 80g roasted sweet potato wedges.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h3><span class="num">Day 30</span> Tue — close the cycle <span class="total">~115g P • ~1800 kcal</span></h3>
+      <div class="meal"><b>Breakfast — Protein smoothie</b> <span class="macros">P 32 • C 40 • F 6 • 340 kcal</span>
+        <div class="recipe">Same as Day 6 breakfast.</div>
+      </div>
+      <div class="meal"><b>Lunch — Grilled chicken + quinoa salad + lemon-olive oil</b> <span class="macros">P 32 • C 45 • F 10 • 420 kcal</span>
+        <div class="recipe">150g grilled chicken + ½ cup cooked quinoa + cucumber + cherry tomato + olive + crumbled feta (or paneer) + black pepper.</div>
+      </div>
+      <div class="meal"><b>Dinner — Moong khichdi + curd + ghee tadka</b> <span class="macros">P 18 • C 50 • F 8 • 400 kcal</span>
+        <div class="recipe">¼ cup moong dal + ¼ cup brown rice + turmeric + salt, pressure cook. Tadka of 1 tsp ghee + jeera + hing + ginger. 90g curd.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro" style="margin-top:32px;">
+    <h2>Her staple grocery list</h2>
+    <ul>
+      <li><b>Proteins:</b> Double-toned milk (to make her homemade low-fat paneer), tofu, soya chunks/granules, eggs, chicken breast, basa fillets, Greek yogurt, whey protein.</li>
+      <li><b>Carbs:</b> Multigrain bread, oats, whole-wheat atta, jowar/ragi atta, brown/basmati rice, quinoa, sweet potato.</li>
+      <li><b>Lentils:</b> Moong dal, toor dal, chana dal, rajma, kabuli chana, moong sprouts.</li>
+      <li><b>Fats (used sparingly):</b> Ghee, olive oil, peanut butter, almonds, walnuts, chia, sesame, kalonji.</li>
+      <li><b>Veggies:</b> Spinach, methi, broccoli, capsicum, zucchini, mushrooms, beans, carrot, beetroot, cucumber, tomato, onion, pomegranate.</li>
+      <li><b>Pantry essentials:</b> Stevia, kasuri methi, garam masala, chaat masala, tandoori masala, schezwan sauce, sriracha, soy sauce, mixed herbs, mustard oil, vinegar, lemon, ginger, garlic, green chilli, coriander, mint.</li>
+    </ul>
+  </section>
+
+  <section class="intro">
+    <h2>Her core tips (from her reels &amp; threads)</h2>
+    <ul>
+      <li>Idli-sambar is <i>not</i> a balanced meal — not enough protein. Add chutney + paneer/egg side.</li>
+      <li>Make homemade low-fat paneer from double-toned milk — same protein, ~⅓ the fat of store paneer.</li>
+      <li>Hit 25g+ protein in <i>every</i> meal by stacking 2 sources (paneer + Greek yogurt, tofu + paneer, soya + curd).</li>
+      <li>Replace sugar with stevia. Replace full-fat milk with double-toned/skimmed.</li>
+      <li>Cook in 1 tsp ghee — ghee is fine, deep-frying is not.</li>
+      <li>Schezwan + sriracha + kasuri methi do more flavor work than cream or cheese.</li>
+      <li>1 cheat <i>meal</i> a week, not a cheat <i>day</i>.</li>
+      <li>Walk 8-10k steps + strength train 4x/week. Diet drives fat loss; lifting drives the shape.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  Inspired by public content from @fit.khurana on Instagram. Not affiliated. Adapt portions and ingredients to your goals, allergies, and medical conditions. For medical/nutrition decisions, consult a registered dietitian.
+</footer>
+
+</body>
+</html>
