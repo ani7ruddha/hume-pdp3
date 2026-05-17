@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>The Hume Pod — Mobile Hero v2 (CVR mockup)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─────────────────────────────────────────────────────────────
+       LIVE THEME PARITY
+       Colors, fonts, spacing & component look pulled from the live
+       humehealth.com/pages/pdp3 mobile render.
+    ───────────────────────────────────────────────────────────── */
+    :root {
+      --bg:            #ffffff;
+      --bg-cream:      #f3eee5;   /* hero card cream */
+      --bg-header:     #F3F3F3;   /* live header */
+      --bg-announce:   #081d33;   /* live announcement bar */
+      --ink:           #0b1320;
+      --ink-soft:      #4a5568;
+      --ink-mute:      #8a94a6;
+      --line:          #e5e7eb;
+
+      --blue:          #0F75FF;   /* primary CTA / brand accent */
+      --blue-deep:     #0a5cd0;
+      --blue-soft:     #dbeafe;   /* pill button bg */
+      --blue-soft-ink: #1d4ed8;
+
+      --green:         #1CC286;
+      --star:          #00b67a;
+      --warn:          #FB9515;
+
+      --radius-pill:   999px;
+      --radius-card:   18px;
+      --shadow-sm:     0 1px 2px rgba(10,20,40,0.06);
+      --shadow-md:     0 8px 24px rgba(10,20,40,0.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--bg); }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 96px;            /* room for sticky CTA */
+    }
+
+    /* ── ANNOUNCEMENT BAR (kept) ─────────────────────────────── */
+    .announce {
+      background: var(--bg-announce);
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 500;
+      text-align: center;
+      padding: 12px 16px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      letter-spacing: 0.01em;
+    }
+    .announce__code {
+      border: 1px dashed rgba(255,255,255,0.6);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: 'SFMono-Regular', Menlo, monospace;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      font-size: 12px;
+    }
+
+    /* ── HEADER (kept) ───────────────────────────────────────── */
+    .header {
+      background: var(--bg-header);
+      display: grid;
+      grid-template-columns: 32px 1fr 32px 32px;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+    }
+    .header__menu, .header__icon {
+      width: 26px; height: 26px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #0b1320;
+    }
+    .header__logo {
+      display: flex; align-items: center; justify-content: center;
+      gap: 6px;
+    }
+    .header__logo img { height: 26px; }
+
+    /* ── NEW: HEADLINE + RATING ROW  (CVR change #1) ─────────── */
+    .hook {
+      padding: 18px 20px 14px;
+      background: #fff;
+    }
+    .hook__headline {
+      font-size: 22px;
+      line-height: 1.18;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .hook__headline em {
+      color: var(--blue);
+      font-style: normal;
+    }
+    .hook__rating {
+      display: flex; align-items: center;
+      gap: 8px; margin-top: 10px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    .hook__stars {
+      color: var(--star);
+      font-size: 15px;
+      letter-spacing: -1px;
+    }
+    .hook__rating strong { color: var(--ink); font-weight: 700; }
+    .hook__rating .dot {
+      width: 3px; height: 3px; border-radius: 50%;
+      background: var(--ink-mute);
+      display: inline-block;
+    }
+
+    /* ── NEW: TRUST STRIP (CVR change #4) ────────────────────── */
+    .trust-strip {
+      display: flex; gap: 8px;
+      padding: 0 20px 14px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      background: #fff;
+    }
+    .trust-strip::-webkit-scrollbar { display: none; }
+    .trust-pill {
+      flex: 0 0 auto;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 12px;
+      background: #f5f6f8;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-pill);
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+    .trust-pill--blue { background: var(--blue); color: #fff; border-color: transparent; }
+    .trust-pill__ico { font-size: 12px; line-height: 1; }
+
+    /* ── HERO IMAGE (CVR change #2: compressed + #3: new image) ─ */
+    .hero-card {
+      margin: 4px 14px 0;
+      background: var(--bg-cream);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-card__img-wrap {
+      position: relative;
+      aspect-ratio: 3 / 2;       /* compressed vs the live square */
+      width: 100%;
+      background: #f3eee5;
+    }
+    .hero-card__img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-card__badges {
+      position: absolute;
+      top: 12px; right: 12px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .hero-badge {
+      background: #fff;
+      border-radius: 50%;
+      width: 62px; height: 62px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      font-size: 8.5px;
+      font-weight: 800;
+      line-height: 1.05;
+      color: #0b1320;
+      box-shadow: var(--shadow-sm);
+      padding: 6px;
+      letter-spacing: 0.02em;
+    }
+    .hero-badge--blue { background: #0a2c66; color: #fff; }
+    .hero-badge .num { font-size: 16px; display: block; margin-bottom: 2px; }
+    .hero-card__integrations {
+      display: flex; justify-content: space-around;
+      gap: 8px;
+      padding: 12px 14px 16px;
+      background: var(--bg-cream);
+    }
+    .integration {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 10.5px; font-weight: 600;
+      color: var(--ink-soft);
+    }
+    .integration__dot {
+      width: 16px; height: 16px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 10px; color: #fff;
+      flex-shrink: 0;
+    }
+    .integration__dot--apple  { background: #ff3b30; }
+    .integration__dot--google { background: #34a853; }
+    .integration__dot--samsung{ background: #1e88e5; }
+    .integration small { display: block; font-size: 9px; color: var(--ink-mute); font-weight: 500; }
+
+    /* ── SECONDARY VIEW PILLS (kept from live theme) ─────────── */
+    .view-pills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 16px 14px 18px;
+    }
+    .view-pill {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px;
+      background: var(--blue-soft);
+      color: var(--blue-soft-ink);
+      font-weight: 600;
+      font-size: 13.5px;
+      padding: 13px 16px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      border: 1px solid rgba(15,117,255,0.15);
+    }
+    .view-pill__ico { font-size: 14px; line-height: 1; }
+
+    /* ── PRODUCT TITLE & BENEFITS (existing-style) ───────────── */
+    .product-meta { padding: 0 20px 18px; }
+    .product-meta__pills {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .meta-pill {
+      font-size: 11.5px; font-weight: 700;
+      padding: 5px 11px;
+      border-radius: var(--radius-pill);
+    }
+    .meta-pill--blue { background: var(--blue); color: #fff; }
+    .meta-pill--outline { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+    .product-meta__title {
+      font-size: 30px; font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .product-meta__sub {
+      font-size: 14.5px; color: var(--ink-soft);
+      margin-top: 10px; line-height: 1.55;
+    }
+
+    /* ── PRICE / VARIANT BLOCK ───────────────────────────────── */
+    .buy-card {
+      margin: 4px 14px 18px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #fff;
+    }
+    .buy-card__price-row {
+      display: flex; align-items: baseline; gap: 10px;
+      margin-bottom: 4px;
+    }
+    .price-now { font-size: 26px; font-weight: 800; }
+    .price-was { font-size: 15px; color: var(--ink-mute); text-decoration: line-through; }
+    .price-save {
+      font-size: 11.5px; font-weight: 700;
+      background: #fdecea; color: #c0392b;
+      padding: 3px 9px; border-radius: var(--radius-pill);
+      letter-spacing: 0.02em; text-transform: uppercase;
+    }
+    .buy-card__installments { font-size: 12.5px; color: var(--ink-soft); margin-top: 2px; }
+
+    /* ── STICKY MOBILE CTA BAR (CVR change #2) ───────────────── */
+    .sticky-cta {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px; align-items: center;
+      z-index: 50;
+      box-shadow: 0 -6px 18px rgba(10,20,40,0.07);
+    }
+    .sticky-cta__price { line-height: 1; }
+    .sticky-cta__price .now { font-size: 17px; font-weight: 800; display: block; }
+    .sticky-cta__price .was { font-size: 12px; color: var(--ink-mute); text-decoration: line-through; }
+    .sticky-cta__btn {
+      background: var(--blue);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+      padding: 14px 18px;
+      border-radius: var(--radius-pill);
+      border: none;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.15s ease;
+    }
+    .sticky-cta__btn:active { background: var(--blue-deep); }
+
+    /* DEVICE FRAME PREVIEW (only when opening on desktop) */
+    @media (min-width: 700px) {
+      body {
+        background: #e9ecf1;
+        display: flex; justify-content: center; align-items: flex-start;
+        padding: 40px 0 120px;
+      }
+      .phone {
+        width: 412px;
+        background: var(--bg);
+        border-radius: 36px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(10,20,40,0.15);
+        position: relative;
+      }
+      .sticky-cta {
+        position: absolute;
+        left: 0; right: 0; bottom: 0;
+        border-radius: 0 0 36px 36px;
+      }
+    }
+    @media (max-width: 699px) {
+      .phone { display: contents; }
+    }
+  </style>
+</head>
+<body>
+  <div class="phone">
+
+    <!-- ── ANNOUNCEMENT BAR (kept) ────────────────────────── -->
+    <div class="announce">
+      MEMORIAL DAY SALE: Get 45% OFF Code
+      <span class="announce__code">MEMORIAL45</span>
+    </div>
+
+    <!-- ── HEADER (kept, live theme) ──────────────────────── -->
+    <header class="header">
+      <div class="header__menu" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+        </svg>
+      </div>
+      <div class="header__logo">
+        <img src="https://humehealth.com/cdn/shop/files/logo_0029b5c3-8674-43c6-9ba5-ca48a5599573.svg" alt="HumeHealth" />
+      </div>
+      <div class="header__icon" aria-label="Account">
+        <img src="https://humehealth.com/cdn/shop/files/account.svg" width="22" height="22" alt="" />
+      </div>
+      <div class="header__icon" aria-label="Cart">
+        <img src="https://humehealth.com/cdn/shop/files/cart.svg" width="22" height="22" alt="" />
+      </div>
+    </header>
+
+    <!-- ── NEW · CHANGE #1: HEADLINE + RATING ABOVE THE FOLD ── -->
+    <section class="hook">
+      <h1 class="hook__headline">
+        Your scale is hiding <em>the most important number</em> in your body.
+      </h1>
+      <div class="hook__rating">
+        <span class="hook__stars">★★★★★</span>
+        <strong>4.8</strong>
+        <span>· 48,252 reviews</span>
+        <span class="dot"></span>
+        <span>#1 Choice for Doctors</span>
+      </div>
+    </section>
+
+    <!-- ── NEW · CHANGE #4: HORIZONTAL TRUST STRIP ────────── -->
+    <div class="trust-strip" role="list">
+      <span class="trust-pill trust-pill--blue" role="listitem">
+        <span class="trust-pill__ico">✓</span> True Sensor (8-electrode)
+      </span>
+      <span class="trust-pill" role="listitem">
+        <span class="trust-pill__ico">🏥</span> HSA / FSA Eligible
+      </span>
+      <span class="trust-pill" role="listitem">
+        <span class="trust-pill__ico">🛡️</span> 45-Day Free Trial
+      </span>
+      <span class="trust-pill" role="listitem">
+        <span class="trust-pill__ico">📡</span> 98% DEXA accuracy
+      </span>
+    </div>
+
+    <!-- ── HERO CARD · CHANGE #2 + #3: COMPRESSED + NEW IMAGE ─ -->
+    <div class="hero-card">
+      <div class="hero-card__img-wrap">
+        <img class="hero-card__img"
+             src="generated/hero_v1.png"
+             alt="The Hume Pod paired with the Hume Health app showing Body Fat 18.2%, trending down 1.4% this month, with muscle, visceral fat and body water readings." />
+        <div class="hero-card__badges">
+          <div class="hero-badge hero-badge--blue">
+            <div>
+              <span class="num">#1</span>
+              CHOICE<br>FOR DRS
+            </div>
+          </div>
+          <div class="hero-badge">
+            HSA/FSA<br><strong>Eligible</strong>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card__integrations">
+        <div class="integration">
+          <span class="integration__dot integration__dot--apple">♥</span>
+          <div>Works With<br><small>Apple Health</small></div>
+        </div>
+        <div class="integration">
+          <span class="integration__dot integration__dot--google">G</span>
+          <div>Works With<br><small>Google Fit</small></div>
+        </div>
+        <div class="integration">
+          <span class="integration__dot integration__dot--samsung">S</span>
+          <div>Works With<br><small>Samsung</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECONDARY VIEW PILLS (kept) ───────────────────── -->
+    <div class="view-pills">
+      <a class="view-pill" href="#video">
+        <span class="view-pill__ico">▶</span> See It In Action
+      </a>
+      <a class="view-pill" href="#ba">
+        <span class="view-pill__ico">◐</span> See Before &amp; After
+      </a>
+    </div>
+
+    <!-- ── PRODUCT TITLE + LEAD ───────────────────────────── -->
+    <div class="product-meta">
+      <div class="product-meta__pills">
+        <span class="meta-pill meta-pill--blue">True Sensor</span>
+        <span class="meta-pill meta-pill--outline">#1 Choice For Doctors &amp; Practitioners</span>
+      </div>
+      <h2 class="product-meta__title">The Hume Pod</h2>
+      <p class="product-meta__sub">
+        See your fat, muscle, visceral fat and 42 other metrics in <strong>60 seconds</strong> — clinical-grade accuracy, from home.
+      </p>
+    </div>
+
+    <!-- ── PRICE / VARIANT BLOCK ──────────────────────────── -->
+    <div class="buy-card">
+      <div class="buy-card__price-row">
+        <span class="price-now">$229</span>
+        <span class="price-was">$352</span>
+        <span class="price-save">Save $123</span>
+      </div>
+      <div class="buy-card__installments">or 18 payments of $12.71/mo · Shop Pay</div>
+    </div>
+
+    <!-- ── NEW · CHANGE #2: STICKY MOBILE CTA ─────────────── -->
+    <div class="sticky-cta">
+      <div class="sticky-cta__price">
+        <span class="now">$229</span>
+        <span class="was">$352</span>
+      </div>
+      <a class="sticky-cta__btn" href="#buy">Add to Cart →</a>
+    </div>
+
+  </div>
+</body>
+</html>
