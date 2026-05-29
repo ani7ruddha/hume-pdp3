@@ -1,0 +1,24 @@
+{
+  "name": "hume-pdp3-video",
+  "version": "1.0.0",
+  "description": "Remotion video project for Hume Health (Hume Pod) marketing creatives",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion render",
+    "upgrade": "remotion upgrade",
+    "lint": "tsc"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.469",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remotion": "4.0.469"
+  },
+  "devDependencies": {
+    "@types/react": "19.0.0",
+    "@types/web": "0.0.166",
+    "typescript": "5.8.2"
+  }
+}
