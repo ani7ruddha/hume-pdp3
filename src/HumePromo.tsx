@@ -7,6 +7,7 @@ import {
   useVideoConfig,
 } from "remotion";
 import { brand } from "./theme";
+import { primaryFont, ensureFonts } from "./fonts";
 
 export type HumePromoProps = {
   headline: string;
@@ -58,6 +59,7 @@ export const HumePromo: React.FC<HumePromoProps> = ({
   metricLabel,
   cta,
 }) => {
+  ensureFonts();
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
 
@@ -71,7 +73,7 @@ export const HumePromo: React.FC<HumePromoProps> = ({
     <AbsoluteFill
       style={{
         background: `radial-gradient(circle at 50% ${30 + drift}%, ${brand.blueDeep}22, ${brand.navy})`,
-        fontFamily: brand.fontFamily,
+        fontFamily: primaryFont,
         color: brand.white,
         padding: 100,
         display: "flex",
@@ -85,7 +87,7 @@ export const HumePromo: React.FC<HumePromoProps> = ({
             fontSize: 34,
             letterSpacing: 6,
             textTransform: "uppercase",
-            color: brand.green,
+            color: brand.sky,
             fontWeight: 700,
           }}
         >
@@ -128,10 +130,10 @@ export const HumePromo: React.FC<HumePromoProps> = ({
               marginTop: 20,
               padding: "32px 44px",
               borderRadius: 28,
-              background: brand.green,
+              background: brand.sky,
               color: brand.navy,
               width: "fit-content",
-              boxShadow: `0 20px 60px ${brand.green}44`,
+              boxShadow: `0 20px 60px ${brand.sky}44`,
             }}
           >
             <span style={{ fontSize: 120, fontWeight: 900 }}>{metric}</span>
